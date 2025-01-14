@@ -121,6 +121,39 @@
     <value>Theme</value>
   </data>
   <data name="SettingsPage_ThemeComboBox_Subtitle" xml:space="preserve">
-    <value>Set BiliExtract Theme.</value>
+    <value>Set BiliExtract Theme (Light, Dark, Follow System).</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutPage_ApplicationName" xml:space="preserve">
+    <value>BiliExtract</value>
+  </data>
+  <data name="AboutPage_VersionTextBlock_Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="AboutPage_BuildTextBlock_Text" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="AboutPage_ProjectLinks" xml:space="preserve">
+    <value>Project links</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>Project website on GitHub</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Third party libraries</value>
+  </data>
+  <data name="AboutPage_ApplicationDataFolders" xml:space="preserve">
+    <value>Application data folders</value>
+  </data>
+  <data name="AboutPage_DataFolder" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AboutPage_TempFolder" xml:space="preserve">
+    <value>Temp</value>
   </data>
 </root>

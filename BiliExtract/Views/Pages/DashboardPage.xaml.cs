@@ -3,11 +3,11 @@ using Wpf.Ui.Controls;
 
 namespace BiliExtract.Views.Pages
 {
-    public partial class DashboardPage : INavigableView<DashboardViewModel>
+    public partial class DashboardPage : INavigableView<DashboardPageViewModel>
     {
-        public DashboardViewModel ViewModel { get; }
+        public DashboardPageViewModel ViewModel { get; }
 
-        public DashboardPage(DashboardViewModel viewModel)
+        public DashboardPage(DashboardPageViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = this;

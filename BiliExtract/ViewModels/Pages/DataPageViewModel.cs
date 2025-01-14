@@ -7,7 +7,7 @@ using Wpf.Ui.Controls;
 
 namespace BiliExtract.ViewModels.Pages
 {
-    public partial class DataViewModel : ObservableObject, INavigationAware
+    public partial class DataPageViewModel : ObservableObject, INavigationAware
     {
         private bool _isInitialized = false;
 

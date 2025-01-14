@@ -8,6 +8,10 @@
         <UseWPF>true</UseWPF>
         <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
+		<AssemblyName>BiliExtract</AssemblyName>
+		<Copyright>© 2025 Sichen Lyu</Copyright>
+		<FileVersion>0.0.1</FileVersion>
+		<Version>0.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>

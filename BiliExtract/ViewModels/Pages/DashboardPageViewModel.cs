@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace BiliExtract.ViewModels.Pages
 {
-    public partial class DashboardViewModel : ObservableObject
+    public partial class DashboardPageViewModel : ObservableObject
     {
         [ObservableProperty]
         private int _counter = 0;

@@ -7,17 +7,16 @@
     xmlns:custom="clr-namespace:BiliExtract.Controls.Custom"
     xmlns:resources="clr-namespace:BiliExtract.Resources"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="SettingsPage">
+    Title="{x:Static resources:Translations.SettingsPage_Title}">
 
     <StackPanel Margin="0,0,16,12">
-        
+
         <TextBlock
-            Margin="0,16,0,24"
-            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+            Margin="0,24,0,24"
             Focusable="True"
             FontSize="24"
             FontWeight="Medium"
-            Text="Personalization" />
+            Text="{x:Static resources:Translations.SettingsPage_Title}" />
 
         <custom:CardControl Margin="0,0,0,8">
             <custom:CardControl.Icon>
@@ -35,12 +34,7 @@
                 SelectionChanged="ThemeComboBox_SelectionChanged"
                 Visibility="Hidden" />
         </custom:CardControl>
-
-        <TextBlock
-            Margin="0,24,0,0"
-            FontSize="20"
-            FontWeight="Medium"
-            Text="About BiliExtract" />
-        <TextBlock Margin="0,12,0,0" Text="{Binding ViewModel.AppVersion, Mode=OneWay}" />
+        
     </StackPanel>
+    
 </Page>

@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace BiliExtract.Views.Pages
 {
-    public partial class SettingsPage : INavigableView<SettingsViewModel>
+    public partial class SettingsPage : INavigableView<SettingsPageViewModel>
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
         private bool _isRefreshing;
 
-        public SettingsViewModel ViewModel { get; }
+        public SettingsPageViewModel ViewModel { get; }
 
-        public SettingsPage(SettingsViewModel viewModel)
+        public SettingsPage(SettingsPageViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = this;

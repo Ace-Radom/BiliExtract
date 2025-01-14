@@ -49,11 +49,13 @@ namespace BiliExtract
                 services.AddSingleton<MainWindowViewModel>();
 
                 services.AddSingleton<DashboardPage>();
-                services.AddSingleton<DashboardViewModel>();
+                services.AddSingleton<DashboardPageViewModel>();
                 services.AddSingleton<DataPage>();
-                services.AddSingleton<DataViewModel>();
+                services.AddSingleton<DataPageViewModel>();
                 services.AddSingleton<SettingsPage>();
-                services.AddSingleton<SettingsViewModel>();
+                services.AddSingleton<SettingsPageViewModel>();
+                services.AddSingleton<AboutPage>();
+                services.AddSingleton<AboutPageViewModel>();
             }).Build();
 
         /// <summary>

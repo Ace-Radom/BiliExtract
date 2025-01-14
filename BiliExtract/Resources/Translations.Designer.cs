@@ -61,7 +61,97 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Set BiliExtract Theme..
+        ///   Looks up a localized string similar to Application data folders.
+        /// </summary>
+        public static string AboutPage_ApplicationDataFolders {
+            get {
+                return ResourceManager.GetString("AboutPage_ApplicationDataFolders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to BiliExtract.
+        /// </summary>
+        public static string AboutPage_ApplicationName {
+            get {
+                return ResourceManager.GetString("AboutPage_ApplicationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Build.
+        /// </summary>
+        public static string AboutPage_BuildTextBlock_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_BuildTextBlock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string AboutPage_DataFolder {
+            get {
+                return ResourceManager.GetString("AboutPage_DataFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project links.
+        /// </summary>
+        public static string AboutPage_ProjectLinks {
+            get {
+                return ResourceManager.GetString("AboutPage_ProjectLinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project website on GitHub.
+        /// </summary>
+        public static string AboutPage_ProjectWebsiteOnGitHub {
+            get {
+                return ResourceManager.GetString("AboutPage_ProjectWebsiteOnGitHub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temp.
+        /// </summary>
+        public static string AboutPage_TempFolder {
+            get {
+                return ResourceManager.GetString("AboutPage_TempFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Third party libraries.
+        /// </summary>
+        public static string AboutPage_ThirdPartyLibraries {
+            get {
+                return ResourceManager.GetString("AboutPage_ThirdPartyLibraries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string AboutPage_Title {
+            get {
+                return ResourceManager.GetString("AboutPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string AboutPage_VersionTextBlock_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_VersionTextBlock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set BiliExtract Theme (Light, Dark, Follow System)..
         /// </summary>
         public static string SettingsPage_ThemeComboBox_Subtitle {
             get {
@@ -75,6 +165,15 @@ namespace BiliExtract.Resources {
         public static string SettingsPage_ThemeComboBox_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_ThemeComboBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingsPage_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
             }
         }
     }
