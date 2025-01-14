@@ -1,7 +1,7 @@
-﻿using BiliExtract.Views.Pages;
-using BiliExtract.Views.Windows;
-using Microsoft.Extensions.DependencyInjection;
+﻿using BiliExtract.Views.Windows;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Windows;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,16 +12,11 @@ namespace BiliExtract.Services
     /// <summary>
     /// Managed host of the application.
     /// </summary>
-    public class ApplicationHostService : IHostedService
+    public class ApplicationHostService(IServiceProvider serviceProvider) : IHostedService
     {
-        private readonly IServiceProvider _serviceProvider;
+        private readonly IServiceProvider _serviceProvider = serviceProvider;
 
-        private INavigationWindow _navigationWindow;
-
-        public ApplicationHostService(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
+        private INavigationWindow? _navigationWindow;
 
         /// <summary>
         /// Triggered when the application host is ready to start the service.

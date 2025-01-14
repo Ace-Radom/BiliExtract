@@ -3,6 +3,8 @@ using BiliExtract.ViewModels.Pages;
 using BiliExtract.Lib;
 using BiliExtract.Lib.Extensions;
 using BiliExtract.Lib.Settings;
+using System;
+using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
 using System.Threading.Tasks;

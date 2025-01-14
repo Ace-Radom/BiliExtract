@@ -1,3 +1,5 @@
+using System;
+using System.Windows;
 using Wpf.Ui;
 
 namespace BiliExtract.Services

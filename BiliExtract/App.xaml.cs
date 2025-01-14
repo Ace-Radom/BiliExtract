@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Reflection;
+using System.Windows;
 using System.Windows.Threading;
 using Wpf.Ui;
 
@@ -60,7 +61,7 @@ namespace BiliExtract
         /// </summary>
         /// <typeparam name="T">Type of the service to get.</typeparam>
         /// <returns>Instance of the service or <see langword="null"/>.</returns>
-        public static T GetService<T>()
+        public static T? GetService<T>()
             where T : class
         {
             return _host.Services.GetService(typeof(T)) as T;

@@ -1,4 +1,5 @@
-﻿using System.Windows.Automation;
+﻿using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Automation.Peers;
 
 namespace BiliExtract.Controls.Custom;
