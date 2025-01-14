@@ -1,7 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using System;
-using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 
 namespace BiliExtract.ViewModels.Pages

@@ -146,6 +146,8 @@ public class CardHeaderControl : UserControl
 
         UpdateTextStyle();
         IsEnabledChanged += (_, _) => UpdateTextStyle();
+
+        return;
     }
 
     protected override AutomationPeer OnCreateAutomationPeer() => new CardHeaderControlAutomationPeer(this);
@@ -159,6 +161,8 @@ public class CardHeaderControl : UserControl
 
         _subtitleTextBlock.Visibility = string.IsNullOrWhiteSpace(Subtitle) ? Visibility.Collapsed : Visibility.Visible;
         _warningTextBlock.Visibility = string.IsNullOrWhiteSpace(Warning) ? Visibility.Collapsed : Visibility.Visible;
+
+        return;
     }
 
     private void UpdateTextStyle()
@@ -175,6 +179,7 @@ public class CardHeaderControl : UserControl
             _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
             _warningTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
         }
+        return;
     }
 
     private class CardHeaderControlAutomationPeer(CardHeaderControl owner) : FrameworkElementAutomationPeer(owner)

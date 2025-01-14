@@ -21,18 +21,22 @@ public static class ComboBoxExtensions
         comboBox.Items.Clear();
         comboBox.Items.AddRange(boxedItems);
         comboBox.SelectedValue = selectedBoxedItem;
+
+        return;
     }
 
     public static void SelectItem<T>(this ComboBox comboBox, T item) where T : struct
     {
         var boxedItems = comboBox.Items.OfType<ComboBoxItem<T>>().Select(i => i.Value).ToArray();
         comboBox.SelectedIndex = Array.IndexOf(boxedItems, item);
+        return;
     }
 
     public static void ClearItems(this ComboBox comboBox)
     {
         comboBox.Items.Clear();
         comboBox.SelectedValue = null;
+        return;
     }
 
     public static bool TryGetSelectedItem<T>(this ComboBox comboBox, out T? value)

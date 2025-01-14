@@ -50,8 +50,6 @@ namespace BiliExtract
 
                 services.AddSingleton<DashboardPage>();
                 services.AddSingleton<DashboardPageViewModel>();
-                services.AddSingleton<DataPage>();
-                services.AddSingleton<DataPageViewModel>();
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsPageViewModel>();
                 services.AddSingleton<AboutPage>();

@@ -9,5 +9,7 @@ public static class ItemCollectionExtensions
     {
         foreach (var item in enumerable)
             itemCollection.Add(item);
+
+        return;
     }
 }
