@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="BiliExtract.Views.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:BiliExtract.Views.Pages"
+    xmlns:controls="clr-namespace:BiliExtract.Controls"
+    xmlns:custom="clr-namespace:BiliExtract.Controls.Custom"
+    xmlns:resources="clr-namespace:BiliExtract.Resources"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="SettingsPage">
+
+    <StackPanel Margin="0,0,16,12">
+        
+        <TextBlock
+            Margin="0,16,0,24"
+            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+            Focusable="True"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="Personalization" />
+
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Icon>
+                <ui:SymbolIcon Symbol="DarkTheme24" />
+            </custom:CardControl.Icon>
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Translations.SettingsPage_ThemeComboBox_Title}" Subtitle="{x:Static resources:Translations.SettingsPage_ThemeComboBox_Subtitle}" />
+            </custom:CardControl.Header>
+            <ComboBox
+                x:Name="_themeComboBox"
+                MinWidth="160"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Translations.SettingsPage_ThemeComboBox_Title}"
+                MaxDropDownHeight="Auto"
+                SelectionChanged="ThemeComboBox_SelectionChanged"
+                Visibility="Hidden" />
+        </custom:CardControl>
+
+        <TextBlock
+            Margin="0,24,0,0"
+            FontSize="20"
+            FontWeight="Medium"
+            Text="About BiliExtract" />
+        <TextBlock Margin="0,12,0,0" Text="{Binding ViewModel.AppVersion, Mode=OneWay}" />
+    </StackPanel>
+</Page>

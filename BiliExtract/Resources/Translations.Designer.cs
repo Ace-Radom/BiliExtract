@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BiliExtract.Lib.Resources {
+namespace BiliExtract.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BiliExtract.Lib.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BiliExtract.Lib.Resources.Translations", typeof(Translations).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BiliExtract.Resources.Translations", typeof(Translations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,29 +61,20 @@ namespace BiliExtract.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dark.
+        ///   Looks up a localized string similar to Set BiliExtract Theme..
         /// </summary>
-        public static string Theme_Dark {
+        public static string SettingsPage_ThemeComboBox_Subtitle {
             get {
-                return ResourceManager.GetString("Theme_Dark", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_ThemeComboBox_Subtitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Follow System.
+        ///   Looks up a localized string similar to Theme.
         /// </summary>
-        public static string Theme_FollowSystem {
+        public static string SettingsPage_ThemeComboBox_Title {
             get {
-                return ResourceManager.GetString("Theme_FollowSystem", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Light.
-        /// </summary>
-        public static string Theme_Light {
-            get {
-                return ResourceManager.GetString("Theme_Light", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_ThemeComboBox_Title", resourceCulture);
             }
         }
     }
