@@ -65,13 +65,14 @@
 
             <StackPanel Grid.Column="0" Margin="0,0,32,0">
                 <ui:HyperlinkButton Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
-                <ui:HyperlinkButton Content="Newtonsoft.Json" NavigateUri="https://github.com/JamesNK/Newtonsoft.Json" />
-                <ui:HyperlinkButton Content="WPF UI" NavigateUri="https://github.com/lepoco/wpfui" />
+                <ui:HyperlinkButton Content="ColorPicker" NavigateUri="https://github.com/PixiEditor/ColorPicker" />
+                <ui:HyperlinkButton Content="Sdcb.FFmpeg" NavigateUri="https://github.com/sdcb/Sdcb.FFmpeg" />
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <ui:HyperlinkButton Content="ColorPicker" NavigateUri="https://github.com/PixiEditor/ColorPicker" />
-                <ui:HyperlinkButton Content="Sdcb.FFmpeg" NavigateUri="https://github.com/sdcb/Sdcb.FFmpeg" />
+                <ui:HyperlinkButton Content="Ben.Demystifier" NavigateUri="https://github.com/benaadams/Ben.Demystifier" />
+                <ui:HyperlinkButton Content="Newtonsoft.Json" NavigateUri="https://github.com/JamesNK/Newtonsoft.Json" />
+                <ui:HyperlinkButton Content="WPF UI" NavigateUri="https://github.com/lepoco/wpfui" />
             </StackPanel>
         </Grid>
 

@@ -54,6 +54,7 @@ public abstract class AbstractSettings<T> where T : class, new()
         }
         catch (Exception ex)
         {
+            Log.GlobalLogger.WriteLog($"Failed to load settings data, try backup. [type={GetType().Name}]", LogLevel.Warning, ex);
             TryBackup();
         }
 
@@ -75,7 +76,7 @@ public abstract class AbstractSettings<T> where T : class, new()
         }
         catch (Exception ex)
         {
-
+            Log.GlobalLogger.WriteLog($"Failed to backup old settings file. [type={GetType().Name}]", LogLevel.Warning, ex);
         }
         return;
     }

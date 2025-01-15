@@ -9,9 +9,10 @@
 
     <ItemGroup>
         <PackageReference Include="Autofac" Version="8.2.0" />
+        <PackageReference Include="Ben.Demystifier" Version="0.4.1" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="Sdcb.FFmpeg" Version="7.0.0" />
-        <PackageReference Include="Sdcb.FFmpeg.runtime.windows-x64" Version="7.1.0" />
+        <PackageReference Include="Sdcb.FFmpeg" Version="4.4.3" />
+        <PackageReference Include="Sdcb.FFmpeg.runtime.windows-x64" Version="4.4.3" />
     </ItemGroup>
 
     <ItemGroup>
