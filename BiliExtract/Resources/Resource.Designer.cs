@@ -142,6 +142,42 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set external ADB (adb.exe) absolute path..
+        /// </summary>
+        public static string SettingsPage_ExternalAdbPathTextBox_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_ExternalAdbPathTextBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to External ADB path.
+        /// </summary>
+        public static string SettingsPage_ExternalAdbPathTextBox_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_ExternalAdbPathTextBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set external FFmpeg (ffmpeg.exe) absolute path..
+        /// </summary>
+        public static string SettingsPage_ExternalFFmpegPathTextBox_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_ExternalFFmpegPathTextBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to External FFmpeg path.
+        /// </summary>
+        public static string SettingsPage_ExternalFFmpegPathTextBox_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_ExternalFFmpegPathTextBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set BiliExtract Theme (Light, Dark, Follow System)..
         /// </summary>
         public static string SettingsPage_ThemeComboBox_Subtitle {
@@ -165,6 +201,42 @@ namespace BiliExtract.Resources {
         public static string SettingsPage_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use BiliExtract built-in ADB for Android related features..
+        /// </summary>
+        public static string SettingsPage_UseBuiltInAdbToggleSwitch_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_UseBuiltInAdbToggleSwitch_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use built-in ADB.
+        /// </summary>
+        public static string SettingsPage_UseBuiltInAdbToggleSwitch_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_UseBuiltInAdbToggleSwitch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use BiliExtract built-in FFmpeg for video / audio encode &amp; decode..
+        /// </summary>
+        public static string SettingsPage_UseBuiltInFFmpegToggleSwitch_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_UseBuiltInFFmpegToggleSwitch_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use built-in FFmpeg.
+        /// </summary>
+        public static string SettingsPage_UseBuiltInFFmpegToggleSwitch_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_UseBuiltInFFmpegToggleSwitch_Title", resourceCulture);
             }
         }
     }

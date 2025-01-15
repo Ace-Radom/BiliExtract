@@ -153,4 +153,28 @@
   <data name="AboutPage_TempFolder" xml:space="preserve">
     <value>Temp</value>
   </data>
+  <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Title" xml:space="preserve">
+    <value>Use built-in ADB</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Use BiliExtract built-in ADB for Android related features.</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Title" xml:space="preserve">
+    <value>Use built-in FFmpeg</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Use BiliExtract built-in FFmpeg for video / audio encode &amp; decode.</value>
+  </data>
+  <data name="SettingsPage_ExternalAdbPathTextBox_Title" xml:space="preserve">
+    <value>External ADB path</value>
+  </data>
+  <data name="SettingsPage_ExternalAdbPathTextBox_Subtitle" xml:space="preserve">
+    <value>Set external ADB (adb.exe) absolute path.</value>
+  </data>
+  <data name="SettingsPage_ExternalFFmpegPathTextBox_Title" xml:space="preserve">
+    <value>External FFmpeg path</value>
+  </data>
+  <data name="SettingsPage_ExternalFFmpegPathTextBox_Subtitle" xml:space="preserve">
+    <value>Set external FFmpeg (ffmpeg.exe) absolute path.</value>
+  </data>
 </root>

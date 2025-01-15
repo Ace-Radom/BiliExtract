@@ -18,7 +18,7 @@
             FontWeight="Medium"
             Text="{x:Static resources:Resource.SettingsPage_Title}" />
 
-        <custom:CardControl Margin="0,0,0,8">
+        <custom:CardControl Margin="0,0,0,24">
             <custom:CardControl.Icon>
                 <ui:SymbolIcon Symbol="DarkTheme24" />
             </custom:CardControl.Icon>
@@ -32,6 +32,53 @@
                 AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_ThemeComboBox_Title}"
                 MaxDropDownHeight="Auto"
                 SelectionChanged="ThemeComboBox_SelectionChanged"
+                Visibility="Hidden" />
+        </custom:CardControl>
+
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_UseBuiltInAdbToggleSwitch_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_UseBuiltInAdbToggleSwitch_Subtitle}" />
+            </custom:CardControl.Header>
+            <ui:ToggleSwitch
+                x:Name="_useBuiltInAdbToggleSwitch"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_UseBuiltInAdbToggleSwitch_Title}"
+                Click="UseBuiltInAdbToggleSwitch_Click"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl x:Name="_externalAdbPathCardControl" Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_ExternalAdbPathTextBox_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_ExternalAdbPathTextBox_Subtitle}" />
+            </custom:CardControl.Header>
+            <ui:TextBox
+                x:Name="_externalAdbPathTextBox"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_ExternalAdbPathTextBox_Title}"
+                MinWidth="240"
+                TextChanged="ExternalAdbPathTextBox_TextChanged"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_UseBuiltInFFmpegToggleSwitch_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_UseBuiltInFFmpegToggleSwitch_Subtitle}" />
+            </custom:CardControl.Header>
+            <ui:ToggleSwitch
+                x:Name="_useBuiltInFFmpegToggleSwitch"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_UseBuiltInFFmpegToggleSwitch_Title}"
+                Click="UseBuiltInFFmpegToggleSwitch_Click"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl x:Name="_externalFFmpegPathCardControl" Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_ExternalFFmpegPathTextBox_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_ExternalFFmpegPathTextBox_Subtitle}" />
+            </custom:CardControl.Header>
+            <ui:TextBox
+                x:Name="_externalFFmpegPathTextBox"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_ExternalAdbPathTextBox_Title}"
+                MinWidth="240"
+                TextChanged="ExternalFFmpegPathTextBox_TextChanged"
                 Visibility="Hidden" />
         </custom:CardControl>
         
