@@ -26,7 +26,7 @@ public class Log
 
     private StringBuilder _logMessages = new();
 
-    public bool IsLoggingToFile { get; set; };
+    public bool IsLoggingToFile { get; set; }
     public string LogMessages => _logMessages.ToString();
     public string LogPath => _logPath;
 
