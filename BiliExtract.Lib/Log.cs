@@ -47,7 +47,7 @@ public class Log
         return;
     }
 
-    public void WriteLog(FormattableString message, LogLevel level,
+    public void WriteLog(LogLevel level, FormattableString message,
         Exception? ex = null,
         [CallerFilePath] string? file = null,
         [CallerLineNumber] int lineNumber = -1,
