@@ -5,10 +5,10 @@ namespace BiliExtract.Lib;
 
 public enum Theme
 {
-    [Display(ResourceType = typeof(Translations), Name = "Theme_Light")]
+    [Display(ResourceType = typeof(Resource), Name = "Theme_Light")]
     Light,
-    [Display(ResourceType = typeof(Translations), Name = "Theme_Dark")]
+    [Display(ResourceType = typeof(Resource), Name = "Theme_Dark")]
     Dark,
-    [Display(ResourceType = typeof(Translations), Name = "Theme_FollowSystem")]
+    [Display(ResourceType = typeof(Resource), Name = "Theme_FollowSystem")]
     FollowSystem
 }

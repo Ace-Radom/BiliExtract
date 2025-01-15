@@ -7,7 +7,7 @@
     xmlns:custom="clr-namespace:BiliExtract.Controls.Custom"
     xmlns:resources="clr-namespace:BiliExtract.Resources"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="{x:Static resources:Translations.SettingsPage_Title}">
+    Title="{x:Static resources:Resource.SettingsPage_Title}">
 
     <StackPanel Margin="0,0,16,12">
 
@@ -16,20 +16,20 @@
             Focusable="True"
             FontSize="24"
             FontWeight="Medium"
-            Text="{x:Static resources:Translations.SettingsPage_Title}" />
+            Text="{x:Static resources:Resource.SettingsPage_Title}" />
 
         <custom:CardControl Margin="0,0,0,8">
             <custom:CardControl.Icon>
                 <ui:SymbolIcon Symbol="DarkTheme24" />
             </custom:CardControl.Icon>
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Translations.SettingsPage_ThemeComboBox_Title}" Subtitle="{x:Static resources:Translations.SettingsPage_ThemeComboBox_Subtitle}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_ThemeComboBox_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_ThemeComboBox_Subtitle}" />
             </custom:CardControl.Header>
             <ComboBox
                 x:Name="_themeComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
-                AutomationProperties.Name="{x:Static resources:Translations.SettingsPage_ThemeComboBox_Title}"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_ThemeComboBox_Title}"
                 MaxDropDownHeight="Auto"
                 SelectionChanged="ThemeComboBox_SelectionChanged"
                 Visibility="Hidden" />

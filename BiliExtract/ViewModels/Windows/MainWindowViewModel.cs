@@ -26,13 +26,13 @@ namespace BiliExtract.ViewModels.Windows
         {
             new NavigationViewItem()
             {
-                Content = Translations.SettingsPage_Title,
+                Content = Resource.SettingsPage_Title,
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
                 TargetPageType = typeof(Views.Pages.SettingsPage)
             },
             new NavigationViewItem()
             {
-                Content = Translations.AboutPage_Title,
+                Content = Resource.AboutPage_Title,
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Info24 },
                 TargetPageType = typeof(Views.Pages.AboutPage)
             }

@@ -16,26 +16,21 @@
             Focusable="True"
             FontSize="24"
             FontWeight="Medium"
-            Text="{x:Static resources:Translations.AboutPage_Title}" />
+            Text="{x:Static resources:Resource.AboutPage_Title}" />
 
         <TextBlock
+            x:Name="_applicationNameTextBlock"
             Margin="0,0,0,8"
             Focusable="True"
             FontSize="18"
             FontWeight="Medium"
-            Text="{x:Static resources:Translations.AboutPage_ApplicationName}" />
-        <TextBlock
-            x:Name="_versionTextBlock"
-            Margin="0,0,0,8"
-            FontSize="12"
-            Focusable="True"
-            Text="{x:Static resources:Translations.AboutPage_VersionTextBlock_Text}" />
+            Text="{x:Static resources:Resource.Application_Name}" />
         <TextBlock
             x:Name="_buildTextBlock"
             Margin="0,0,0,8"
             FontSize="12"
             Focusable="True"
-            Text="{x:Static resources:Translations.AboutPage_BuildTextBlock_Text}" />
+            Text="{x:Static resources:Resource.AboutPage_BuildTextBlock_Text}" />
         <TextBlock
             x:Name="_copyrightTextBlock"
             Margin="0,0,0,8"
@@ -47,9 +42,9 @@
             Focusable="True"
             FontSize="16"
             FontWeight="Medium"
-            Text="{x:Static resources:Translations.AboutPage_ProjectLinks}" />
+            Text="{x:Static resources:Resource.AboutPage_ProjectLinks}" />
         <ui:HyperlinkButton
-            Content="{x:Static resources:Translations.AboutPage_ProjectWebsiteOnGitHub}"
+            Content="{x:Static resources:Resource.AboutPage_ProjectWebsiteOnGitHub}"
             NavigateUri="https://github.com/Ace-Radom/BiliExtract">
             <ui:HyperlinkButton.Icon>
                 <ui:SymbolIcon Symbol="Link24" />
@@ -61,7 +56,7 @@
             Focusable="True"
             FontSize="16"
             FontWeight="Medium"
-            Text="{x:Static resources:Translations.AboutPage_ThirdPartyLibraries}" />
+            Text="{x:Static resources:Resource.AboutPage_ThirdPartyLibraries}" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -70,11 +65,13 @@
 
             <StackPanel Grid.Column="0" Margin="0,0,32,0">
                 <ui:HyperlinkButton Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
+                <ui:HyperlinkButton Content="Newtonsoft.Json" NavigateUri="https://github.com/JamesNK/Newtonsoft.Json" />
                 <ui:HyperlinkButton Content="WPF UI" NavigateUri="https://github.com/lepoco/wpfui" />
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <ui:HyperlinkButton Content="Newtonsoft.Json" NavigateUri="https://github.com/JamesNK/Newtonsoft.Json" />
+                <ui:HyperlinkButton Content="ColorPicker" NavigateUri="https://github.com/PixiEditor/ColorPicker" />
+                <ui:HyperlinkButton Content="Sdcb.FFmpeg" NavigateUri="https://github.com/sdcb/Sdcb.FFmpeg" />
             </StackPanel>
         </Grid>
 
@@ -83,17 +80,17 @@
             Focusable="True"
             FontSize="16"
             FontWeight="Medium"
-            Text="{x:Static resources:Translations.AboutPage_ApplicationDataFolders}" />
+            Text="{x:Static resources:Resource.AboutPage_ApplicationDataFolders}" />
         <ui:HyperlinkButton
             Click="ApplicationDataFolderHyperlinkButton_Click"
-            Content="{x:Static resources:Translations.AboutPage_DataFolder}">
+            Content="{x:Static resources:Resource.AboutPage_DataFolder}">
             <ui:HyperlinkButton.Icon>
                 <ui:SymbolIcon Symbol="Link24" />
             </ui:HyperlinkButton.Icon>
         </ui:HyperlinkButton>
         <ui:HyperlinkButton
             Click="ApplicationTempFolderHyperlinkButton_Click"
-            Content="{x:Static resources:Translations.AboutPage_TempFolder}">
+            Content="{x:Static resources:Resource.AboutPage_TempFolder}">
             <ui:HyperlinkButton.Icon>
                 <ui:SymbolIcon Symbol="Link24" />
             </ui:HyperlinkButton.Icon>

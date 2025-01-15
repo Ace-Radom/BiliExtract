@@ -18,7 +18,7 @@ public partial class AboutPage : INavigableView<AboutPageViewModel>
 
         InitializeComponent();
 
-        _versionTextBlock.Text += $" {ApplicationInfo.VersionText}";
+        _applicationNameTextBlock.Text += $" {ApplicationInfo.VersionText}";
         _buildTextBlock.Text += $" {ApplicationInfo.BuildText}";
         _copyrightTextBlock.Text = ApplicationInfo.CopyrightText;
 

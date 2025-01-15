@@ -1,19 +1,21 @@
 ﻿using BiliExtract.Controls.Extensions;
-using BiliExtract.ViewModels.Pages;
 using BiliExtract.Lib;
 using BiliExtract.Lib.Extensions;
 using BiliExtract.Lib.Settings;
+using BiliExtract.ViewModels.Pages;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Controls;
 using System.Threading.Tasks;
+using BiliExtract.Managers;
 
 namespace BiliExtract.Views.Pages
 {
     public partial class SettingsPage : INavigableView<SettingsPageViewModel>
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;
 
@@ -65,6 +67,7 @@ namespace BiliExtract.Views.Pages
 
             _settings.Data.Theme = state;
             _settings.SynchronizeData();
+            _themeManager.RefreshTheme();
 
             return;
         }

@@ -129,11 +129,8 @@
   <data name="AboutPage_Title" xml:space="preserve">
     <value>About</value>
   </data>
-  <data name="AboutPage_ApplicationName" xml:space="preserve">
+  <data name="Application_Name" xml:space="preserve">
     <value>BiliExtract</value>
-  </data>
-  <data name="AboutPage_VersionTextBlock_Text" xml:space="preserve">
-    <value>Version</value>
   </data>
   <data name="AboutPage_BuildTextBlock_Text" xml:space="preserve">
     <value>Build</value>

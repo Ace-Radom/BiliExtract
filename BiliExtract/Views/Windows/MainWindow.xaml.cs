@@ -20,8 +20,6 @@ namespace BiliExtract.Views.Windows
             ViewModel = viewModel;
             DataContext = this;
 
-            SystemThemeWatcher.Watch(this);
-
             InitializeComponent();
             SetPageService(pageService);
 

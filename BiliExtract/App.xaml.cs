@@ -1,9 +1,10 @@
-﻿using BiliExtract.Services;
+﻿using BiliExtract.Lib;
+using BiliExtract.Managers;
+using BiliExtract.Services;
 using BiliExtract.ViewModels.Pages;
 using BiliExtract.ViewModels.Windows;
 using BiliExtract.Views.Pages;
 using BiliExtract.Views.Windows;
-using BiliExtract.Lib;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -73,10 +74,15 @@ namespace BiliExtract
         private void OnStartup(object sender, StartupEventArgs e)
         {
             IoCContainer.Initialize(
+                new IoCModule(),
                 new Lib.IoCModule()
             );
 
             _host.Start();
+
+            IoCContainer.Resolve<ThemeManager>().RefreshTheme();
+
+            return;
         }
 
         /// <summary>
