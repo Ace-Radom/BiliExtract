@@ -15,6 +15,7 @@ jobs:
         run: |
           Invoke-WebRequest -Uri https://dl.google.com/android/repository/platform-tools-latest-windows.zip -OutFile ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip
           Expand-Archive -Path ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip -DestinationPath ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools -Force
+          Remove-Item ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip
         working-directory: ${{github.workspace}}
         shell: pwsh
 
