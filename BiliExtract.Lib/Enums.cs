@@ -3,6 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BiliExtract.Lib;
 
+public enum AdbDeviceState
+{
+    Unknown,
+    Connected,
+    Offline,
+    Unauthorized
+}
+
 public enum LogLevel
 {
     Debug,

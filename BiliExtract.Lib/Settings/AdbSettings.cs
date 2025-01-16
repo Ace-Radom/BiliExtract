@@ -6,6 +6,7 @@ public class AdbSettings() : AbstractSettings<AdbSettingsData>("adbsettings.json
 {
     public class AdbSettingsData
     {
+        public bool CheckServerStartedBeforeOperate { get; set; } = true;
         public string Host { get; set; } = "127.0.0.1";
         public int Port { get; set; } = 5037;
     }

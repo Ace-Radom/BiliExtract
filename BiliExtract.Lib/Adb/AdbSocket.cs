@@ -1,5 +1,4 @@
-﻿using BiliExtract.Lib.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
@@ -9,7 +8,6 @@ namespace BiliExtract.Lib.Adb;
 
 public class AdbSocket : IDisposable
 {
-    private readonly AdbSettings _adbSettings = IoCContainer.Resolve<AdbSettings>();
     private readonly Encoding _encoding = Encoding.ASCII;
 
     private readonly TcpClient _tcpClient;
@@ -17,10 +15,8 @@ public class AdbSocket : IDisposable
 
     private byte[] _buf = new byte[65536];
 
-    public AdbSocket()
+    public AdbSocket(string host, int port)
     {
-        var host = _adbSettings.Data.Host;
-        var port = _adbSettings.Data.Port;
         Log.GlobalLogger.WriteLog(LogLevel.Info, $"Connecting to ADB server. [host={host},port={port}]");
         _tcpClient = new TcpClient(host, port);
         _tcpStream = _tcpClient.GetStream();
