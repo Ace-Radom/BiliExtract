@@ -1,4 +1,5 @@
-﻿using BiliExtract.Lib.Utils;
+﻿using BiliExtract.Lib.Settings;
+using BiliExtract.Lib.Utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,6 +14,7 @@ public class Log
     private readonly object _lock = new();
     private readonly string _logFolder;
     private readonly string _logPath;
+    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
     private static Log? _globalLogger;
     public static Log GlobalLogger
@@ -26,7 +28,7 @@ public class Log
 
     private StringBuilder _logMessages = new();
 
-    public bool IsLoggingToFile { get; set; }
+    public bool IsLoggingToFile { get; set; } = true;
     public string LogMessages => _logMessages.ToString();
     public string LogPath => _logPath;
 
@@ -53,11 +55,16 @@ public class Log
         [CallerLineNumber] int lineNumber = -1,
         [CallerMemberName] string? caller = null)
     {
+        if (level < _settings.Data.LogMinLevel)
+        {
+            return;
+        }
+
         lock (_lock)
         {
             var lines = new List<string>()
             {
-                $"[{DateTime.UtcNow:dd/MM/yyyy HH:mm:ss.fff}] [{Environment.CurrentManagedThreadId}] {level}: {message} [{Path.GetFileName(file)}#{lineNumber}:{caller}]"
+                $"[{DateTime.UtcNow:yyyy/MM/dd HH:mm:ss.fff}] [{Environment.CurrentManagedThreadId}] {level}: {message} [{Path.GetFileName(file)}#{lineNumber}:{caller}]"
             };
             if (ex is not null)
             {
