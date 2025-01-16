@@ -5,7 +5,7 @@ on:
 
 jobs:
   sync_files:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
@@ -13,11 +13,10 @@ jobs:
 
       - name: Update platform-tools
         run: |
-          Invoke-WebRequest -Uri https://dl.google.com/android/repository/platform-tools-latest-windows.zip -OutFile ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip
-          Expand-Archive -Path ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip -DestinationPath ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools -Force
-          Remove-Item ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip
-        working-directory: ${{github.workspace}}
-        shell: pwsh
+          wget -O platform-tools.zip  https://dl.google.com/android/repository/platform-tools-latest-windows.zip 
+          unzip -o platform-tools.zip
+          rm platform-tools.zip
+        working-directory: ${{github.workspace}}/BiliExtract.Lib/Binary
 
       - name: Extract Branch Name
         run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
