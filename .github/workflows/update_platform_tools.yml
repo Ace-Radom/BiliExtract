@@ -1,0 +1,32 @@
+name: Update Platform-Tools
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync_files:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Update platform-tools
+        run: |
+          Invoke-WebRequest -Uri https://dl.google.com/android/repository/platform-tools-latest-windows.zip -OutFile ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip
+          Expand-Archive -Path ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools.zip -DestinationPath ${{github.workspace}}/BiliExtract.Lib/Binary/platform-tools -Force
+        working-directory: ${{github.workspace}}
+        shell: pwsh
+
+      - name: Extract Branch Name
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+
+      - name: Push Files
+        uses: actions-js/push@master
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          author_email: ${{secrets.BOT_EMAIL}}
+          author_name: ${{secrets.BOT_USERNAME}}
+          message: update platform-tools
+          branch: ${{steps.extract_branch.outputs.branch}}
