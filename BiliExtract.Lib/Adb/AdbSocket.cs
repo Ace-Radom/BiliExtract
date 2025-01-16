@@ -217,7 +217,7 @@ public class AdbSocket : IDisposable
             default:
                 _lastError = $"Unexpected response: {response}";
                 Log.GlobalLogger.WriteLog(LogLevel.Warning, $"ADB server responsed unexpectedly. [cmd=\"{command}\",response=\"{response}\"]");
-                return 1;
+                return 2;
         }
     }
 

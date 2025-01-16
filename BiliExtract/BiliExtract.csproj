@@ -25,6 +25,15 @@
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2 " />
     </ItemGroup>
 
+	<ItemGroup>
+		<PlatformToolsFiles Include="..\BiliExtract.Lib\Binary\platform-tools\**" />
+	</ItemGroup>
+
+	<Target Name="CopyPlatformTools" AfterTargets="Build;">
+		<MakeDir Directories="$(OutputPath)bin\platform-tools" />
+		<Copy SourceFiles="@(PlatformToolsFiles)" DestinationFolder="$(OutputPath)bin\platform-tools\%(RecursiveDir)" />
+	</Target>
+
     <ItemGroup>
         <ProjectReference Include="..\BiliExtract.Lib\BiliExtract.Lib.csproj" />
     </ItemGroup>
