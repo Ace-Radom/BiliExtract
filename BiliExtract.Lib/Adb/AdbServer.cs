@@ -20,7 +20,7 @@ public class AdbServer
 
     public AdbServer()
     {
-        Host = _adbSettings.Data.ServerHost;
+        Host = IPAddress.Parse(_adbSettings.Data.ServerHost);
         Port = _adbSettings.Data.ServerPort;
         return;
     }
