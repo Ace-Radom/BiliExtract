@@ -1,7 +1,10 @@
-﻿using BiliExtract.Lib;
+﻿using BiliExtract.Extensions;
+using BiliExtract.Lib;
 using BiliExtract.Lib.Settings;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace BiliExtract.Views.Windows.Settings;
 
@@ -40,8 +43,100 @@ public partial class AdbSettingsWindow
         _killAdbServerOnExitToggleSwitch.IsChecked = _adbSettings.Data.KillServerOnExit;
         _killAdbServerOnExitToggleSwitch.Visibility = Visibility.Visible;
 
+        _adbServerAddressIpTextBox.Text = _adbSettings.Data.ServerIp;
+        _adbServerAddressPortTextBox.Text = _adbSettings.Data.ServerPort.ToString();
+        _adbServerAddressStackPanel.Visibility = Visibility.Visible;
+        _wirelessDeviceDefaultIpIpTextBox.Text = _adbSettings.Data.WirelessDeviceDefaultIp;
+        _wirelessDeviceDefaultIpStackPanel.Visibility = Visibility.Visible;
+
         _isRefreshing = false;
         return Task.CompletedTask;
+    }
+
+    private void AdbServerHostIpTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (e.Key is Key.Enter or Key.Space)
+        {
+            e.Handled = true;
+        }
+
+        return;
+    }
+
+    private void AdbServerHostIpTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (!_adbServerAddressIpTextBox.Text.IsLegalIpv4Address())
+        {
+            _adbServerAddressIpTextBox.SetErrorBorderStyle();
+            return;
+        }
+            
+        _adbServerAddressIpTextBox.SetNormalBorderStyle();
+        _adbSettings.Data.ServerIp = _adbServerAddressIpTextBox.Text;
+        _adbSettings.SynchronizeData();
+
+        return;
+    }
+
+    private void AdbServerHostPortTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (e.Key is Key.Enter or Key.Space)
+        {
+            e.Handled = true;
+        }
+
+        return;
+    }
+
+    private void AdbServerHostPortTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (!int.TryParse(e.Text, out _))
+        {
+            e.Handled = true;
+        }
+
+        return;
+    }
+
+    private void AdbServerHostPortTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (!int.TryParse(_adbServerAddressPortTextBox.Text, out int value) || value <= 0)
+        {
+            _adbServerAddressPortTextBox.SetErrorBorderStyle();
+            return;
+        }
+            
+        _adbServerAddressPortTextBox.SetNormalBorderStyle();
+        _adbServerAddressPortTextBox.Text = value.ToString();
+        _adbSettings.Data.ServerPort = value;
+        _adbSettings.SynchronizeData();
+
+        return;
     }
 
     private void AutomaticStartAdbServerToggleSwitch_Click(object sender, RoutedEventArgs e)
@@ -96,6 +191,42 @@ public partial class AdbSettingsWindow
         }
 
         _adbSettings.Data.StartServerOnStartup = state.Value;
+        _adbSettings.SynchronizeData();
+
+        return;
+    }
+
+    private void WirelessDeviceDefaultIpIpTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (e.Key is Key.Enter or Key.Space)
+        {
+            e.Handled = true;
+        }
+
+        return;
+    }
+
+    private void WirelessDeviceDefaultIpIpTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        var text = _wirelessDeviceDefaultIpIpTextBox.Text;
+        if (!string.IsNullOrEmpty(text) && !text.IsLegalIpv4Address())
+        {
+            _wirelessDeviceDefaultIpIpTextBox.SetErrorBorderStyle();
+            return;
+        }
+
+        _wirelessDeviceDefaultIpIpTextBox.SetNormalBorderStyle();
+        _adbSettings.Data.WirelessDeviceDefaultIp = string.IsNullOrEmpty(text) ? null : text;
         _adbSettings.SynchronizeData();
 
         return;

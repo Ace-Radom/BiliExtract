@@ -236,4 +236,23 @@ If you are not familiar with these options, DO NOT change.</value>
   <data name="MainWindow_NavigationStore_Item_About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="AdbSettingsWindow_AdbServerAddress_Title" xml:space="preserve">
+    <value>ADB server address</value>
+  </data>
+  <data name="AdbSettingsWindow_AdbServerAddress_Subtitle" xml:space="preserve">
+    <value>ADB server IPv4 address &amp; port.</value>
+  </data>
+  <data name="AdbSettingsWindow_Ip" xml:space="preserve">
+    <value>IP:</value>
+  </data>
+  <data name="AdbSettingsWindow_Port" xml:space="preserve">
+    <value>Port:</value>
+  </data>
+  <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Title" xml:space="preserve">
+    <value>Wireless device default IP</value>
+  </data>
+  <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Subtitle" xml:space="preserve">
+    <value>Default IP address for connecting wireless devices.
+Used by `adb pair` &amp; `adb connect` command.</value>
+  </data>
 </root>

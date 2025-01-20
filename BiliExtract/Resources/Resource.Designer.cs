@@ -133,6 +133,24 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ADB server IPv4 address &amp; port..
+        /// </summary>
+        public static string AdbSettingsWindow_AdbServerAddress_Subtitle {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_AdbServerAddress_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ADB server address.
+        /// </summary>
+        public static string AdbSettingsWindow_AdbServerAddress_Title {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_AdbServerAddress_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Start ADB server automatically if it hasn&apos;t been started..
         /// </summary>
         public static string AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle {
@@ -162,6 +180,15 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IP:.
+        /// </summary>
+        public static string AdbSettingsWindow_Ip {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_Ip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kill ADB server when BiliExtract exits..
         /// </summary>
         public static string AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle {
@@ -176,6 +203,15 @@ namespace BiliExtract.Resources {
         public static string AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title {
             get {
                 return ResourceManager.GetString("AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port:.
+        /// </summary>
+        public static string AdbSettingsWindow_Port {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_Port", resourceCulture);
             }
         }
         
@@ -203,6 +239,25 @@ namespace BiliExtract.Resources {
         public static string AdbSettingsWindow_Title {
             get {
                 return ResourceManager.GetString("AdbSettingsWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default IP address for connecting wireless devices.
+        ///Used by `adb pair` &amp; `adb connect` command..
+        /// </summary>
+        public static string AdbSettingsWindow_WirelessDeviceDefaultIp_Subtitle {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_WirelessDeviceDefaultIp_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wireless device default IP.
+        /// </summary>
+        public static string AdbSettingsWindow_WirelessDeviceDefaultIp_Title {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_WirelessDeviceDefaultIp_Title", resourceCulture);
             }
         }
         

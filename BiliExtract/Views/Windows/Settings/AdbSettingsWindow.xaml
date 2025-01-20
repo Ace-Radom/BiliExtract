@@ -59,7 +59,7 @@
                     Click="StartAdbServerOnStartupToggleSwitch_Click"
                     Visibility="Hidden" />
             </custom:CardControl>
-            <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl Margin="0,0,0,24">
                 <custom:CardControl.Header>
                     <controls:CardHeaderControl Title="{x:Static resources:Resource.AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title}" Subtitle="{x:Static resources:Resource.AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle}" />
                 </custom:CardControl.Header>
@@ -69,6 +69,46 @@
                     AutomationProperties.Name="{x:Static resources:Resource.AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title}"
                     Click="KillAdbServerOnExitToggleSwitch_Click"
                     Visibility="Hidden" />
+            </custom:CardControl>
+
+            <custom:CardControl Margin="0,0,0,8">
+                <custom:CardControl.Header>
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.AdbSettingsWindow_AdbServerAddress_Title}" Subtitle="{x:Static resources:Resource.AdbSettingsWindow_AdbServerAddress_Subtitle}" />
+                </custom:CardControl.Header>
+                <StackPanel x:Name="_adbServerAddressStackPanel" Orientation="Horizontal" Visibility="Hidden">
+                    <TextBlock Padding="0,8,0,0" Text="{x:Static resources:Resource.AdbSettingsWindow_Ip}" />
+                    <TextBox
+                        x:Name="_adbServerAddressIpTextBox"
+                        Margin="8,0,0,0"
+                        TextAlignment="Center"
+                        MinWidth="90" MaxWidth="140"
+                        PreviewKeyDown="AdbServerHostIpTextBox_PreviewKeyDown"
+                        TextChanged="AdbServerHostIpTextBox_TextChanged" />
+                    <TextBlock Margin="8,0,0,0" Padding="0,8,0,0" Text="{x:Static resources:Resource.AdbSettingsWindow_Port}" />
+                    <TextBox
+                        x:Name="_adbServerAddressPortTextBox"
+                        Margin="8,0,0,0"
+                        TextAlignment="Center"
+                        MinWidth="60" MaxWidth="80"
+                        PreviewKeyDown="AdbServerHostPortTextBox_PreviewKeyDown"
+                        PreviewTextInput="AdbServerHostPortTextBox_PreviewTextInput"
+                        TextChanged="AdbServerHostPortTextBox_TextChanged" />
+                </StackPanel>
+            </custom:CardControl>
+            <custom:CardControl Margin="0,0,0,8">
+                <custom:CardControl.Header>
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.AdbSettingsWindow_WirelessDeviceDefaultIp_Title}" Subtitle="{x:Static resources:Resource.AdbSettingsWindow_WirelessDeviceDefaultIp_Subtitle}" />
+                </custom:CardControl.Header>
+                <StackPanel x:Name="_wirelessDeviceDefaultIpStackPanel" Orientation="Horizontal" Visibility="Hidden">
+                    <TextBlock Padding="0,8,0,0" Text="{x:Static resources:Resource.AdbSettingsWindow_Ip}" />
+                    <TextBox
+                        x:Name="_wirelessDeviceDefaultIpIpTextBox"
+                        Margin="8,0,0,0"
+                        TextAlignment="Center"
+                        MinWidth="90" MaxWidth="140"
+                        PreviewKeyDown="WirelessDeviceDefaultIpIpTextBox_PreviewKeyDown"
+                        TextChanged="WirelessDeviceDefaultIpIpTextBox_TextChanged" />
+                </StackPanel>
             </custom:CardControl>
 
         </StackPanel>

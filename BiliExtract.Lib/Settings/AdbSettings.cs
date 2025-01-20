@@ -1,7 +1,5 @@
 ﻿using static BiliExtract.Lib.Settings.AdbSettings;
 
-using System.Net;
-
 namespace BiliExtract.Lib.Settings;
 
 public class AdbSettings() : AbstractSettings<AdbSettingsData>("adbsettings.json")
@@ -11,8 +9,9 @@ public class AdbSettings() : AbstractSettings<AdbSettingsData>("adbsettings.json
         public bool AutoStartServerIfNotStarted { get; set; } = true;
         public bool CheckServerStartedBeforeOperate { get; set; } = true;
         public bool KillServerOnExit { get; set; } = true;
-        public IPAddress ServerHost { get; set; } = IPAddress.Parse("127.0.0.1");
+        public string ServerIp { get; set; } = "127.0.0.1";
         public int ServerPort { get; set; } = 5037;
-        public IPAddress? WirelessDeviceDefaultIp { get; set; } = null;
+        public bool StartServerOnStartup { get; set; } = true;
+        public string? WirelessDeviceDefaultIp { get; set; } = null;
     }
 }
