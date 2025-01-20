@@ -182,7 +182,8 @@
   </data>
   <data name="AdbSettingsWindow_Description" xml:space="preserve">
     <value>Followings are advanced ADB settings.
-Changing them may lead to unexpected errors or cause some functions not work. If you are not familiar with these options, DO NOT change them.</value>
+Changing them may lead to unexpected errors.
+If you are not familiar with these options, DO NOT change.</value>
   </data>
   <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title" xml:space="preserve">
     <value>Automatic start ADB server</value>
@@ -222,5 +223,17 @@ Changing them may lead to unexpected errors or cause some functions not work. If
   </data>
   <data name="Color_Blue" xml:space="preserve">
     <value>Blue</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_About" xml:space="preserve">
+    <value>About</value>
   </data>
 </root>

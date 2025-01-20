@@ -152,7 +152,8 @@ namespace BiliExtract.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Followings are advanced ADB settings.
-        ///Changing them may lead to unexpected errors or cause some functions not work. If you are not familiar with these options, DO NOT change them..
+        ///Changing them may lead to unexpected errors.
+        ///If you are not familiar with these options, DO NOT change..
         /// </summary>
         public static string AdbSettingsWindow_Description {
             get {
@@ -238,6 +239,42 @@ namespace BiliExtract.Resources {
         public static string Color_Red {
             get {
                 return ResourceManager.GetString("Color_Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string MainWindow_NavigationStore_Item_About {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationStore_Item_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard.
+        /// </summary>
+        public static string MainWindow_NavigationStore_Item_Dashboard {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationStore_Item_Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log.
+        /// </summary>
+        public static string MainWindow_NavigationStore_Item_Log {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationStore_Item_Log", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string MainWindow_NavigationStore_Item_Settings {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationStore_Item_Settings", resourceCulture);
             }
         }
         

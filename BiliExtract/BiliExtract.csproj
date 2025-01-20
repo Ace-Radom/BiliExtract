@@ -20,7 +20,7 @@
 
     <ItemGroup>
         <PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
-        <PackageReference Include="WPF-UI" Version="3.0.5" />
+        <PackageReference Include="WPF-UI" Version="2.1.0" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0 " />
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2 " />
     </ItemGroup>
@@ -33,6 +33,13 @@
 		<MakeDir Directories="$(OutputPath)bin\platform-tools" />
 		<Copy SourceFiles="@(PlatformToolsFiles)" DestinationFolder="$(OutputPath)bin\platform-tools\%(RecursiveDir)" />
 	</Target>
+
+	<ItemGroup>
+	  <Compile Remove="ViewModels\**" />
+	  <EmbeddedResource Remove="ViewModels\**" />
+	  <None Remove="ViewModels\**" />
+	  <Page Remove="ViewModels\**" />
+	</ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\BiliExtract.Lib\BiliExtract.Lib.csproj" />

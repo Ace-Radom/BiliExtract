@@ -1,64 +1,64 @@
-﻿using BiliExtract.ViewModels.Windows;
+﻿using BiliExtract.Lib;
+using BiliExtract.Lib.Utils;
 using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
-using Wpf.Ui;
-using Wpf.Ui.Appearance;
-using Wpf.Ui.Controls;
+using System.Windows.Input;
 
-namespace BiliExtract.Views.Windows
+namespace BiliExtract.Views.Windows;
+
+public partial class MainWindow
 {
-    public partial class MainWindow : INavigationWindow
+
+    public MainWindow()
     {
-        public MainWindowViewModel ViewModel { get; }
+        InitializeComponent();
 
-        public MainWindow(
-            MainWindowViewModel viewModel,
-            IPageService pageService,
-            INavigationService navigationService
-        )
+        return;
+    }
+
+    /// <summary>
+    /// Raises the closed event.
+    /// </summary>
+    protected override void OnClosed(EventArgs e)
+    {
+        base.OnClosed(e);
+
+        // Make sure that closing this window will begin the process of closing the application.
+        Application.Current.Shutdown();
+
+        return;
+    }
+
+    private void LoggingToFileBadge_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key is not Key.Enter and not Key.Space)
         {
-            ViewModel = viewModel;
-            DataContext = this;
-
-            InitializeComponent();
-            SetPageService(pageService);
-
-            navigationService.SetNavigationControl(RootNavigation);
+            return;
         }
 
-        #region INavigationWindow methods
+        OpenCurrentLogFile();
+        return;
+    }
 
-        public INavigationView GetNavigation() => RootNavigation;
+    private void LoggingToFileBadge_MouseButtonDown(object sender, MouseButtonEventArgs e) => OpenCurrentLogFile();
 
-        public bool Navigate(Type pageType) => RootNavigation.Navigate(pageType);
-
-        public void SetPageService(IPageService pageService) => RootNavigation.SetPageService(pageService);
-
-        public void ShowWindow() => Show();
-
-        public void CloseWindow() => Close();
-
-        #endregion INavigationWindow methods
-
-        /// <summary>
-        /// Raises the closed event.
-        /// </summary>
-        protected override void OnClosed(EventArgs e)
+    private static void OpenCurrentLogFile()
+    {
+        try
         {
-            base.OnClosed(e);
+            if (!Directory.Exists(Folders.AppData))
+            {
+                return;
+            }
 
-            // Make sure that closing this window will begin the process of closing the application.
-            Application.Current.Shutdown();
+            Process.Start("explorer", Log.GlobalLogger.LogPath);
         }
-
-        INavigationView INavigationWindow.GetNavigation()
+        catch (Exception ex)
         {
-            throw new NotImplementedException();
+            Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Failed to open current log file. [path=\"{Log.GlobalLogger.LogPath}\"]", ex);
         }
-
-        public void SetServiceProvider(IServiceProvider serviceProvider)
-        {
-            throw new NotImplementedException();
-        }
+        return;
     }
 }

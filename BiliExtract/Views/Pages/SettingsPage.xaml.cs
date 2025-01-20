@@ -4,30 +4,23 @@ using BiliExtract.Lib;
 using BiliExtract.Lib.Extensions;
 using BiliExtract.Lib.Settings;
 using BiliExtract.Managers;
-using BiliExtract.ViewModels.Pages;
 using BiliExtract.Views.Windows.Settings;
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using Wpf.Ui.Controls;
 using System.Threading.Tasks;
 
 namespace BiliExtract.Views.Pages
 {
-    public partial class SettingsPage : INavigableView<SettingsPageViewModel>
+    public partial class SettingsPage
     {
         private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
-        private readonly ThemeManagerV2 _themeManager = IoCContainer.Resolve<ThemeManagerV2>();
+        private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
         private bool _isRefreshing;
 
-        public SettingsPageViewModel ViewModel { get; }
-
-        public SettingsPage(SettingsPageViewModel viewModel)
+        public SettingsPage()
         {
-            ViewModel = viewModel;
-            DataContext = this;
-
             InitializeComponent();
 
             IsVisibleChanged += SettingsPage_IsVisibleChangedAsync;

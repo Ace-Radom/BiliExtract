@@ -12,7 +12,11 @@
                 <ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />
                 <ResourceDictionary Source="pack://application:,,,/ColorPicker;component/Styles/DefaultColorPickerStyle.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/Badge.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/CardAction.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Styles/CardControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/NavigationItem.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/NavigationStore.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

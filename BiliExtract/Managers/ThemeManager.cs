@@ -1,11 +1,10 @@
 ﻿using BiliExtract.Extensions;
 using BiliExtract.Lib;
+using BiliExtract.Lib.Listener;
 using BiliExtract.Lib.Settings;
 using BiliExtract.Lib.Utils;
 using System;
 using System.Windows;
-using System.Windows.Media;
-using Wpf.Ui.Appearance;
 
 namespace BiliExtract.Managers;
 
@@ -13,45 +12,28 @@ public class ThemeManager
 {
     private static readonly RGBColor DefaultAccentColor = new(255, 33, 33);
 
-    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly ApplicationSettings _settings;
+    private readonly SystemThemeListener _listener;
 
-    private bool _isWatchingSystemTheme = false;
+    public event EventHandler? ThemeApplied;
 
-    public void Refresh()
+    public ThemeManager(SystemThemeListener systemThemeListener, ApplicationSettings settings)
     {
-        RefreshTheme();
-        RefreshAccentColor();
+        _listener = systemThemeListener;
+        _settings = settings;
+
+        _listener.Changed += (_, _) => Application.Current.Dispatcher.Invoke(Apply);
+
         return;
     }
 
-    private void RefreshTheme()
+    public void Apply()
     {
-        switch (_settings.Data.Theme) {
-            case Theme.Dark:
-                UnwatchSystemTheme();
-                ApplicationThemeManager.Apply(ApplicationTheme.Dark, Wpf.Ui.Controls.WindowBackdropType.Mica, false);
-                break;
-            case Theme.Light:
-                UnwatchSystemTheme();
-                ApplicationThemeManager.Apply(ApplicationTheme.Light, Wpf.Ui.Controls.WindowBackdropType.Mica, false);
-                break;
-            case Theme.FollowSystem:
-                WatchSystemTheme();
-                break;
-            default:
-                WatchSystemTheme();
-                break;
-        };
-        return;
-    }
+        SetTheme();
+        SetColor();
 
-    private void RefreshAccentColor()
-    {
-        var accentColor = GetAccentColor().ToColor();
-        ApplicationAccentColorManager.ApplySystemAccent();
-        //ApplicationAccentColorManager.Apply(
-        //    accentColor, ApplicationTheme.Dark, false
-        //);
+        ThemeApplied?.Invoke(this, EventArgs.Empty);
+
         return;
     }
 
@@ -68,7 +50,8 @@ public class ThemeManager
                 }
                 catch (Exception ex)
                 {
-                    Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Failed to get system accent color, using default instead.", ex);
+                        Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Couldn't check system accent color; using default.", ex);
+
                     return DefaultAccentColor;
                 }
             default:
@@ -76,33 +59,47 @@ public class ThemeManager
         }
     }
 
-    private void WatchSystemTheme()
+    private bool IsDarkMode()
     {
-        if (_isWatchingSystemTheme)
+        var theme = _settings.Data.Theme;
+
+        switch (theme)
         {
-            return;
+            case Theme.Dark:
+                return true;
+            case Theme.Light:
+                return false;
+            case Theme.FollowSystem:
+                try
+                {
+                    return SystemThemeHelper.IsDarkMode();
+                }
+                catch (Exception ex)
+                {
+                    Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Couldn't check system theme; assuming Dark Mode.", ex);
+                    return true;
+                }
+            default:
+                return true;
         }
-        
-        ApplicationThemeManager.ApplySystemTheme(false);
-        //ApplicationThemeManager.Apply(
-        //    SystemThemeHelper.IsDarkMode() ? ApplicationTheme.Dark : ApplicationTheme.Light,
-        //    Wpf.Ui.Controls.WindowBackdropType.Mica,
-        //    false
-        //);
-        SystemThemeWatcher.Watch(Application.Current.MainWindow, Wpf.Ui.Controls.WindowBackdropType.Mica, false);
-        _isWatchingSystemTheme = true;
+    }
+
+    private void SetTheme()
+    {
+        var theme = IsDarkMode() ? Wpf.Ui.Appearance.ThemeType.Dark : Wpf.Ui.Appearance.ThemeType.Light;
+        Wpf.Ui.Appearance.Theme.Apply(theme, Wpf.Ui.Appearance.BackgroundType.Mica, false);
         return;
     }
 
-    private void UnwatchSystemTheme()
+    private void SetColor()
     {
-        if (!_isWatchingSystemTheme) 
-        {
-            return;
-        }
-
-        SystemThemeWatcher.UnWatch(Application.Current.MainWindow);
-        _isWatchingSystemTheme = false;
+        var accentColor = GetAccentColor().ToColor();
+        Wpf.Ui.Appearance.Accent.Apply(
+            systemAccent: accentColor,
+            primaryAccent: accentColor,
+            secondaryAccent: accentColor,
+            tertiaryAccent: accentColor
+        );
         return;
     }
 }

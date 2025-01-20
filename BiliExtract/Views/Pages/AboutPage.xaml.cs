@@ -1,21 +1,14 @@
 ﻿using BiliExtract.Lib.Utils;
-using BiliExtract.ViewModels.Pages;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
-using Wpf.Ui.Controls;
 
 namespace BiliExtract.Views.Pages;
 
-public partial class AboutPage : INavigableView<AboutPageViewModel>
+public partial class AboutPage
 {
-    public AboutPageViewModel ViewModel { get; }
-
-    public AboutPage(AboutPageViewModel viewModel)
+    public AboutPage()
     {
-        ViewModel = viewModel;
-        DataContext = this;
-
         InitializeComponent();
 
         _applicationNameTextBlock.Text += $" {ApplicationInfo.VersionText}";

@@ -1,17 +1,9 @@
-﻿using BiliExtract.ViewModels.Pages;
-using Wpf.Ui.Controls;
-
-namespace BiliExtract.Views.Pages
+﻿namespace BiliExtract.Views.Pages
 {
-    public partial class DashboardPage : INavigableView<DashboardPageViewModel>
+    public partial class DashboardPage
     {
-        public DashboardPageViewModel ViewModel { get; }
-
-        public DashboardPage(DashboardPageViewModel viewModel)
+        public DashboardPage()
         {
-            ViewModel = viewModel;
-            DataContext = this;
-
             InitializeComponent();
         }
     }
