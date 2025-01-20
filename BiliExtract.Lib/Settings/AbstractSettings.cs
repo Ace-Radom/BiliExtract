@@ -8,7 +8,7 @@ namespace BiliExtract.Lib.Settings;
 
 public abstract class AbstractSettings<T> where T : class, new()
 {
-    protected readonly JsonSerializerSettings JsonSerializerSettings;
+    protected readonly JsonSerializerSettings _jsonSerializerSettings;
     private readonly string _storePath;
     private readonly string _storeFileName;
 
@@ -20,7 +20,7 @@ public abstract class AbstractSettings<T> where T : class, new()
 
     protected AbstractSettings(string fileName)
     {
-        JsonSerializerSettings = new()
+        _jsonSerializerSettings = new()
         {
             Formatting = Formatting.Indented,
             TypeNameHandling = TypeNameHandling.Auto,
@@ -34,18 +34,23 @@ public abstract class AbstractSettings<T> where T : class, new()
 
     public void SynchronizeData()
     {
-        var settingsDataText = JsonConvert.SerializeObject(_data, JsonSerializerSettings);
+        var settingsDataText = JsonConvert.SerializeObject(_data, _jsonSerializerSettings);
         File.WriteAllText(_storePath, settingsDataText);
         return;
     }
 
     public virtual T? LoadData()
     {
+        if (!File.Exists(_storePath))
+        {
+            return null;
+        }
+
         T? data = null;
         try
         {
             var settingsDataText = File.ReadAllText(_storePath);
-            data = JsonConvert.DeserializeObject<T>(settingsDataText, JsonSerializerSettings);
+            data = JsonConvert.DeserializeObject<T>(settingsDataText, _jsonSerializerSettings);
 
             if (data is null)
             {
