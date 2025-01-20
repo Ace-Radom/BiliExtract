@@ -3,6 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BiliExtract.Lib;
 
+public enum AccentColorSource
+{
+    [Display(ResourceType = typeof(Resource), Name = "AccentColorSource_System")]
+    System,
+    [Display(ResourceType = typeof(Resource), Name = "AccentColorSource_Custom")]
+    Custom
+}
+
 public enum AdbDeviceState
 {
     Unknown,

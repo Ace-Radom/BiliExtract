@@ -1,18 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net8.0-windows</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
 	    <Copyright>© 2025 Sichen Lyu</Copyright>
+	    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Autofac" Version="8.2.0" />
         <PackageReference Include="Ben.Demystifier" Version="0.4.1" />
+        <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Sdcb.FFmpeg" Version="4.4.3" />
         <PackageReference Include="Sdcb.FFmpeg.runtime.windows-x64" Version="4.4.3" />
+        <PackageReference Include="System.Management" Version="9.0.1" />
     </ItemGroup>
 
     <ItemGroup>

@@ -14,7 +14,9 @@ public class Log
     private readonly object _lock = new();
     private readonly string _logFolder;
     private readonly string _logPath;
-    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly StringBuilder _logMessages = new();
+
+    private LogLevel? _minLogLevel = null;
 
     private static Log? _globalLogger;
     public static Log GlobalLogger
@@ -25,8 +27,6 @@ public class Log
             return _globalLogger;
         }
     }
-
-    private StringBuilder _logMessages = new();
 
     public bool IsLoggingToFile { get; set; } = true;
     public string LogMessages => _logMessages.ToString();
@@ -55,7 +55,12 @@ public class Log
         [CallerLineNumber] int lineNumber = -1,
         [CallerMemberName] string? caller = null)
     {
-        if (level < _settings.Data.LogMinLevel)
+        if (_minLogLevel is null && IoCContainer.IsInitialized)
+        {
+            _minLogLevel = IoCContainer.Resolve<ApplicationSettings>().Data.LogMinLevel;
+        }
+
+        if (_minLogLevel is not null && level < _minLogLevel)
         {
             return;
         }

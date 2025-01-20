@@ -61,6 +61,24 @@ namespace BiliExtract.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        public static string AccentColorSource_Custom {
+            get {
+                return ResourceManager.GetString("AccentColorSource_Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System.
+        /// </summary>
+        public static string AccentColorSource_System {
+            get {
+                return ResourceManager.GetString("AccentColorSource_System", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dark.
         /// </summary>
         public static string Theme_Dark {

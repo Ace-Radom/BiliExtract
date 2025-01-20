@@ -9,6 +9,8 @@ public static class IoCContainer
 
     private static IContainer? _container;
 
+    public static bool IsInitialized { get; private set; }
+
     public static void Initialize(params Module[] modules)
     {
         lock (Lock)
@@ -25,6 +27,7 @@ public static class IoCContainer
             }
 
             _container = builder.Build();
+            IsInitialized = true;
         }
         return;
     }

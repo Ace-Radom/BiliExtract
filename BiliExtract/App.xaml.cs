@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Interop;
+using System.Windows.Media;
 using System.Windows.Threading;
 using Wpf.Ui;
 
@@ -73,14 +75,16 @@ namespace BiliExtract
         /// </summary>
         private void OnStartup(object sender, StartupEventArgs e)
         {
+            RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
+
             IoCContainer.Initialize(
-                new IoCModule(),
-                new Lib.IoCModule()
+                new Lib.IoCModule(),
+                new IoCModule()
             );
 
             _host.Start();
 
-            IoCContainer.Resolve<ThemeManager>().RefreshTheme();
+            IoCContainer.Resolve<ThemeManagerV2>().Apply();
 
             return;
         }

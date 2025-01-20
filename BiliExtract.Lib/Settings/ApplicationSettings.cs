@@ -6,6 +6,8 @@ public class ApplicationSettings() : AbstractSettings<ApplicationSettingsData>("
 {
     public class ApplicationSettingsData
     {
+        public RGBColor? AccentColor { get; set; }
+        public AccentColorSource AccentColorSource { get; set; }
         public string? ExternalAdbPath { get; set; }
         public string? ExternalFFmpegPath { get; set; }
         public LogLevel LogMinLevel { get; set; } = LogLevel.Info;
