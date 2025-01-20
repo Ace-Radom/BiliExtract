@@ -15,6 +15,8 @@ public partial class AdbSettingsWindow
     {
         InitializeComponent();
 
+        IsVisibleChanged += AdbSettingsWindow_IsVisibleChangedAsync;
+
         return;
     }
 

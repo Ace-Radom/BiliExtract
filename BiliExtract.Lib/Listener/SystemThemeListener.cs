@@ -20,8 +20,8 @@ public class SystemThemeListener : IListener<EventArgs>
         if (_started)
             return Task.CompletedTask;
 
-        _darkModeListener = SystemThemeHelper.GetDarkModeListener(OnDarkModeChanged);
-        _colorizationColorListener = SystemThemeHelper.GetColorizationColorListener(OnColorizationColorChanged);
+        _darkModeListener = SystemTheme.GetDarkModeListener(OnDarkModeChanged);
+        _colorizationColorListener = SystemTheme.GetColorizationColorListener(OnColorizationColorChanged);
 
         _started = true;
 
@@ -31,13 +31,14 @@ public class SystemThemeListener : IListener<EventArgs>
     private void OnDarkModeChanged()
     {
         Changed?.Invoke(this, EventArgs.Empty);
+        return;
     }
 
     private void OnColorizationColorChanged()
     {
         try
         {
-            var color = SystemThemeHelper.GetColorizationColor();
+            var color = SystemTheme.GetColorizationColor();
 
             // Ignore alpha channel transition events
             if (color.Equals(_currentRegColor))
@@ -53,6 +54,7 @@ public class SystemThemeListener : IListener<EventArgs>
         {
             Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Failed to notify on accent color change.", ex);
         }
+        return;
     }
 
     public Task StopAsync()

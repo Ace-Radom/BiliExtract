@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace BiliExtract.Lib.Utils;
 
-public static class SystemThemeHelper
+public static class SystemTheme
 {
     private const string REGISTRY_HIVE = "HKEY_CURRENT_USER";
 
@@ -29,6 +29,7 @@ public static class SystemThemeHelper
         var registryValue = Registry.GetValue(REGISTRY_HIVE, DWM_REGISTRY_PATH, DWM_COLORIZATION_COLOR_REGISTRY_KEY, -1);
         if (registryValue == -1)
         {
+            Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Read registry key failed. [key=\"{REGISTRY_HIVE}\\{DWM_REGISTRY_PATH}\\{DWM_COLORIZATION_COLOR_REGISTRY_KEY}\"]");
             throw new InvalidOperationException($"Couldn't read the {DWM_COLORIZATION_COLOR_REGISTRY_KEY} setting");
         }
 

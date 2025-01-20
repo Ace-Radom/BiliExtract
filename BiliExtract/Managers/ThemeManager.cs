@@ -46,7 +46,7 @@ public class ThemeManager
             case AccentColorSource.System:
                 try
                 {
-                    return SystemThemeHelper.GetAccentColor();
+                    return SystemTheme.GetAccentColor();
                 }
                 catch (Exception ex)
                 {
@@ -72,7 +72,7 @@ public class ThemeManager
             case Theme.FollowSystem:
                 try
                 {
-                    return SystemThemeHelper.IsDarkMode();
+                    return SystemTheme.IsDarkMode();
                 }
                 catch (Exception ex)
                 {

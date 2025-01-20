@@ -16,8 +16,7 @@
     WindowCornerPreference="Round"
     ResizeMode="CanMinimize"
     ShowInTaskbar="True"
-    WindowStartupLocation="CenterOwner"
-    IsVisibleChanged="AdbSettingsWindow_IsVisibleChangedAsync">
+    WindowStartupLocation="CenterOwner">
     
     <Grid>
 
