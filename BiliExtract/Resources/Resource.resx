@@ -177,4 +177,50 @@
   <data name="SettingsPage_ExternalFFmpegPathTextBox_Subtitle" xml:space="preserve">
     <value>Set external FFmpeg (ffmpeg.exe) absolute path.</value>
   </data>
+  <data name="AdbSettingsWindow_Title" xml:space="preserve">
+    <value>ADB Settings</value>
+  </data>
+  <data name="AdbSettingsWindow_Description" xml:space="preserve">
+    <value>Followings are advanced ADB settings.
+Changing them may lead to unexpected errors or cause some functions not work. If you are not familiar with these options, DO NOT change them.</value>
+  </data>
+  <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title" xml:space="preserve">
+    <value>Automatic start ADB server</value>
+  </data>
+  <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Start ADB server automatically if it hasn't been started.</value>
+  </data>
+  <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title" xml:space="preserve">
+    <value>Start ADB server on startup</value>
+  </data>
+  <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Start ADB server when BiliExtract starts.</value>
+  </data>
+  <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title" xml:space="preserve">
+    <value>Kill ADB server on exit</value>
+  </data>
+  <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Kill ADB server when BiliExtract exits.</value>
+  </data>
+  <data name="SettingsPage_AdvancedAdbSettingsCardAction_Title" xml:space="preserve">
+    <value>Advanced ADB settings</value>
+  </data>
+  <data name="SettingsPage_AdvancedAdbSettingsCardAction_Subtitle" xml:space="preserve">
+    <value>Set default ADB behavior, server host, etc.</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>Accent color</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Subtitle" xml:space="preserve">
+    <value>Set the accent color of BiliExtract.</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
 </root>

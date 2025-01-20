@@ -1,0 +1,88 @@
+﻿<ui:FluentWindow 
+    x:Class="BiliExtract.Views.Windows.Settings.AdbSettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:BiliExtract.Views.Windows.Settings"
+    xmlns:controls="clr-namespace:BiliExtract.Controls"
+    xmlns:custom="clr-namespace:BiliExtract.Controls.Custom"
+    xmlns:resources="clr-namespace:BiliExtract.Resources"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{x:Static resources:Resource.AdbSettingsWindow_Title}"
+    Height="800" Width="600" MinHeight="800" MinWidth="600"
+    d:DataContext="{d:DesignInstance local:AdbSettingsWindow,
+                                     IsDesignTimeCreatable=True}"
+    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
+    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    ExtendsContentIntoTitleBar="True"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    WindowBackdropType="Mica"
+    WindowCornerPreference="Round"
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="True"
+    WindowStartupLocation="CenterOwner"
+    IsVisibleChanged="AdbSettingsWindow_IsVisibleChangedAsync"
+    mc:Ignorable="d">
+    
+    <Grid>
+
+        <ui:TitleBar ShowMinimize="False" ShowMaximize="False" />
+
+        <StackPanel Margin="16,16,16,16">
+
+            <TextBlock
+                Margin="0,16,0,24"
+                Focusable="True"
+                FontSize="20"
+                FontWeight="Medium"
+                Text="{x:Static resources:Resource.AdbSettingsWindow_Title}" />
+
+            <custom:CardControl Margin="0,0,0,24">
+                <custom:CardControl.Icon>
+                    <ui:SymbolIcon Symbol="Info24" />
+                </custom:CardControl.Icon>
+                <custom:CardControl.Header>
+                    <TextBlock Text="{x:Static resources:Resource.AdbSettingsWindow_Description}" TextWrapping="Wrap"/>
+                </custom:CardControl.Header>
+            </custom:CardControl>
+
+            <custom:CardControl Margin="0,0,0,8">
+                <custom:CardControl.Header>
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title}" Subtitle="{x:Static resources:Resource.AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle}" />
+                </custom:CardControl.Header>
+                <ui:ToggleSwitch
+                    x:Name="_automaticStartAdbServerToggleSwitch"
+                    Margin="0,0,0,8"
+                    AutomationProperties.Name="{x:Static resources:Resource.AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title}"
+                    Click="AutomaticStartAdbServerToggleSwitch_Click"
+                    Visibility="Hidden" />
+            </custom:CardControl>
+            <custom:CardControl Margin="0,0,0,8">
+                <custom:CardControl.Header>
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title}" Subtitle="{x:Static resources:Resource.AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Subtitle}" />
+                </custom:CardControl.Header>
+                <ui:ToggleSwitch
+                    x:Name="_startAdbServerOnStartupToggleSwitch"
+                    Margin="0,0,0,8"
+                    AutomationProperties.Name="{x:Static resources:Resource.AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title}"
+                    Click="StartAdbServerOnStartupToggleSwitch_Click"
+                    Visibility="Hidden" />
+            </custom:CardControl>
+            <custom:CardControl Margin="0,0,0,8">
+                <custom:CardControl.Header>
+                    <controls:CardHeaderControl Title="{x:Static resources:Resource.AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title}" Subtitle="{x:Static resources:Resource.AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle}" />
+                </custom:CardControl.Header>
+                <ui:ToggleSwitch
+                    x:Name="_killAdbServerOnExitToggleSwitch"
+                    Margin="0,0,0,8"
+                    AutomationProperties.Name="{x:Static resources:Resource.AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title}"
+                    Click="KillAdbServerOnExitToggleSwitch_Click"
+                    Visibility="Hidden" />
+            </custom:CardControl>
+
+        </StackPanel>
+
+    </Grid>
+
+</ui:FluentWindow>

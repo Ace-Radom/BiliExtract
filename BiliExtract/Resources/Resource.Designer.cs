@@ -133,11 +133,147 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start ADB server automatically if it hasn&apos;t been started..
+        /// </summary>
+        public static string AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatic start ADB server.
+        /// </summary>
+        public static string AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Followings are advanced ADB settings.
+        ///Changing them may lead to unexpected errors or cause some functions not work. If you are not familiar with these options, DO NOT change them..
+        /// </summary>
+        public static string AdbSettingsWindow_Description {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kill ADB server when BiliExtract exits..
+        /// </summary>
+        public static string AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kill ADB server on exit.
+        /// </summary>
+        public static string AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start ADB server when BiliExtract starts..
+        /// </summary>
+        public static string AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Subtitle {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start ADB server on startup.
+        /// </summary>
+        public static string AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ADB Settings.
+        /// </summary>
+        public static string AdbSettingsWindow_Title {
+            get {
+                return ResourceManager.GetString("AdbSettingsWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BiliExtract.
         /// </summary>
         public static string Application_Name {
             get {
                 return ResourceManager.GetString("Application_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue.
+        /// </summary>
+        public static string Color_Blue {
+            get {
+                return ResourceManager.GetString("Color_Blue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Green.
+        /// </summary>
+        public static string Color_Green {
+            get {
+                return ResourceManager.GetString("Color_Green", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Red.
+        /// </summary>
+        public static string Color_Red {
+            get {
+                return ResourceManager.GetString("Color_Red", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set the accent color of BiliExtract..
+        /// </summary>
+        public static string SettingsPage_AccentColor_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_AccentColor_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accent color.
+        /// </summary>
+        public static string SettingsPage_AccentColor_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_AccentColor_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set default ADB behavior, server host, etc..
+        /// </summary>
+        public static string SettingsPage_AdvancedAdbSettingsCardAction_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_AdvancedAdbSettingsCardAction_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced ADB settings.
+        /// </summary>
+        public static string SettingsPage_AdvancedAdbSettingsCardAction_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_AdvancedAdbSettingsCardAction_Title", resourceCulture);
             }
         }
         
