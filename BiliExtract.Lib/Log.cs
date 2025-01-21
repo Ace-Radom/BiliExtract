@@ -1,4 +1,5 @@
-﻿using BiliExtract.Lib.Settings;
+﻿using BiliExtract.Lib.Events;
+using BiliExtract.Lib.Settings;
 using BiliExtract.Lib.Utils;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace BiliExtract.Lib;
 public class Log
 {
     private readonly object _lock = new();
+    private readonly string _logFileName;
     private readonly string _logFolder;
     private readonly string _logPath;
-    private readonly StringBuilder _logMessages = new();
-
+    private readonly StringBuilder _logMessagesBuilder = new();
+    
+    private int _logMessagesCount = 0;
     private LogLevel? _minLogLevel = null;
 
     private static Log? _globalLogger;
@@ -29,16 +32,19 @@ public class Log
     }
 
     public bool IsLoggingToFile { get; set; } = true;
-    public string LogMessages => _logMessages.ToString();
+    public string LogMessages => _logMessagesBuilder.ToString();
+    public int LogMessagesCount => _logMessagesCount;
+    public string LogFileName => _logFileName;
     public string LogPath => _logPath;
 
-    public event EventHandler? LogRefreshed;
+    public event LogRefreshedEventHandler? LogRefreshed;
 
     private Log()
     {
         _logFolder = Path.Combine(Folders.AppData, "log");
         Directory.CreateDirectory(_logFolder);
-        _logPath = Path.Combine(_logFolder, $"BiliExtract_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}.log");
+        _logFileName = $"BiliExtract_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}.log";
+        _logPath = Path.Combine(_logFolder, _logFileName);
         return;
     }
 
@@ -57,7 +63,7 @@ public class Log
     {
         if (_minLogLevel is null && IoCContainer.IsInitialized)
         {
-            _minLogLevel = IoCContainer.Resolve<ApplicationSettings>().Data.LogMinLevel;
+            _minLogLevel = IoCContainer.Resolve<ApplicationSettings>().Data.MinLogLevel;
         }
 
         if (_minLogLevel is not null && level < _minLogLevel)
@@ -81,14 +87,14 @@ public class Log
 #if DEBUG
                 Debug.WriteLine(line);
 #endif
-                _logMessages.AppendLine(line);
+                _logMessagesBuilder.AppendLine(line);
             }
             if (IsLoggingToFile)
             {
                 File.AppendAllLines(_logPath, lines);
             }
-
-            LogRefreshed?.Invoke(this, EventArgs.Empty);
+            _logMessagesCount++;
+            LogRefreshed?.Invoke(this, new(lines.ToArray()));
         }
         return;
     }

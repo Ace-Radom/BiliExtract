@@ -10,7 +10,7 @@ public class ApplicationSettings() : AbstractSettings<ApplicationSettingsData>("
         public AccentColorSource AccentColorSource { get; set; }
         public string? ExternalAdbPath { get; set; }
         public string? ExternalFFmpegPath { get; set; }
-        public LogLevel LogMinLevel { get; set; } = LogLevel.Info;
+        public LogLevel MinLogLevel { get; set; } = LogLevel.Info;
         public Theme Theme { get; set; }
         public bool UseBuiltInAdb { get; set; } = true;
         public bool UseBuiltInFFmpeg { get; set; } = true;

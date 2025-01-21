@@ -298,6 +298,24 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Log count: {0}.
+        /// </summary>
+        public static string LogPage_LogCountTextBlock_Text {
+            get {
+                return ResourceManager.GetString("LogPage_LogCountTextBlock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log.
+        /// </summary>
+        public static string LogPage_Title {
+            get {
+                return ResourceManager.GetString("LogPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string MainWindow_NavigationStore_Item_About {
@@ -370,6 +388,24 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The log file BiliExtract currently is writing to..
+        /// </summary>
+        public static string SettingsPage_CurrentLogFileCardControl_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_CurrentLogFileCardControl_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current log file.
+        /// </summary>
+        public static string SettingsPage_CurrentLogFileCardControl_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CurrentLogFileCardControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set external ADB (adb.exe) absolute path..
         /// </summary>
         public static string SettingsPage_ExternalAdbPathTextBox_Subtitle {
@@ -402,6 +438,24 @@ namespace BiliExtract.Resources {
         public static string SettingsPage_ExternalFFmpegPathTextBox_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_ExternalFFmpegPathTextBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum log level BiliExtract will record..
+        /// </summary>
+        public static string SettingsPage_MinLogLevelComboBox_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_MinLogLevelComboBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min log level.
+        /// </summary>
+        public static string SettingsPage_MinLogLevelComboBox_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_MinLogLevelComboBox_Title", resourceCulture);
             }
         }
         

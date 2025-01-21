@@ -54,18 +54,18 @@ public static class Registry
 
         var pathFormatted = @$"SELECT * FROM RegistryValueChangeEvent WHERE Hive = 'HKEY_USERS' AND KeyPath = '{hive}\\{path.Replace(@"\", @"\\")}' AND ValueName = '{valueName}'";
 
-        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Starting listener... [hive={hive}, pathFormatted={pathFormatted}, key={valueName}]");
+        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Starting listener... [hive=\"{hive}\",pathFormatted=\"{pathFormatted}\",key=\"{valueName}\"]");
 
         var watcher = new ManagementEventWatcher(pathFormatted);
         watcher.EventArrived += (_, e) =>
         {
-                Log.GlobalLogger.WriteLog(LogLevel.Info, $"Event arrived [classPath={e.NewEvent.ClassPath}, hive={hive}, pathFormatted={pathFormatted}, key={valueName}]");
+                Log.GlobalLogger.WriteLog(LogLevel.Info, $"Event arrived [classPath=\"{e.NewEvent.ClassPath}\",hive=\"{hive}\",pathFormatted=\"{pathFormatted}\",key=\"{valueName}\"]");
 
             handler();
         };
         watcher.Start();
 
-        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Started listener [hive={hive}, pathFormatted={pathFormatted}, key={valueName}]");
+        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Started listener [hive=\"{hive}\",pathFormatted=\"{pathFormatted}\",key=\"{valueName}\"]");
 
         return watcher;
     }

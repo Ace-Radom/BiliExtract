@@ -132,4 +132,16 @@
   <data name="AccentColorSource_Custom" xml:space="preserve">
     <value>Custom</value>
   </data>
+  <data name="LogLevel_Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="LogLevel_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="LogLevel_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="LogLevel_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>

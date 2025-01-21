@@ -255,4 +255,22 @@ If you are not familiar with these options, DO NOT change.</value>
     <value>Default IP address for connecting wireless devices.
 Used by `adb pair` &amp; `adb connect` command.</value>
   </data>
+  <data name="LogPage_Title" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="LogPage_LogCountTextBlock_Text" xml:space="preserve">
+    <value>Log count: {0}</value>
+  </data>
+  <data name="SettingsPage_MinLogLevelComboBox_Title" xml:space="preserve">
+    <value>Min log level</value>
+  </data>
+  <data name="SettingsPage_MinLogLevelComboBox_Subtitle" xml:space="preserve">
+    <value>Minimum log level BiliExtract will record.</value>
+  </data>
+  <data name="SettingsPage_CurrentLogFileCardControl_Title" xml:space="preserve">
+    <value>Current log file</value>
+  </data>
+  <data name="SettingsPage_CurrentLogFileCardControl_Subtitle" xml:space="preserve">
+    <value>The log file BiliExtract currently is writing to.</value>
+  </data>
 </root>

@@ -79,6 +79,42 @@ namespace BiliExtract.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debug.
+        /// </summary>
+        public static string LogLevel_Debug {
+            get {
+                return ResourceManager.GetString("LogLevel_Debug", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string LogLevel_Error {
+            get {
+                return ResourceManager.GetString("LogLevel_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        public static string LogLevel_Info {
+            get {
+                return ResourceManager.GetString("LogLevel_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string LogLevel_Warning {
+            get {
+                return ResourceManager.GetString("LogLevel_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dark.
         /// </summary>
         public static string Theme_Dark {

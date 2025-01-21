@@ -21,9 +21,13 @@ public enum AdbDeviceState
 
 public enum LogLevel
 {
+    [Display(ResourceType = typeof(Resource), Name = "LogLevel_Debug")]
     Debug,
+    [Display(ResourceType = typeof(Resource), Name = "LogLevel_Info")]
     Info,
+    [Display(ResourceType = typeof(Resource), Name = "LogLevel_Warning")]
     Warning,
+    [Display(ResourceType = typeof(Resource), Name = "LogLevel_Error")]
     Error
 }
 
