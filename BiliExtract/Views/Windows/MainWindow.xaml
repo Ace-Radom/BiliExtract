@@ -78,7 +78,8 @@
                     <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationStore_Item_Log}"
                         Icon="DocumentChevronDouble24"
-                        PageTag="log" />
+                        PageTag="log"
+                        PageType="{x:Type pages:LogPage}" />
                 </ui:NavigationStore.Items>
 
                 <ui:NavigationStore.Footer>

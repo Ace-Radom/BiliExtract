@@ -16,6 +16,7 @@ public class IoCModule : Module
 
         builder.Register<AdbSettings>();
         builder.Register<ApplicationSettings>();
+        builder.Register<TextStyleSettings>();
 
         return;
     }

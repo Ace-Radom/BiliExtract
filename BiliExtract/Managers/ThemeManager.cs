@@ -59,7 +59,7 @@ public class ThemeManager
         }
     }
 
-    private bool IsDarkMode()
+    public bool IsDarkMode()
     {
         var theme = _settings.Data.Theme;
 

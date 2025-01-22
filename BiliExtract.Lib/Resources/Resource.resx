@@ -144,4 +144,10 @@
   <data name="LogLevel_Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="RichLogViewStyleSource_Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="RichLogViewStyleSource_Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
 </root>

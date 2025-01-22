@@ -31,6 +31,22 @@ public enum LogLevel
     Error
 }
 
+public enum RichLogViewStyleSource
+{
+    [Display(ResourceType = typeof(Resource), Name = "RichLogViewStyleSource_Default")]
+    Default,
+    [Display(ResourceType = typeof(Resource), Name = "RichLogViewStyleSource_Custom")]
+    Custom
+}
+
+public enum TextStyle
+{
+    Normal,
+    Bold,
+    Italic,
+    Underline
+}
+
 public enum Theme
 {
     [Display(ResourceType = typeof(Resource), Name = "Theme_Light")]

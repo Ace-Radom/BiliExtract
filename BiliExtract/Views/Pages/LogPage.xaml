@@ -1,0 +1,48 @@
+﻿<Page
+    x:Class="BiliExtract.Views.Pages.LogPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:BiliExtract.Controls"
+    xmlns:custom="clr-namespace:BiliExtract.Controls.Custom"
+    xmlns:local="clr-namespace:BiliExtract.Views.Pages"
+    xmlns:resources="clr-namespace:BiliExtract.Resources"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Title="{x:Static resources:Resource.LogPage_Title}">
+
+    <Grid Margin="0,0,16,12">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Margin="0,24,0,24"
+            Grid.Row="0"
+            Focusable="True"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="{x:Static resources:Resource.LogPage_Title}" />
+
+        <StackPanel
+            Margin="0,0,0,8"
+            Grid.Row="1"
+            Orientation="Horizontal">
+            
+            <TextBlock
+                x:Name="_logCountTextBlock"
+                Focusable="True" />
+            
+        </StackPanel>
+
+        <RichTextBox
+            x:Name="_logRichTextBox"
+            Grid.Row="2"
+            IsReadOnly="True"
+            VerticalScrollBarVisibility="Auto" />
+
+    </Grid>
+    
+</Page>

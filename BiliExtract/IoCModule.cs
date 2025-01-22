@@ -8,6 +8,7 @@ public class IoCModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
+        builder.Register<RichLogViewStyleManager>();
         builder.Register<ThemeManager>().AutoActivate();
 
         return;
