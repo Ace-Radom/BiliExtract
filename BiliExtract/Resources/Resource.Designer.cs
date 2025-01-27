@@ -316,6 +316,267 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set debug log level style..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_DebugLogLevelStyle_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_DebugLogLevelStyle_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Debug log level style.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_DebugLogLevelStyle_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_DebugLogLevelStyle_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set error log level style..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error log level style.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set exception style..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_ExceptionStyle_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_ExceptionStyle_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exception style.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_ExceptionStyle_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_ExceptionStyle_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set filename color..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_FilenameColorColorPicker_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_FilenameColorColorPicker_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filename color.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_FilenameColorColorPicker_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_FilenameColorColorPicker_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select text font family..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_FontComboBox_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_FontComboBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_FontComboBox_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_FontComboBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set info log level style..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_InfoLogLevelStyle_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_InfoLogLevelStyle_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info log level style.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_InfoLogLevelStyle_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_InfoLogLevelStyle_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set number color..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_NumberColorColorPicker_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_NumberColorColorPicker_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number color.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_NumberColorColorPicker_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_NumberColorColorPicker_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset current customize settings to default..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_ResetToDefaultButton_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_ResetToDefaultButton_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset to default.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_ResetToDefaultButton_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_ResetToDefaultButton_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set string color..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_StringColorColorPicker_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_StringColorColorPicker_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to String color.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_StringColorColorPicker_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_StringColorColorPicker_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select application theme to customize..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TargetThemeComboBox_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TargetThemeComboBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Target theme.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TargetThemeComboBox_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TargetThemeComboBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set basic text color..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TextColorColorPicker_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TextColorColorPicker_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text color.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TextColorColorPicker_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TextColorColorPicker_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set time color for hour, minute and second..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time color (H:M:S).
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set time color for year, month and day..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time color (Y/M/D).
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log Page Customize.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set warning log level style..
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_WarningLogLevelStyle_Subtitle {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_WarningLogLevelStyle_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning log level style.
+        /// </summary>
+        public static string LogPageStyleSettingsWindow_WarningLogLevelStyle_Title {
+            get {
+                return ResourceManager.GetString("LogPageStyleSettingsWindow_WarningLogLevelStyle_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string MainWindow_NavigationStore_Item_About {
@@ -456,6 +717,33 @@ namespace BiliExtract.Resources {
         public static string SettingsPage_MinLogLevelComboBox_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_MinLogLevelComboBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize.
+        /// </summary>
+        public static string SettingsPage_RichLogViewStyle_Button_Content {
+            get {
+                return ResourceManager.GetString("SettingsPage_RichLogViewStyle_Button_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set rich text style of log messages in log page..
+        /// </summary>
+        public static string SettingsPage_RichLogViewStyle_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_RichLogViewStyle_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log page style.
+        /// </summary>
+        public static string SettingsPage_RichLogViewStyle_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_RichLogViewStyle_Title", resourceCulture);
             }
         }
         

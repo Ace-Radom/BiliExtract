@@ -1,6 +1,7 @@
 ﻿using BiliExtract.Extensions;
 using BiliExtract.Lib;
 using BiliExtract.Lib.Settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,18 @@ public class RichLogViewStyleManager
     public FontFamily[] AvailableFonts => _availableFonts;
 
     public FontFamily? DefaultFont => GetFontFamilyByName(_themeManager.IsDarkMode() ? RichLogViewStyle.DarkThemeDefault.Font : RichLogViewStyle.LightThemeDefault.Font);
+    public FontFamily? Font
+    {
+        get
+        {
+            var font = GetFontFamilyByName(Style.Font);
+            if (font is not null)
+            {
+                return font;
+            }
+            return DefaultFont;
+        }
+    }
 
     public RichLogViewStyle Style
     {
@@ -58,9 +71,12 @@ public class RichLogViewStyleManager
         }
     }
 
+    public event EventHandler? StyleChanged;
+
     public RichLogViewStyleManager()
     {
         RefreshAvailableSystemFontList();
+        _themeManager.ThemeApplied += (_, _) => RaiseStyleChanged();
         return;
     }
 
@@ -161,6 +177,12 @@ public class RichLogViewStyleManager
         }
 
         return paragraphs.ToArray();
+    }
+
+    public void RaiseStyleChanged()
+    {
+        StyleChanged?.Invoke(this, EventArgs.Empty);
+        return;
     }
 
     private static RGBColor GetLogLevelColorFromLevelName(string levelName, RichLogViewStyle style) => levelName switch
@@ -278,6 +300,7 @@ public class RichLogViewStyleManager
                 availableSystemFonts.Add(font);
             }
         }
+        availableSystemFonts.Sort((x, y) => string.Compare(x.FamilyNames[_language], y.FamilyNames[_language], StringComparison.OrdinalIgnoreCase));
         _availableFonts = availableSystemFonts.ToArray();
         return;
     }

@@ -133,6 +133,42 @@ namespace BiliExtract.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bold.
+        /// </summary>
+        public static string TextStyle_Bold {
+            get {
+                return ResourceManager.GetString("TextStyle_Bold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Italic.
+        /// </summary>
+        public static string TextStyle_Italic {
+            get {
+                return ResourceManager.GetString("TextStyle_Italic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        public static string TextStyle_Normal {
+            get {
+                return ResourceManager.GetString("TextStyle_Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Underline.
+        /// </summary>
+        public static string TextStyle_Underline {
+            get {
+                return ResourceManager.GetString("TextStyle_Underline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dark.
         /// </summary>
         public static string Theme_Dark {

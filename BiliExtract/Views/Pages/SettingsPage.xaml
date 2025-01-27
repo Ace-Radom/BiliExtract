@@ -32,13 +32,14 @@
                 SelectionChanged="ThemeComboBox_SelectionChanged"
                 Visibility="Hidden" />
         </custom:CardControl>
-        <custom:CardControl Margin="0,0,0,24" Icon="Color24">
+        <custom:CardControl Margin="0,0,0,8" Icon="Color24">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_AccentColor_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_AccentColor_Subtitle}" />
             </custom:CardControl.Header>
             <StackPanel Orientation="Horizontal">
                 <controls:ColorPickerControl
                     x:Name="_accentColorPicker"
+                    Margin="0,0,0,8"
                     ColorChangedDelayed="AccentColorPicker_ColorChangedDelayed"
                     Visibility="Hidden" />
                 <ComboBox
@@ -48,6 +49,29 @@
                     AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_AccentColor_Title}"
                     MaxDropDownHeight="Auto"
                     SelectionChanged="AccentColorComboBox_SelectionChanged"
+                    Visibility="Hidden" />
+            </StackPanel>
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,24" Icon="TextEditStyle24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_RichLogViewStyle_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_RichLogViewStyle_Subtitle}" />
+            </custom:CardControl.Header>
+            <StackPanel Orientation="Horizontal">
+                <ui:Button
+                    x:Name="_richLogViewStyleButton"
+                    MinWidth="60"
+                    Margin="0,0,0,8"
+                    AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_RichLogViewStyle_Title}"
+                    Click="RichLogViewStyleButton_Click"
+                    Content="{x:Static resources:Resource.SettingsPage_RichLogViewStyle_Button_Content}"
+                    Visibility="Hidden" />
+                <ComboBox
+                    x:Name="_richLogViewStyleComboBox"
+                    MinWidth="160"
+                    Margin="8,0,0,8"
+                    AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_RichLogViewStyle_Title}"
+                    MaxDropDownHeight="Auto"
+                    SelectionChanged="RichLogViewStyleComboBox_SelectionChanged"
                     Visibility="Hidden" />
             </StackPanel>
         </custom:CardControl>
@@ -99,10 +123,7 @@
                 Visibility="Hidden" />
         </custom:CardControl>
 
-        <custom:CardAction
-            x:Name="_advancedAdbSettingsCardAction"
-            Margin="0,0,0,24"
-            Click="AdvancedAdbSettingsCardAction_Click">
+        <custom:CardAction Margin="0,0,0,24" Click="AdvancedAdbSettingsCardAction_Click">
             <custom:CardAction.Content>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_AdvancedAdbSettingsCardAction_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_AdvancedAdbSettingsCardAction_Subtitle}" />
             </custom:CardAction.Content>

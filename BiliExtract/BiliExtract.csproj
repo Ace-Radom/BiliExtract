@@ -21,8 +21,6 @@
     <ItemGroup>
         <PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
         <PackageReference Include="WPF-UI" Version="2.1.0" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0 " />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2 " />
     </ItemGroup>
 
 	<ItemGroup>

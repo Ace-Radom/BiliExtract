@@ -1,0 +1,243 @@
+﻿<windows:BaseWindow
+    x:Class="BiliExtract.Views.Windows.Settings.LogPageStyleSettingsWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:BiliExtract.Views.Windows.Settings"
+    xmlns:controls="clr-namespace:BiliExtract.Controls"
+    xmlns:custom="clr-namespace:BiliExtract.Controls.Custom"
+    xmlns:resources="clr-namespace:BiliExtract.Resources"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:windows="clr-namespace:BiliExtract.Views.Windows"
+    Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_Title}"
+    Height="800" Width="600" MinHeight="800" MinWidth="600"
+    ExtendsContentIntoTitleBar="True"
+    WindowBackdropType="Mica"
+    WindowCornerPreference="Round"
+    ResizeMode="CanMinimize"
+    ShowInTaskbar="True"
+    WindowStartupLocation="CenterOwner">
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" ShowMinimize="False" ShowMaximize="False" />
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+
+            <StackPanel Margin="16,16,16,16">
+
+                <TextBlock
+                    Margin="0,16,0,24"
+                    Focusable="True"
+                    FontSize="20"
+                    FontWeight="Medium"
+                    Text="{x:Static resources:Resource.LogPageStyleSettingsWindow_Title}" />
+
+                <custom:CardControl Margin="0,0,0,8" Icon="DarkTheme24">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_TargetThemeComboBox_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_TargetThemeComboBox_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <ComboBox
+                        x:Name="_targetThemeComboBox"
+                        MinWidth="160"
+                        Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_TargetThemeComboBox_Title}"
+                        MaxDropDownHeight="Auto"
+                        SelectionChanged="TargetThemeComboBox_SelectionChangedAsync"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,24" Icon="ArrowReset24">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_ResetToDefaultButton_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_ResetToDefaultButton_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <ui:Button
+                        x:Name="_resetToDefaultButton"
+                        MinWidth="80"
+                        Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_ResetToDefaultButton_Title}"
+                        Click="ResetToDefaultButton_ClickAsync"
+                        Content="Reset"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+
+                <custom:CardControl Margin="0,0,0,24" Icon="TextFont24">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_FontComboBox_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_FontComboBox_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <ComboBox
+                        x:Name="_fontComboBox"
+                        MinWidth="160"
+                        Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_FontComboBox_Title}"
+                        MaxDropDownHeight="Auto"
+                        SelectionChanged="FontComboBox_SelectionChanged"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_TextColorColorPicker_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_TextColorColorPicker_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <controls:ColorPickerControl
+                        x:Name="_textColorColorPicker"
+                        ColorChangedDelayed="TextColorColorPicker_ColorChangedDelayed"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_NumberColorColorPicker_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_NumberColorColorPicker_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <controls:ColorPickerControl
+                        x:Name="_numberColorColorPicker"
+                        ColorChangedDelayed="NumberColorColorPicker_ColorChangedDelayed"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_FilenameColorColorPicker_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_FilenameColorColorPicker_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <controls:ColorPickerControl
+                        x:Name="_filenameColorColorPicker"
+                        ColorChangedDelayed="FilenameColorColorPicker_ColorChangedDelayed"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_ExceptionStyle_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_ExceptionStyle_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+                            x:Name="_exceptionStyleComboBox"
+                            MinWidth="120"
+                            Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_ExceptionStyle_Title}"
+                            MaxDropDownHeight="Auto"
+                            SelectionChanged="ExceptionStyleComboBox_SelectionChanged"
+                            Visibility="Hidden" />
+                        <controls:ColorPickerControl
+                            x:Name="_exceptionStyleColorPicker"
+                            Margin="16,0,0,8"
+                            ColorChangedDelayed="ExceptionStyleColorPicker_ColorChangedDelayed"
+                            Visibility="Hidden" />
+                    </StackPanel>
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_StringColorColorPicker_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_StringColorColorPicker_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <controls:ColorPickerControl
+                        x:Name="_stringColorColorPicker"
+                        ColorChangedDelayed="StringColorColorPicker_ColorChangedDelayed"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <controls:ColorPickerControl
+                        x:Name="_timeColorYMDColorPicker"
+                        ColorChangedDelayed="TimeColorYMDColorPicker_ColorChangedDelayed"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,24">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <controls:ColorPickerControl
+                        x:Name="_timeColorHMSColorPicker"
+                        ColorChangedDelayed="TimeColorHMSColorPicker_ColorChangedDelayed"
+                        Visibility="Hidden" />
+                </custom:CardControl>
+
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_DebugLogLevelStyle_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_DebugLogLevelStyle_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+                            x:Name="_debugLogLevelStyleComboBox"
+                            MinWidth="120"
+                            Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_DebugLogLevelStyle_Title}"
+                            MaxDropDownHeight="Auto"
+                            SelectionChanged="DebugLogLevelStyleComboBox_SelectionChanged"
+                            Visibility="Hidden" />
+                        <controls:ColorPickerControl
+                            x:Name="_debugLogLevelStyleColorPicker"
+                            Margin="16,0,0,8"
+                            ColorChangedDelayed="DebugLogLevelStyleColorPicker_ColorChangedDelayed"
+                            Visibility="Hidden" />
+                    </StackPanel>
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_InfoLogLevelStyle_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_InfoLogLevelStyle_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+                            x:Name="_infoLogLevelStyleComboBox"
+                            MinWidth="120"
+                            Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_InfoLogLevelStyle_Title}"
+                            MaxDropDownHeight="Auto"
+                            SelectionChanged="InfoLogLevelStyleComboBox_SelectionChanged"
+                            Visibility="Hidden" />
+                        <controls:ColorPickerControl
+                            x:Name="_infoLogLevelStyleColorPicker"
+                            Margin="16,0,0,8"
+                            ColorChangedDelayed="InfoLogLevelStyleColorPicker_ColorChangedDelayed"
+                            Visibility="Hidden" />
+                    </StackPanel>
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_WarningLogLevelStyle_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_WarningLogLevelStyle_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+                            x:Name="_warningLogLevelStyleComboBox"
+                            MinWidth="120"
+                            Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_WarningLogLevelStyle_Title}"
+                            MaxDropDownHeight="Auto"
+                            SelectionChanged="WarningLogLevelStyleComboBox_SelectionChanged"
+                            Visibility="Hidden" />
+                        <controls:ColorPickerControl
+                            x:Name="_warningLogLevelStyleColorPicker"
+                            Margin="16,0,0,8"
+                            ColorChangedDelayed="WarningLogLevelStyleColorPicker_ColorChangedDelayed"
+                            Visibility="Hidden" />
+                    </StackPanel>
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title}" Subtitle="{x:Static resources:Resource.LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle}" />
+                    </custom:CardControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox
+                            x:Name="_errorLogLevelStyleComboBox"
+                            MinWidth="120"
+                            Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title}"
+                            MaxDropDownHeight="Auto"
+                            SelectionChanged="ErrorLogLevelStyleComboBox_SelectionChanged"
+                            Visibility="Hidden" />
+                        <controls:ColorPickerControl
+                            x:Name="_errorLogLevelStyleColorPicker"
+                            Margin="16,0,0,8"
+                            ColorChangedDelayed="ErrorLogLevelStyleColorPicker_ColorChangedDelayed"
+                            Visibility="Hidden" />
+                    </StackPanel>
+                </custom:CardControl>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+    
+</windows:BaseWindow>

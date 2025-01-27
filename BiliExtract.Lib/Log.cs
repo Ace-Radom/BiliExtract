@@ -31,9 +31,18 @@ public class Log
         }
     }
 
-    public bool IsLoggingToFile { get; set; } = true;
+    public bool IsLoggingToFile { get; set; }
     public string LogMessages => _logMessagesBuilder.ToString();
-    public int LogMessagesCount => _logMessagesCount;
+    public int LogMessagesCount
+    {
+        get
+        {
+            lock (_lock)
+            {
+                return _logMessagesCount;
+            }
+        }
+    }
     public string LogFileName => _logFileName;
     public string LogPath => _logPath;
 

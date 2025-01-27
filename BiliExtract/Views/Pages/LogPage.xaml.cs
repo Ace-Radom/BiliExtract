@@ -2,6 +2,7 @@
 using BiliExtract.Lib.Events;
 using BiliExtract.Managers;
 using BiliExtract.Resources;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -11,6 +12,7 @@ namespace BiliExtract.Views.Pages;
 
 public partial class LogPage
 {
+    private readonly object _lock = new();
     private readonly RichLogViewStyleManager _styleManager = IoCContainer.Resolve<RichLogViewStyleManager>();
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
@@ -21,46 +23,65 @@ public partial class LogPage
     {
         InitializeComponent();
 
-        UpdateLogCountTextBlock();
         UpdateLogRichTextBoxBackgroundColor();
-
-        _logRichTextBox.FontFamily = _styleManager.DefaultFont;
-        _logRichTextBox.Document.Blocks.Clear();
-        _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(Log.GlobalLogger.LogMessages.Split('\n')));
-        UpdateLogRichTextBoxPageWidth();
 
         _logRichTextBox.LayoutUpdated += (_, _) => UpdateLogRichTextBoxPageWidth();
         _themeManager.ThemeApplied += (_, _) => UpdateLogRichTextBoxBackgroundColor();
-        IsVisibleChanged += LogPage_IsVisibleChanged;
+        IsVisibleChanged += LogPage_IsVisibleChangedAsync;
 
         return;
     }
 
-    private void LogPage_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+    private async void LogPage_IsVisibleChangedAsync(object sender, DependencyPropertyChangedEventArgs e)
     {
         if (IsVisible)
         {
-            UpdateLogCountTextBlock();
-            _logRichTextBox.Document.Blocks.Clear();
-            _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(Log.GlobalLogger.LogMessages.Split('\n')));
-            UpdateLogRichTextBoxPageWidth();
-            Log.GlobalLogger.LogRefreshed += GlobalLogger_LogRefreshed;
+            await RefreshAsync();
+            _styleManager.StyleChanged += GlobalLogger_StyleChangedAsync;
+            Log.GlobalLogger.LogRefreshed += GlobalLogger_LogRefreshedAsync;
         }
         else
         {
-            Log.GlobalLogger.LogRefreshed -= GlobalLogger_LogRefreshed;
+            _styleManager.StyleChanged -= GlobalLogger_StyleChangedAsync;
+            Log.GlobalLogger.LogRefreshed -= GlobalLogger_LogRefreshedAsync;
         }
-        
+
         return;
     }
 
-    private void GlobalLogger_LogRefreshed(object sender, LogRefreshedEventArgs e)
+    private async Task RefreshAsync()
     {
-        UpdateLogCountTextBlock();
-        _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(e.NewLogMessages));
-        UpdateLogRichTextBoxPageWidth();
+        await Dispatcher.InvokeAsync(() =>
+        {
+            UpdateLogCountTextBlock();
+            _logRichTextBox.Document.Blocks.Clear();
+            var font = _styleManager.Font;
+            if (font is not null)
+            {
+                _logRichTextBox.FontFamily = font;
+            }
+            _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(Log.GlobalLogger.LogMessages.Split('\n')));
+            UpdateLogRichTextBoxPageWidth();
+        });
+
         return;
     }
+
+    private async void GlobalLogger_LogRefreshedAsync(object sender, LogRefreshedEventArgs e)
+    {
+        await Task.Run(() =>
+        {
+            Dispatcher.Invoke(() =>
+            {
+                UpdateLogCountTextBlock();
+                _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(e.NewLogMessages));
+                UpdateLogRichTextBoxPageWidth();
+            });
+        });
+        return;
+    }
+
+    private async void GlobalLogger_StyleChangedAsync(object? sender, System.EventArgs e) => await Dispatcher.InvokeAsync(async () => await RefreshAsync());
 
     private void UpdateLogCountTextBlock()
     {
@@ -85,7 +106,7 @@ public partial class LogPage
             Brushes.Black
         );
         _logRichTextBox.Document.PageWidth = ft.Width + 12;
-        _logRichTextBox.HorizontalScrollBarVisibility = (_logCountTextBlock.ActualWidth < ft.Width + 12) ? ScrollBarVisibility.Visible : ScrollBarVisibility.Hidden;
+        _logRichTextBox.HorizontalScrollBarVisibility = (_logRichTextBox.ActualWidth < ft.Width + 12) ? ScrollBarVisibility.Visible : ScrollBarVisibility.Hidden;
         return;
     }
 }

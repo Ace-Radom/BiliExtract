@@ -41,9 +41,13 @@ public enum RichLogViewStyleSource
 
 public enum TextStyle
 {
+    [Display(ResourceType = typeof(Resource), Name = "TextStyle_Normal")]
     Normal,
+    [Display(ResourceType = typeof(Resource), Name = "TextStyle_Bold")]
     Bold,
+    [Display(ResourceType = typeof(Resource), Name = "TextStyle_Italic")]
     Italic,
+    [Display(ResourceType = typeof(Resource), Name = "TextStyle_Underline")]
     Underline
 }
 

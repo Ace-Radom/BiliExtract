@@ -273,4 +273,100 @@ Used by `adb pair` &amp; `adb connect` command.</value>
   <data name="SettingsPage_CurrentLogFileCardControl_Subtitle" xml:space="preserve">
     <value>The log file BiliExtract currently is writing to.</value>
   </data>
+  <data name="SettingsPage_RichLogViewStyle_Title" xml:space="preserve">
+    <value>Log page style</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Subtitle" xml:space="preserve">
+    <value>Set rich text style of log messages in log page.</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Button_Content" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_Title" xml:space="preserve">
+    <value>Log Page Customize</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Title" xml:space="preserve">
+    <value>Target theme</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Subtitle" xml:space="preserve">
+    <value>Select application theme to customize.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Title" xml:space="preserve">
+    <value>Reset to default</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Subtitle" xml:space="preserve">
+    <value>Reset current customize settings to default.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FontComboBox_Title" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FontComboBox_Subtitle" xml:space="preserve">
+    <value>Select text font family.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Title" xml:space="preserve">
+    <value>Text color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set basic text color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Title" xml:space="preserve">
+    <value>Number color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set number color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Title" xml:space="preserve">
+    <value>Filename color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set filename color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ExceptionStyle_Title" xml:space="preserve">
+    <value>Exception style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ExceptionStyle_Subtitle" xml:space="preserve">
+    <value>Set exception style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Title" xml:space="preserve">
+    <value>String color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set string color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Title" xml:space="preserve">
+    <value>Time color (Y/M/D)</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Subtitle" xml:space="preserve">
+    <value>Set time color for year, month and day.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Title" xml:space="preserve">
+    <value>Time color (H:M:S)</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Subtitle" xml:space="preserve">
+    <value>Set time color for hour, minute and second.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Title" xml:space="preserve">
+    <value>Debug log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set debug log level style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Title" xml:space="preserve">
+    <value>Info log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set info log level style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Title" xml:space="preserve">
+    <value>Warning log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set warning log level style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title" xml:space="preserve">
+    <value>Error log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set error log level style.</value>
+  </data>
 </root>

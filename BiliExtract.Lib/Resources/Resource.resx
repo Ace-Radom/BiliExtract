@@ -150,4 +150,16 @@
   <data name="RichLogViewStyleSource_Custom" xml:space="preserve">
     <value>Custom</value>
   </data>
+  <data name="TextStyle_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="TextStyle_Bold" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="TextStyle_Italic" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="TextStyle_Underline" xml:space="preserve">
+    <value>Underline</value>
+  </data>
 </root>

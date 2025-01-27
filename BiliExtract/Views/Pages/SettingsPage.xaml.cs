@@ -15,6 +15,7 @@ namespace BiliExtract.Views.Pages;
 public partial class SettingsPage
 {
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly RichLogViewStyleManager _styleManager = IoCContainer.Resolve<RichLogViewStyleManager>();
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
     private bool _isRefreshing;
@@ -57,6 +58,17 @@ public partial class SettingsPage
         _accentColorComboBox.SetItems(Enum.GetValues<AccentColorSource>(), _settings.Data.AccentColorSource, t => t.GetDisplayName());
         _accentColorComboBox.Visibility = Visibility.Visible;
         UpdateAccentColorPicker();
+
+        _richLogViewStyleComboBox.SetItems(Enum.GetValues<RichLogViewStyleSource>(), _settings.Data.RichLogViewStyleSource, t => t.GetDisplayName());
+        _richLogViewStyleComboBox.Visibility = Visibility.Visible;
+        if (_settings.Data.RichLogViewStyleSource == RichLogViewStyleSource.Custom)
+        {
+            _richLogViewStyleButton.Visibility = Visibility.Visible;
+        }
+        else
+        {
+            _richLogViewStyleButton.Visibility = Visibility.Collapsed;
+        }
 
         _useBuiltInAdbToggleSwitch.IsChecked = _settings.Data.UseBuiltInAdb;
         _useBuiltInAdbToggleSwitch.Visibility = Visibility.Visible;
@@ -159,7 +171,7 @@ public partial class SettingsPage
         }
 
         var window = new AdbSettingsWindow { Owner = Window.GetWindow(this) };
-        window.Show();
+        window.ShowDialog();
 
         return;
     }
@@ -229,6 +241,48 @@ public partial class SettingsPage
 
         _settings.Data.MinLogLevel = state;
         _settings.SynchronizeData();
+
+        return;
+    }
+
+    private void RichLogViewStyleButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        var window = new LogPageStyleSettingsWindow { Owner = Window.GetWindow(this) };
+        window.ShowDialog();
+
+        return;
+    }
+
+    private void RichLogViewStyleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (!_richLogViewStyleComboBox.TryGetSelectedItem(out RichLogViewStyleSource state))
+        {
+            return;
+        }
+
+        _settings.Data.RichLogViewStyleSource = state;
+        _settings.SynchronizeData();
+
+        if (state == RichLogViewStyleSource.Custom)
+        {
+            _richLogViewStyleButton.Visibility = Visibility.Visible;
+        }
+        else
+        {
+            _richLogViewStyleButton.Visibility = Visibility.Collapsed;
+        }
+
+        _styleManager.RaiseStyleChanged();
 
         return;
     }
