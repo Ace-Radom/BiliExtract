@@ -11,7 +11,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Update platform-tools
+      - name: Update FFmpeg
         run: |
           wget -O ffmpeg-essentials.7z https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z
           7z x ffmpeg-essentials.7z -offmpeg_temp -y
