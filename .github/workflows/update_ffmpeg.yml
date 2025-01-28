@@ -1,4 +1,4 @@
-name: Update Platform-Tools
+name: Update FFmpeg
 
 on:
   workflow_dispatch:
@@ -13,9 +13,10 @@ jobs:
 
       - name: Update platform-tools
         run: |
-          wget -O platform-tools.zip https://dl.google.com/android/repository/platform-tools-latest-windows.zip 
-          unzip -o platform-tools.zip
-          rm platform-tools.zip
+          wget -O ffmpeg-essentials.7z https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z
+          7z x ffmpeg-essentials.7z -offmpeg_temp -y
+          mv ffmpeg_temp/ffmpeg*/bin/ffmpeg.exe ffmpeg/ffmpeg.exe
+          rm -rf ffmpeg-essentials.7z ffmpeg_temp
         working-directory: ${{github.workspace}}/BiliExtract.Lib/Binary
 
       - name: Extract Branch Name
@@ -28,5 +29,5 @@ jobs:
           github_token: ${{secrets.GITHUB_TOKEN}}
           author_email: ${{secrets.BOT_EMAIL}}
           author_name: ${{secrets.BOT_USERNAME}}
-          message: update platform-tools
+          message: update ffmpeg
           branch: ${{steps.extract_branch.outputs.branch}}
