@@ -115,6 +115,15 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Third party executables.
+        /// </summary>
+        public static string AboutPage_ThirdPartyExecutables {
+            get {
+                return ResourceManager.GetString("AboutPage_ThirdPartyExecutables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Third party libraries.
         /// </summary>
         public static string AboutPage_ThirdPartyLibraries {

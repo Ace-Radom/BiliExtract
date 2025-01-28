@@ -384,4 +384,7 @@ Used by `adb pair` &amp; `adb connect` command.</value>
   <data name="SaveFileDialog_Filter_AllFile" xml:space="preserve">
     <value>All file (*.*)</value>
   </data>
+  <data name="AboutPage_ThirdPartyExecutables" xml:space="preserve">
+    <value>Third party executables</value>
+  </data>
 </root>

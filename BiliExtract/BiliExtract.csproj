@@ -25,11 +25,17 @@
 
 	<ItemGroup>
 		<PlatformToolsFiles Include="..\BiliExtract.Lib\Binary\platform-tools\**" />
+		<FFmpegFiles Include="..\BiliExtract.Lib\Binary\ffmpeg\*.exe" />
 	</ItemGroup>
 
-	<Target Name="CopyPlatformTools" AfterTargets="Build;">
+	<Target Name="CopyPlatformTools" AfterTargets="Build">
 		<MakeDir Directories="$(OutputPath)bin\platform-tools" />
 		<Copy SourceFiles="@(PlatformToolsFiles)" DestinationFolder="$(OutputPath)bin\platform-tools\%(RecursiveDir)" />
+	</Target>
+
+	<Target Name="CopyFFmpeg" AfterTargets="Build">
+		<MakeDir Directories="$(OutputPath)bin\ffmpeg" />
+		<Copy SourceFiles="@(FFmpegFiles)" DestinationFolder="$(OutputPath)bin\ffmpeg\%(RecursiveDir)" />
 	</Target>
 
 	<ItemGroup>
