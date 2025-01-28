@@ -26,16 +26,39 @@
             FontWeight="Medium"
             Text="{x:Static resources:Resource.LogPage_Title}" />
 
-        <StackPanel
+        <DockPanel
             Margin="0,0,0,8"
             Grid.Row="1"
-            Orientation="Horizontal">
-            
-            <TextBlock
-                x:Name="_logCountTextBlock"
-                Focusable="True" />
-            
-        </StackPanel>
+            LastChildFill="False">
+
+            <Grid DockPanel.Dock="Left">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    x:Name="_logCountTextBlock"
+                    Grid.Row="0"
+                    Focusable="True"
+                    VerticalAlignment="Center" />
+
+                <TextBlock
+                    x:Name="_logMinLevelTextBlock"
+                    Grid.Row="1"
+                    Focusable="True"
+                    VerticalAlignment="Center" />
+
+            </Grid>
+
+            <custom:FluentIconButton
+                Margin="8,0,0,8"
+                Click="SaveFluentIconButton_Click"
+                DockPanel.Dock="Right"
+                Icon="Save24" />
+
+        </DockPanel>
 
         <RichTextBox
             x:Name="_logRichTextBox"

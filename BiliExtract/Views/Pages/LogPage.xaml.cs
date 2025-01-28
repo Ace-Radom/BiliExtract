@@ -1,7 +1,12 @@
 ﻿using BiliExtract.Lib;
 using BiliExtract.Lib.Events;
+using BiliExtract.Lib.Extensions;
+using BiliExtract.Lib.Settings;
 using BiliExtract.Managers;
 using BiliExtract.Resources;
+using Microsoft.Win32;
+using System;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,7 +17,7 @@ namespace BiliExtract.Views.Pages;
 
 public partial class LogPage
 {
-    private readonly object _lock = new();
+    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
     private readonly RichLogViewStyleManager _styleManager = IoCContainer.Resolve<RichLogViewStyleManager>();
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
 
@@ -54,6 +59,7 @@ public partial class LogPage
         await Dispatcher.InvokeAsync(() =>
         {
             UpdateLogCountTextBlock();
+            UpdateLogMinLevelTextBlock();
             _logRichTextBox.Document.Blocks.Clear();
             var font = _styleManager.Font;
             if (font is not null)
@@ -89,6 +95,12 @@ public partial class LogPage
         return;
     }
 
+    private void UpdateLogMinLevelTextBlock()
+    {
+        _logMinLevelTextBlock.Text = string.Format(Resource.LogPage_LogMinLevelTextBlock_Text, _settings.Data.MinLogLevel.GetDisplayName());
+        return;
+    }
+
     private void UpdateLogRichTextBoxBackgroundColor()
     {
         _logRichTextBox.Background = _themeManager.IsDarkMode() ? _darkThemeRichTextBoxBackgroundColor : _lightThemeRichTextBoxBackgroundColor;
@@ -107,6 +119,32 @@ public partial class LogPage
         );
         _logRichTextBox.Document.PageWidth = ft.Width + 12;
         _logRichTextBox.HorizontalScrollBarVisibility = (_logRichTextBox.ActualWidth < ft.Width + 12) ? ScrollBarVisibility.Visible : ScrollBarVisibility.Hidden;
+        return;
+    }
+
+    private void SaveFluentIconButton_Click(object sender, RoutedEventArgs e)
+    {
+        var logMsgs = Log.GlobalLogger.LogMessages;
+        SaveFileDialog sfd = new()
+        {
+            Title = Resource.SaveFileDialog_SaveLog_Title,
+            Filter = $"{Resource.SaveFileDialog_Filter_LogFile}|*.log|{Resource.SaveFileDialog_Filter_TextFile}|*.txt|{Resource.SaveFileDialog_Filter_AllFile}|*.*",
+            DefaultExt = "*.log",
+            AddExtension = true,
+            FileName = $"BiliExtract_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}"
+        };
+        if (sfd.ShowDialog() == true)
+        {
+            string filePath = sfd.FileName;
+            try
+            {
+                File.WriteAllText(filePath, logMsgs);
+            }
+            catch (Exception ex)
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Save log file failed. [path=\"{filePath}\"]", ex);
+            }
+        }
         return;
     }
 }

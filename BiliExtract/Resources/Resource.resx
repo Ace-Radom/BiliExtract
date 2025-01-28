@@ -369,4 +369,19 @@ Used by `adb pair` &amp; `adb connect` command.</value>
   <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle" xml:space="preserve">
     <value>Set error log level style.</value>
   </data>
+  <data name="LogPage_LogMinLevelTextBlock_Text" xml:space="preserve">
+    <value>Min log level: {0}</value>
+  </data>
+  <data name="SaveFileDialog_SaveLog_Title" xml:space="preserve">
+    <value>Save log file to</value>
+  </data>
+  <data name="SaveFileDialog_Filter_TextFile" xml:space="preserve">
+    <value>Text file (*.txt)</value>
+  </data>
+  <data name="SaveFileDialog_Filter_LogFile" xml:space="preserve">
+    <value>Log file (*.log)</value>
+  </data>
+  <data name="SaveFileDialog_Filter_AllFile" xml:space="preserve">
+    <value>All file (*.*)</value>
+  </data>
 </root>

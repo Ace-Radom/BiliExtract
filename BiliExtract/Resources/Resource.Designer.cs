@@ -307,6 +307,15 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Min log level: {0}.
+        /// </summary>
+        public static string LogPage_LogMinLevelTextBlock_Text {
+            get {
+                return ResourceManager.GetString("LogPage_LogMinLevelTextBlock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Log.
         /// </summary>
         public static string LogPage_Title {
@@ -609,6 +618,42 @@ namespace BiliExtract.Resources {
         public static string MainWindow_NavigationStore_Item_Settings {
             get {
                 return ResourceManager.GetString("MainWindow_NavigationStore_Item_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All file (*.*).
+        /// </summary>
+        public static string SaveFileDialog_Filter_AllFile {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Filter_AllFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log file (*.log).
+        /// </summary>
+        public static string SaveFileDialog_Filter_LogFile {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Filter_LogFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text file (*.txt).
+        /// </summary>
+        public static string SaveFileDialog_Filter_TextFile {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_Filter_TextFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save log file to.
+        /// </summary>
+        public static string SaveFileDialog_SaveLog_Title {
+            get {
+                return ResourceManager.GetString("SaveFileDialog_SaveLog_Title", resourceCulture);
             }
         }
         

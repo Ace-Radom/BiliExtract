@@ -108,7 +108,7 @@ public partial class SettingsPage
         }
         else
         {
-            _currentLogFileTextBlock.Visibility = Visibility.Collapsed;
+            _currentLogFileCardControl.Visibility = Visibility.Collapsed;
         }
 
         _isRefreshing = false;
