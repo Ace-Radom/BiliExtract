@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace BiliExtract.Lib;
 
@@ -109,4 +110,13 @@ public readonly struct Size(double width, double height)
 {
     public double Width { get; } = width;
     public double Height { get; } = height;
+}
+
+[method: JsonConstructor]
+public readonly struct TempFileHandle(string path, DateTime registerTime)
+{
+    public static TempFileHandle Empty => new();
+
+    public string Path { get; } = path;
+    public DateTime RegisterTime { get; } = registerTime;
 }

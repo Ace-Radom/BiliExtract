@@ -19,6 +19,40 @@ public enum AdbDeviceState
     Unauthorized
 }
 
+public enum FFmpegLogLevel
+{
+    Quiet,
+    Panic,
+    Fatal,
+    Error,
+    Warning,
+    Info,
+    Verbose,
+    Debug
+}
+
+public enum FFmpegProgressRedirect
+{
+    None,
+    Stdout,
+    Stderr
+}
+
+public enum FFmpegProgressState
+{
+    Continue,
+    End
+}
+
+public enum FileChangedEventType
+{
+    Unknown,
+    Changed,
+    Created,
+    Deleted,
+    Renamed
+}
+
 public enum LogLevel
 {
     [Display(ResourceType = typeof(Resource), Name = "LogLevel_Debug")]
@@ -37,6 +71,13 @@ public enum RichLogViewStyleSource
     Default,
     [Display(ResourceType = typeof(Resource), Name = "RichLogViewStyleSource_Custom")]
     Custom
+}
+
+public enum TempFileState
+{
+    Normal,
+    Locked,
+    Released
 }
 
 public enum TextStyle
