@@ -70,7 +70,7 @@ public class Log
         [CallerLineNumber] int lineNumber = -1,
         [CallerMemberName] string? caller = null)
     {
-        if (_minLogLevel is null && IoCContainer.IsInitialized)
+        if (IoCContainer.IsInitialized)
         {
             _minLogLevel = IoCContainer.Resolve<ApplicationSettings>().Data.MinLogLevel;
         }
