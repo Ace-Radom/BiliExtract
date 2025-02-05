@@ -119,4 +119,31 @@ public readonly struct TempFileHandle(string path, DateTime registerTime)
 
     public string Path { get; } = path;
     public DateTime RegisterTime { get; } = registerTime;
+
+    #region Equality
+
+    public override bool Equals(object? obj)
+    {
+        return obj is TempFileHandle handle && Path == handle.Path && RegisterTime == handle.RegisterTime;
+    }
+
+    public static bool operator ==(TempFileHandle left, TempFileHandle right) => left.Equals(right);
+
+    public static bool operator !=(TempFileHandle left, TempFileHandle right) => !left.Equals(right);
+
+    #endregion
+}
+
+[method: JsonConstructor]
+public struct TempFileHandleData()
+{
+    public string? Hash { get; set; }
+    public TempFileState State { get; set; }
+}
+
+[method: JsonConstructor]
+public readonly struct TempFileHandleStore(TempFileHandle handle, string hash)
+{
+    public TempFileHandle Handle { get; } = handle;
+    public string Hash { get; } = hash;
 }

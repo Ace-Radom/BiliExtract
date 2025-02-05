@@ -8,6 +8,7 @@ public class ApplicationSettings() : AbstractSettings<ApplicationSettingsData>("
     {
         public RGBColor? AccentColor { get; set; }
         public AccentColorSource AccentColorSource { get; set; }
+        public int AutoTempCleanupIntervalMin { get; set; } = 1;
         public string? ExternalAdbPath { get; set; }
         public string? ExternalFFmpegPath { get; set; }
         public LogLevel MinLogLevel { get; set; } = LogLevel.Info;

@@ -6,6 +6,6 @@ public class LockedTempHandlesSettings() : AbstractSettings<LockedTempHandlesSet
 {
     public class LockedTempHandlesSettingsData
     {
-        public TempFileHandle[] LockedTempHandles { get; set; } = [];
+        public TempFileHandleStore[] LockedTempHandles { get; set; } = [];
     }
 }
