@@ -1,4 +1,5 @@
 ﻿using BiliExtract.Lib;
+using BiliExtract.Lib.Managers;
 using BiliExtract.Managers;
 using BiliExtract.Views.Windows;
 using System.Windows;
@@ -16,7 +17,7 @@ namespace BiliExtract
         /// <summary>
         /// Occurs when the application is loading.
         /// </summary>
-        private void OnStartup(object sender, StartupEventArgs e)
+        private async void OnStartup(object sender, StartupEventArgs e)
         {
             RenderOptions.ProcessRenderMode = RenderMode.SoftwareOnly;
 
@@ -24,6 +25,8 @@ namespace BiliExtract
                 new Lib.IoCModule(),
                 new IoCModule()
             );
+
+            await IoCContainer.Resolve<TempManager>().StartAutoCleanupTimerAsync();
 
             var mainWindow = new MainWindow
             {

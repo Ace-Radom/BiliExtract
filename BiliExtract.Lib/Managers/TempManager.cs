@@ -20,14 +20,13 @@ public class TempManager
     private readonly Dictionary<TempFileHandle, TempFileHandleData> _tempHandleTable = [];
 
     private Timer? _autoCleanupTimer;
-    private DateTime? _lastCleanupDateTime;
-    private DateTime? _nextCleanupDateTime;
+    private DateTime _lastCleanupDateTime = DateTime.MinValue;
+    private DateTime _nextCleanupDateTime = DateTime.MinValue;
 
     public TempManager()
     {
         _tempFolderListener.Changed += TempFolderListener_Changed;
         RestoreLockedTempHandles();
-        StartAutoCleanupTimer(_settings.Data.AutoTempCleanupIntervalMin);
 
         return;
     }
@@ -173,24 +172,38 @@ public class TempManager
         }
     }
 
-    public void StartAutoCleanupTimer(int interval)
+    public Task StartAutoCleanupTimerAsync()
     {
+        if (_autoCleanupTimer?.Enabled ?? false)
+        {
+            return Task.CompletedTask;
+        }
+
         _autoCleanupTimer = new()
         {
             AutoReset = true,
             Enabled = true,
             Interval = 60000
         };
-        _nextCleanupDateTime = DateTime.UtcNow.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
+        _lastCleanupDateTime = DateTime.UtcNow;
+        _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
         _autoCleanupTimer.Elapsed += (_, _) => CleanupIfNeededAsync();
-        return;
+        _settings.Data.AutoTempCleanupIntervalChanged += (_, _) => RefreshAutoCleanupInterval();
+        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Auto temp cleanup timer started.");
+        return Task.CompletedTask;
     }
 
-    public void StopAutoCleanupTimer()
+    public Task StopAutoCleanupTimerAsync()
     {
+        if (!_autoCleanupTimer?.Enabled ?? true)
+        {
+            return Task.CompletedTask;
+        }
+
         _autoCleanupTimer?.Stop();
         _autoCleanupTimer?.Dispose();
-        return;
+        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Auto temp cleanup timer stoped.");
+        return Task.CompletedTask;
     }
 
     private Task CleanupAsync()
@@ -198,6 +211,7 @@ public class TempManager
         lock (_lock)
         {
             Log.GlobalLogger.WriteLog(LogLevel.Info, $"Starting temp cleanup.");
+
             foreach (var handleData in _tempHandleTable)
             {
                 if (handleData.Value.State is TempFileState.Released)
@@ -216,6 +230,16 @@ public class TempManager
             {
                 _tempHandleTable.Remove(handle);
             }
+
+            foreach (var path in Directory.GetFiles(Folders.Temp, "*", SearchOption.AllDirectories))
+            {
+                if (GetTempFileHandleFromPathNoLock(path, out _) is null)
+                {
+                    File.Delete(path);
+                }
+                // remove files not in table
+            }
+
             Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp cleanup completed. [count={releasedHandles.Count}]");
         }
         return Task.CompletedTask;
@@ -228,8 +252,13 @@ public class TempManager
             return;
         }
         await CleanupAsync().ConfigureAwait(false);
-        _lastCleanupDateTime = _nextCleanupDateTime;
-        _nextCleanupDateTime = _lastCleanupDateTime?.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
+
+        lock (_lock)
+        {
+            _lastCleanupDateTime = DateTime.UtcNow;
+            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
+        }
+        
         return;
     }
 
@@ -260,6 +289,15 @@ public class TempManager
         }
         state = null;
         return null;
+    }
+
+    private void RefreshAutoCleanupInterval()
+    {
+        lock (_lock)
+        {
+            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
+        }
+        return;
     }
 
     private void RestoreLockedTempHandles()
