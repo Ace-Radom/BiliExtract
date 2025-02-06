@@ -9,6 +9,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace BiliExtract.Views.Pages;
 
@@ -196,12 +197,24 @@ public partial class SettingsPage
             return;
         }
 
+        if (_settings.Data.UseBuiltInAdb)
+        {
+            return;
+        }
+
         var text = _externalAdbPathTextBox.Text;
         if (text is null)
         {
             return;
         }
 
+        if (!Path.Exists(text) || !Path.IsPathRooted(text))
+        {
+            _externalAdbPathTextBox.SetErrorBorderStyle();
+            return;
+        }
+
+        _externalAdbPathTextBox.SetNormalBorderStyle();
         _settings.Data.ExternalAdbPath = text;
         _settings.SynchronizeData();
 
@@ -215,12 +228,24 @@ public partial class SettingsPage
             return;
         }
 
+        if (_settings.Data.UseBuiltInFFmpeg)
+        {
+            return;
+        }
+
         var text = _externalFFmpegPathTextBox.Text;
         if (text is null)
         {
             return;
         }
 
+        if (!Path.Exists(text) || !Path.IsPathRooted(text))
+        {
+            _externalFFmpegPathTextBox.SetErrorBorderStyle();
+            return;
+        }
+
+        _externalFFmpegPathTextBox.SetNormalBorderStyle();
         _settings.Data.ExternalFFmpegPath = text;
         _settings.SynchronizeData();
 
