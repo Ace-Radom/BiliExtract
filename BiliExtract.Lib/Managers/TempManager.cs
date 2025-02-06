@@ -37,7 +37,7 @@ public class TempManager
         lock (_lock)
         {
             var oldHandleTemp = GetTempFileHandleFromPathNoLock(path, out var state);
-            if (state is not null && oldHandleTemp is TempFileHandle oldHandle)
+            if (oldHandleTemp is TempFileHandle oldHandle)
             {
                 if (state is TempFileState.Locked)
                 {
@@ -67,34 +67,36 @@ public class TempManager
 
     public bool Release(TempFileHandle handle, bool releaseLocked = false)
     {
-        if (!_tempHandleTable.TryGetValue(handle, out var data))
+        lock (_lock)
         {
-            Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Release non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-            return false;
-        }
-        var state = data.State;
-        if (state is TempFileState.Released)
-        {
-            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Release released handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-            return true;
-        }
-        if (state is TempFileState.Locked)
-        {
-            if (!releaseLocked)
+            if (!_tempHandleTable.TryGetValue(handle, out var data))
             {
-                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Release locked handle but `releaseLocked` flag set to false, blocked. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Release non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
                 return false;
             }
+            var state = data.State;
+            if (state is TempFileState.Released)
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Info, $"Handle has already been released. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return true;
+            }
+            if (state is TempFileState.Locked)
+            {
+                if (!releaseLocked)
+                {
+                    Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Release locked handle but `releaseLocked` flag set to false, blocked. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                    return false;
+                }
+            }
+            _tempHandleTable[handle] = new TempFileHandleData()
+            {
+                Hash = data.Hash,
+                State = TempFileState.Released
+            };
+            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp handle released. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+
+            SynchronizeLockedTempHandlesNoLock();
         }
-        _tempHandleTable[handle] = new TempFileHandleData()
-        {
-            Hash = data.Hash,
-            State = TempFileState.Released
-        };
-        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp handle released. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-
-        SynchronizeLockedTempHandlesNoLock();
-
         return true;
     }
 
@@ -109,66 +111,87 @@ public class TempManager
 
     public bool Lock(TempFileHandle handle)
     {
-        if (!_tempHandleTable.TryGetValue(handle, out var data))
+        lock (_lock)
         {
-            Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Lock non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-            return false;
-        }
-        var state = data.State;
-        if (state is TempFileState.Released)
-        {
-            Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Lock released handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-            return false;
-        }
-        if (state is TempFileState.Locked)
-        {
-            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Relock locked handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-            return true;
-        }
-        _tempHandleTable[handle] = new TempFileHandleData()
-        {
-            Hash = Hash.SHA256File(handle.Path),
-            State = TempFileState.Locked
-        };
-        _tempFolderListener.Watch(handle.Path);
-        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp handle locked. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+            if (!_tempHandleTable.TryGetValue(handle, out var data))
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Lock non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return false;
+            }
+            var state = data.State;
+            if (state is TempFileState.Released)
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Lock released handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return false;
+            }
+            if (state is TempFileState.Locked)
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Info, $"Relock locked handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return true;
+            }
+            _tempHandleTable[handle] = new TempFileHandleData()
+            {
+                Hash = Hash.SHA256File(handle.Path),
+                State = TempFileState.Locked
+            };
+            _tempFolderListener.Watch(handle.Path);
+            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp handle locked. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
 
-        SynchronizeLockedTempHandlesNoLock();
-
+            SynchronizeLockedTempHandlesNoLock();
+        }
         return true;
     }
 
     public bool Unlock(TempFileHandle handle)
     {
-        if (!_tempHandleTable.TryGetValue(handle, out var data))
+        lock (_lock)
         {
-            Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Unlock non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-            return false;
-        }
-        var state = data.State;
-        if (state is not TempFileState.Locked)
-        {
-            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Unlock non-locked handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
-            return true;
-        }
-        _tempHandleTable[handle] = new TempFileHandleData()
-        {
-            Hash = data.Hash,
-            State = TempFileState.Normal
-        };
-        _tempFolderListener.Unwatch(handle.Path);
-        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp handle unlocked. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+            if (!_tempHandleTable.TryGetValue(handle, out var data))
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Unlock non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return false;
+            }
+            var state = data.State;
+            if (state is not TempFileState.Locked)
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Info, $"Unlock non-locked handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return true;
+            }
+            _tempHandleTable[handle] = new()
+            {
+                Hash = data.Hash,
+                State = TempFileState.Normal
+            };
+            _tempFolderListener.Unwatch(handle.Path);
+            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp handle unlocked. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
 
-        SynchronizeLockedTempHandlesNoLock();
-
+            SynchronizeLockedTempHandlesNoLock();
+        }
         return true;
     }
 
-    public TempFileHandle? GetTempFileHandleFromPath(string path, out TempFileState? state)
+    public TempFileHandle? GetTempFileHandleFromPath(string path, out TempFileState? state, out bool rescued)
     {
+        rescued = false;
         lock (_lock)
         {
-            return GetTempFileHandleFromPathNoLock(path, out state);
+            var handle = GetTempFileHandleFromPathNoLock(path, out state);
+            if (handle is TempFileHandle handleNotNull && state is not null)
+            {
+                if (state is TempFileState.Released)
+                {
+                    Log.GlobalLogger.WriteLog(LogLevel.Info, $"Try getting a released handle, rescue. [path=\"{handleNotNull.Path}\",register_time=\"{handleNotNull.RegisterTime}\"]");
+                    var handleData = _tempHandleTable[handleNotNull];
+                    _tempHandleTable[handleNotNull] = new()
+                    {
+                        Hash = handleData.Hash,
+                        State = TempFileState.Normal
+                    };
+                    state = TempFileState.Normal;
+                    rescued = true;
+                }
+            }
+            return handle;
         }
     }
 
@@ -195,11 +218,6 @@ public class TempManager
 
     public Task StopAutoCleanupTimerAsync()
     {
-        if (!_autoCleanupTimer?.Enabled ?? true)
-        {
-            return Task.CompletedTask;
-        }
-
         _autoCleanupTimer?.Stop();
         _autoCleanupTimer?.Dispose();
         Log.GlobalLogger.WriteLog(LogLevel.Info, $"Auto temp cleanup timer stoped.");
@@ -231,16 +249,17 @@ public class TempManager
                 _tempHandleTable.Remove(handle);
             }
 
+            int fileNotInTableCount = 0;
             foreach (var path in Directory.GetFiles(Folders.Temp, "*", SearchOption.AllDirectories))
             {
                 if (GetTempFileHandleFromPathNoLock(path, out _) is null)
                 {
                     File.Delete(path);
+                    fileNotInTableCount++;
                 }
-                // remove files not in table
-            }
+            } // remove files not in table
 
-            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp cleanup completed. [count={releasedHandles.Count}]");
+            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp cleanup completed. [count={releasedHandles.Count + fileNotInTableCount}]");
         }
         return Task.CompletedTask;
     }
@@ -249,16 +268,16 @@ public class TempManager
     {
         if (DateTime.UtcNow < _nextCleanupDateTime)
         {
+            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"No need to cleanup. [next={_nextCleanupDateTime}]");
             return;
         }
-        await CleanupAsync().ConfigureAwait(false);
-
         lock (_lock)
         {
             _lastCleanupDateTime = DateTime.UtcNow;
-            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
+            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin).AddSeconds(-1);
+            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Need to cleanup. [next={_nextCleanupDateTime}]");
         }
-        
+        await CleanupAsync().ConfigureAwait(false);
         return;
     }
 
@@ -295,7 +314,8 @@ public class TempManager
     {
         lock (_lock)
         {
-            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
+            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin).AddSeconds(-1);
+            // minus 1 sec to make sure job will be triggered properly
         }
         return;
     }
