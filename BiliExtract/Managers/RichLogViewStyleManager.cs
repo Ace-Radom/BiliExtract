@@ -140,7 +140,7 @@ public class RichLogViewStyleManager
                 runs.Add(new Run().SetTextAndStyle(line[bpos..epos], style.NumberColor));
                 runs.Add(new Run().SetTextAndStyle(":", style.NormalTextColor));
                 bpos = epos + 1;
-                epos = line.Length - 2;
+                epos = line.LastIndexOf(']');
                 runs.Add(new Run().SetTextAndStyle(line[bpos..epos], style.NormalTextColor));
                 runs.Add(new Run().SetTextAndStyle("]", style.NormalTextColor));
                 // file, line, function
