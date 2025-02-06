@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace BiliExtract.Lib.Events;
+﻿namespace BiliExtract.Lib.Events;
 
 public class LogRefreshedEventArgs(string[] newLogMessages)
 {
-    public string[] NewLogMessages { get; set; } = newLogMessages;
+    public string[] NewLogMessages { get; } = newLogMessages;
 }

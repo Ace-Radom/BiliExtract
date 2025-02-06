@@ -1,14 +1,8 @@
 ﻿using static BiliExtract.Lib.Settings.TextStyleSettings;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace BiliExtract.Lib.Settings;
 
-public class TextStyleSettings() : AbstractSettings<TextStyleSettingsData>("textstylesettings.json")
+public class TextStyleSettings() : AbstractSettings<TextStyleSettingsData>("text_style_settings.json")
 {
     public class TextStyleSettingsData
     {
