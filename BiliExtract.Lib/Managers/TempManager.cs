@@ -211,7 +211,7 @@ public class TempManager
         _lastCleanupDateTime = DateTime.UtcNow;
         _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
         _autoCleanupTimer.Elapsed += (_, _) => CleanupIfNeededAsync();
-        _settings.Data.AutoTempCleanupIntervalChanged += (_, _) => RefreshAutoCleanupInterval();
+        _settings.Data.AutoTempCleanupIntervalChanged += (_, _) => RefreshNextCleanupDateTime();
         Log.GlobalLogger.WriteLog(LogLevel.Info, $"Auto temp cleanup timer started.");
         return Task.CompletedTask;
     }
@@ -310,12 +310,13 @@ public class TempManager
         return null;
     }
 
-    private void RefreshAutoCleanupInterval()
+    private void RefreshNextCleanupDateTime()
     {
         lock (_lock)
         {
             _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin).AddSeconds(-1);
             // minus 1 sec to make sure job will be triggered properly
+            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Next cleanup date time refreshed. [interval={_settings.Data.AutoTempCleanupIntervalMin},next={_nextCleanupDateTime}]");
         }
         return;
     }

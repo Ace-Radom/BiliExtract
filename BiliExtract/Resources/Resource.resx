@@ -387,4 +387,10 @@ Used by `adb pair` &amp; `adb connect` command.</value>
   <data name="AboutPage_ThirdPartyExecutables" xml:space="preserve">
     <value>Third party executables</value>
   </data>
+  <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Title" xml:space="preserve">
+    <value>Auto temp cleanup interval</value>
+  </data>
+  <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle" xml:space="preserve">
+    <value>Set interval for automatic temp cleaning.</value>
+  </data>
 </root>

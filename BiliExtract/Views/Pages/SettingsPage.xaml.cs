@@ -100,6 +100,9 @@ public partial class SettingsPage
             _externalFFmpegPathTextBox.Visibility = Visibility.Visible;
         }
 
+        _autoTempCleanupIntervalNumberBox.Value = _settings.Data.AutoTempCleanupIntervalMin;
+        _autoTempCleanupIntervalNumberBox.Visibility = Visibility.Visible;
+
         _minLogLevelComboBox.SetItems(Enum.GetValues<LogLevel>(), _settings.Data.MinLogLevel, t => t.GetDisplayName());
         _minLogLevelComboBox.Visibility = Visibility.Visible;
         if (Log.GlobalLogger.IsLoggingToFile)
@@ -173,6 +176,20 @@ public partial class SettingsPage
 
         var window = new AdbSettingsWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
+
+        return;
+    }
+
+    private void AutoTempCleanupIntervalNumberBox_ValueChanged(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        var value = (int)(_autoTempCleanupIntervalNumberBox.Value ?? 1);
+        _settings.Data.AutoTempCleanupIntervalMin = value;
+        _settings.SynchronizeData();
 
         return;
     }

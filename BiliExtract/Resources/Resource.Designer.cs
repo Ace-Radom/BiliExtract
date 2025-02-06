@@ -703,6 +703,24 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set interval for automatic temp cleaning..
+        /// </summary>
+        public static string SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto temp cleanup interval.
+        /// </summary>
+        public static string SettingsPage_AutoTempCleanupIntervalNumberBox_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_AutoTempCleanupIntervalNumberBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The log file BiliExtract currently is writing to..
         /// </summary>
         public static string SettingsPage_CurrentLogFileCardControl_Subtitle {
