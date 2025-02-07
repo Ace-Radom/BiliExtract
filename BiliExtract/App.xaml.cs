@@ -26,7 +26,7 @@ namespace BiliExtract
                 new IoCModule()
             );
 
-            await IoCContainer.Resolve<TempManager>().StartAutoCleanupTimerAsync();
+            await IoCContainer.Resolve<TempManager>().StartBackgroundTimerAsync();
 
             var mainWindow = new MainWindow
             {

@@ -820,6 +820,24 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set refresh interval for temp folder size..
+        /// </summary>
+        public static string SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temp size refresh interval.
+        /// </summary>
+        public static string SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set BiliExtract Theme (Light, Dark, Follow System)..
         /// </summary>
         public static string SettingsPage_ThemeComboBox_Subtitle {

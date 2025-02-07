@@ -1,4 +1,5 @@
 ﻿using BiliExtract.Lib.Events;
+using BiliExtract.Lib.Extensions;
 using BiliExtract.Lib.Listener;
 using BiliExtract.Lib.Settings;
 using BiliExtract.Lib.Utils;
@@ -19,9 +20,14 @@ public class TempManager
     private readonly TempFolderListener _tempFolderListener = IoCContainer.Resolve<TempFolderListener>();
     private readonly Dictionary<TempFileHandle, TempFileHandleData> _tempHandleTable = [];
 
-    private Timer? _autoCleanupTimer;
+    private Timer? _backgroundTimer;
     private DateTime _lastCleanupDateTime = DateTime.MinValue;
     private DateTime _nextCleanupDateTime = DateTime.MinValue;
+    private DateTime _lastStorageUsageRefreshTime = DateTime.MinValue;
+    private DateTime _nextStorageUsageRefreshTime = DateTime.MinValue;
+    private long _storageUsage;
+
+    public long StorageUsage => _storageUsage;
 
     public TempManager()
     {
@@ -118,6 +124,11 @@ public class TempManager
                 Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Lock non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
                 return false;
             }
+            if (!File.Exists(handle.Path))
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Lock non-existent file. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return false;
+            }
             var state = data.State;
             if (state is TempFileState.Released)
             {
@@ -149,6 +160,11 @@ public class TempManager
             if (!_tempHandleTable.TryGetValue(handle, out var data))
             {
                 Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Unlock non-existent handle. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
+                return false;
+            }
+            if (!File.Exists(handle.Path))
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Warning, $"Unlock non-existent file. [path=\"{handle.Path}\",register_time=\"{handle.RegisterTime}\"]");
                 return false;
             }
             var state = data.State;
@@ -195,32 +211,46 @@ public class TempManager
         }
     }
 
-    public Task StartAutoCleanupTimerAsync()
+    public Task RefreshStorageUsageAsync()
     {
-        if (_autoCleanupTimer?.Enabled ?? false)
+        lock (_lock)
+        {
+            _storageUsage = FileSize.GetDirectorySize(Folders.Temp);
+            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp storage usage refreshed. [size={_storageUsage}]");
+        }
+        return Task.CompletedTask;
+    }
+
+    public Task StartBackgroundTimerAsync()
+    {
+        if (_backgroundTimer?.Enabled ?? false)
         {
             return Task.CompletedTask;
         }
 
-        _autoCleanupTimer = new()
+        _backgroundTimer = new()
         {
             AutoReset = true,
-            Enabled = true,
             Interval = 60000
         };
         _lastCleanupDateTime = DateTime.UtcNow;
-        _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin);
-        _autoCleanupTimer.Elapsed += (_, _) => CleanupIfNeededAsync();
+        _nextCleanupDateTime = _lastCleanupDateTime.AddIntervalMinute(_settings.Data.AutoTempCleanupIntervalMin);
+        _lastStorageUsageRefreshTime = DateTime.UtcNow;
+        _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+        _backgroundTimer.Start();
+        _backgroundTimer.Elapsed += (_, _) => CleanupIfNeededAsync();
+        _backgroundTimer.Elapsed += (_, _) => RefreshStorageUsageIfNeededAsync();
         _settings.Data.AutoTempCleanupIntervalChanged += (_, _) => RefreshNextCleanupDateTime();
-        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Auto temp cleanup timer started.");
+        _settings.Data.TempFolderStorageUsageRefreshIntervalChanged += (_, _) => RefreshNextStorageUsageRefreshDateTime();
+        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Background timer started.");
         return Task.CompletedTask;
     }
 
-    public Task StopAutoCleanupTimerAsync()
+    public Task StopBackgroundTimerAsync()
     {
-        _autoCleanupTimer?.Stop();
-        _autoCleanupTimer?.Dispose();
-        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Auto temp cleanup timer stoped.");
+        _backgroundTimer?.Stop();
+        _backgroundTimer?.Dispose();
+        Log.GlobalLogger.WriteLog(LogLevel.Info, $"Background timer stoped.");
         return Task.CompletedTask;
     }
 
@@ -266,15 +296,15 @@ public class TempManager
 
     private async void CleanupIfNeededAsync()
     {
-        if (DateTime.UtcNow < _nextCleanupDateTime)
-        {
-            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"No need to cleanup. [next={_nextCleanupDateTime}]");
-            return;
-        }
         lock (_lock)
         {
+            if (DateTime.UtcNow < _nextCleanupDateTime)
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Debug, $"No need to cleanup. [next={_nextCleanupDateTime}]");
+                return;
+            }
             _lastCleanupDateTime = DateTime.UtcNow;
-            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin).AddSeconds(-1);
+            _nextCleanupDateTime = _lastCleanupDateTime.AddIntervalMinute(_settings.Data.AutoTempCleanupIntervalMin);
             Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Need to cleanup. [next={_nextCleanupDateTime}]");
         }
         await CleanupAsync().ConfigureAwait(false);
@@ -314,10 +344,36 @@ public class TempManager
     {
         lock (_lock)
         {
-            _nextCleanupDateTime = _lastCleanupDateTime.AddMinutes(_settings.Data.AutoTempCleanupIntervalMin).AddSeconds(-1);
-            // minus 1 sec to make sure job will be triggered properly
+            _nextCleanupDateTime = _lastCleanupDateTime.AddIntervalMinute(_settings.Data.AutoTempCleanupIntervalMin);
             Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Next cleanup date time refreshed. [interval={_settings.Data.AutoTempCleanupIntervalMin},next={_nextCleanupDateTime}]");
         }
+        return;
+    }
+
+    private void RefreshNextStorageUsageRefreshDateTime()
+    {
+        lock (_lock)
+        {
+            _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Next storage usage refresh date time refreshed. [interval={_settings.Data.TempFolderStorageUsageRefreshIntervalMin},next={_nextStorageUsageRefreshTime}]");
+        }
+        return;
+    }
+
+    private async void RefreshStorageUsageIfNeededAsync()
+    {
+        lock (_lock)
+        {
+            if (DateTime.UtcNow < _nextStorageUsageRefreshTime)
+            {
+                Log.GlobalLogger.WriteLog(LogLevel.Debug, $"No need to refresh storage usage. [next={_nextStorageUsageRefreshTime}]");
+                return;
+            }
+            _lastStorageUsageRefreshTime = DateTime.UtcNow;
+            _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Need to refresh storage usage. [next={_nextStorageUsageRefreshTime}]");
+        }
+        await RefreshStorageUsageAsync().ConfigureAwait(false);
         return;
     }
 

@@ -102,6 +102,8 @@ public partial class SettingsPage
 
         _autoTempCleanupIntervalNumberBox.Value = _settings.Data.AutoTempCleanupIntervalMin;
         _autoTempCleanupIntervalNumberBox.Visibility = Visibility.Visible;
+        _tempStorageUsageRefreshIntervalNumberBox.Value = _settings.Data.TempFolderStorageUsageRefreshIntervalMin;
+        _tempStorageUsageRefreshIntervalNumberBox.Visibility = Visibility.Visible;
 
         _minLogLevelComboBox.SetItems(Enum.GetValues<LogLevel>(), _settings.Data.MinLogLevel, t => t.GetDisplayName());
         _minLogLevelComboBox.Visibility = Visibility.Visible;
@@ -325,6 +327,20 @@ public partial class SettingsPage
         }
 
         _styleManager.RaiseStyleChanged();
+
+        return;
+    }
+
+    private void TempStorageUsageRefreshIntervalNumberBox_ValueChanged(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        var value = (int)(_tempStorageUsageRefreshIntervalNumberBox.Value ?? 1);
+        _settings.Data.TempFolderStorageUsageRefreshIntervalMin = value;
+        _settings.SynchronizeData();
 
         return;
     }

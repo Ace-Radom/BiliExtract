@@ -393,4 +393,10 @@ Used by `adb pair` &amp; `adb connect` command.</value>
   <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle" xml:space="preserve">
     <value>Set interval for automatic temp cleaning.</value>
   </data>
+  <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Title" xml:space="preserve">
+    <value>Temp size refresh interval</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle" xml:space="preserve">
+    <value>Set refresh interval for temp folder size.</value>
+  </data>
 </root>
