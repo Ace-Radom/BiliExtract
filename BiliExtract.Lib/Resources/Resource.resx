@@ -162,4 +162,10 @@
   <data name="TextStyle_Underline" xml:space="preserve">
     <value>Underline</value>
   </data>
+  <data name="DataSizePrefix_Binary" xml:space="preserve">
+    <value>Binary</value>
+  </data>
+  <data name="DataSizePrefix_Metric" xml:space="preserve">
+    <value>Metric</value>
+  </data>
 </root>

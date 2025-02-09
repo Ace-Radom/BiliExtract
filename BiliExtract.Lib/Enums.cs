@@ -19,6 +19,14 @@ public enum AdbDeviceState
     Unauthorized
 }
 
+public enum DataSizePrefix
+{
+    [Display(ResourceType = typeof(Resource), Name = "DataSizePrefix_Binary")]
+    Binary,
+    [Display(ResourceType = typeof(Resource), Name = "DataSizePrefix_Metric")]
+    Metric
+}
+
 public enum FFmpegLogLevel
 {
     Quiet,

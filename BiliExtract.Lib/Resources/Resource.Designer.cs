@@ -79,6 +79,24 @@ namespace BiliExtract.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Binary.
+        /// </summary>
+        public static string DataSizePrefix_Binary {
+            get {
+                return ResourceManager.GetString("DataSizePrefix_Binary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Metric.
+        /// </summary>
+        public static string DataSizePrefix_Metric {
+            get {
+                return ResourceManager.GetString("DataSizePrefix_Metric", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debug.
         /// </summary>
         public static string LogLevel_Debug {

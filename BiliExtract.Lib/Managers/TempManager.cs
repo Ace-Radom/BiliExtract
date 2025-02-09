@@ -26,8 +26,22 @@ public class TempManager
     private DateTime _lastStorageUsageRefreshTime = DateTime.MinValue;
     private DateTime _nextStorageUsageRefreshTime = DateTime.MinValue;
     private long _storageUsage;
+    private long _storageNormalUsage;
+    private long _storageLockedUsage;
+    private long _storageReleasedUsage;
 
-    public long StorageUsage => _storageUsage;
+    public DateTime NextCleanupDateTime => _nextCleanupDateTime;
+    public DateTime NextStorageUsageRefreshDateTime => _nextStorageUsageRefreshTime;
+    public long StorageUsageByte => _storageUsage;
+    public long StorageNormalUsage => _storageNormalUsage;
+    public long StorageLockedUsage => _storageLockedUsage;
+    public long StorageReleasedUsageByte => _storageReleasedUsage;
+    public long StorageInUseUsageByte => _storageNormalUsage + _storageLockedUsage;
+    public int NormalTempFileHandleCount => GetTempFileHandleCount(TempFileState.Normal);
+    public int LockedTempFileHandleCount => GetTempFileHandleCount(TempFileState.Locked);
+    public int ReleasedTempFileHandleCount => GetTempFileHandleCount(TempFileState.Released);
+
+    public event EventHandler<EventArgs>? DataChanged;
 
     public TempManager()
     {
@@ -216,17 +230,42 @@ public class TempManager
         lock (_lock)
         {
             _storageUsage = FileSize.GetDirectorySize(Folders.Temp);
-            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp storage usage refreshed. [size={_storageUsage}]");
+            _storageNormalUsage = 0;
+            _storageLockedUsage = 0;
+            _storageReleasedUsage = 0;
+            foreach (var handleData in _tempHandleTable)
+            {
+                if (File.Exists(handleData.Key.Path))
+                {
+                    if (handleData.Value.State is TempFileState.Normal)
+                    {
+                        _storageNormalUsage += FileSize.GetFileSize(handleData.Key.Path);
+                    }
+                    else if (handleData.Value.State is TempFileState.Locked)
+                    {
+                        _storageLockedUsage += FileSize.GetFileSize(handleData.Key.Path);
+                    }
+                    else
+                    {
+                        _storageReleasedUsage += FileSize.GetFileSize(handleData.Key.Path);
+                    }
+                }
+            }
+            Log.GlobalLogger.WriteLog(LogLevel.Info, $"Temp storage usage refreshed. [size={_storageUsage},normal={_storageNormalUsage},locked={_storageLockedUsage},released={_storageReleasedUsage}]");
         }
+        DataChanged?.Invoke(this, EventArgs.Empty);
         return Task.CompletedTask;
     }
 
-    public Task StartBackgroundTimerAsync()
+    public async Task StartBackgroundTimerAsync()
     {
         if (_backgroundTimer?.Enabled ?? false)
         {
-            return Task.CompletedTask;
+            return;
         }
+
+        await CleanupAsync().ConfigureAwait(false);
+        await RefreshStorageUsageAsync().ConfigureAwait(false);
 
         _backgroundTimer = new()
         {
@@ -243,7 +282,8 @@ public class TempManager
         _settings.Data.AutoTempCleanupIntervalChanged += (_, _) => RefreshNextCleanupDateTime();
         _settings.Data.TempFolderStorageUsageRefreshIntervalChanged += (_, _) => RefreshNextStorageUsageRefreshDateTime();
         Log.GlobalLogger.WriteLog(LogLevel.Info, $"Background timer started.");
-        return Task.CompletedTask;
+
+        return;
     }
 
     public Task StopBackgroundTimerAsync()
@@ -305,6 +345,7 @@ public class TempManager
             }
             _lastCleanupDateTime = DateTime.UtcNow;
             _nextCleanupDateTime = _lastCleanupDateTime.AddIntervalMinute(_settings.Data.AutoTempCleanupIntervalMin);
+            DataChanged?.Invoke(this, EventArgs.Empty);
             Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Need to cleanup. [next={_nextCleanupDateTime}]");
         }
         await CleanupAsync().ConfigureAwait(false);
@@ -328,6 +369,14 @@ public class TempManager
         return;
     }
 
+    private int GetTempFileHandleCount(TempFileState state)
+    {
+        lock (_lock)
+        {
+            return _tempHandleTable.Where(t => t.Value.State == state).Count();
+        }
+    }
+
     private TempFileHandle? GetTempFileHandleFromPathNoLock(string path, out TempFileState? state)
     {
         var handles = _tempHandleTable.Where(t => t.Key.Path == path);
@@ -345,6 +394,7 @@ public class TempManager
         lock (_lock)
         {
             _nextCleanupDateTime = _lastCleanupDateTime.AddIntervalMinute(_settings.Data.AutoTempCleanupIntervalMin);
+            DataChanged?.Invoke(this, EventArgs.Empty);
             Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Next cleanup date time refreshed. [interval={_settings.Data.AutoTempCleanupIntervalMin},next={_nextCleanupDateTime}]");
         }
         return;
@@ -355,6 +405,7 @@ public class TempManager
         lock (_lock)
         {
             _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+            DataChanged?.Invoke(this, EventArgs.Empty);
             Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Next storage usage refresh date time refreshed. [interval={_settings.Data.TempFolderStorageUsageRefreshIntervalMin},next={_nextStorageUsageRefreshTime}]");
         }
         return;
@@ -371,6 +422,7 @@ public class TempManager
             }
             _lastStorageUsageRefreshTime = DateTime.UtcNow;
             _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+            DataChanged?.Invoke(this, EventArgs.Empty);
             Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Need to refresh storage usage. [next={_nextStorageUsageRefreshTime}]");
         }
         await RefreshStorageUsageAsync().ConfigureAwait(false);

@@ -76,13 +76,18 @@
                         PageTag="dashboard"
                         PageType="{x:Type pages:DashboardPage}" />
                     <custom:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationStore_Item_Temp}"
+                        Icon="Archive24"
+                        PageTag="temp"
+                        PageType="{x:Type pages:TempPage}" />
+                </ui:NavigationStore.Items>
+
+                <ui:NavigationStore.Footer>
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationStore_Item_Log}"
                         Icon="DocumentChevronDouble24"
                         PageTag="log"
                         PageType="{x:Type pages:LogPage}" />
-                </ui:NavigationStore.Items>
-
-                <ui:NavigationStore.Footer>
                     <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationStore_Item_Settings}"
                         Icon="Settings24"

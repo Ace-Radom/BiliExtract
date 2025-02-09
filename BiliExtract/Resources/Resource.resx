@@ -399,4 +399,28 @@ Used by `adb pair` &amp; `adb connect` command.</value>
   <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle" xml:space="preserve">
     <value>Set refresh interval for temp folder size.</value>
   </data>
+  <data name="MainWindow_NavigationStore_Item_Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="TempPage_Title" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="TempPage_TotalTempStorageUsageTextBlock_Text" xml:space="preserve">
+    <value>Total temp storage usage: {0}.</value>
+  </data>
+  <data name="TempPage_TempInUseTextBlock_Text" xml:space="preserve">
+    <value>{0} temp in use.</value>
+  </data>
+  <data name="TempPage_TempReleasedTextBlock_Text" xml:space="preserve">
+    <value>{0} temp released.</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsagePrefixComboBox_Title" xml:space="preserve">
+    <value>Temp size prefix</value>
+  </data>
+  <data name="SettingsPage_DataSizePrefixComboBox_Title" xml:space="preserve">
+    <value>Data size prefix</value>
+  </data>
+  <data name="SettingsPage_DataSizePrefixComboBox_Subtitle" xml:space="preserve">
+    <value>Set data size prefix BiliExtract uses.</value>
+  </data>
 </root>

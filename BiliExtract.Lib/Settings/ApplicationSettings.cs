@@ -29,6 +29,7 @@ public class ApplicationSettings() : AbstractSettings<ApplicationSettingsData>("
                 return;
             }
         }
+        public DataSizePrefix DataSizePrefix { get; set; } = DataSizePrefix.Metric;
         public string? ExternalAdbPath { get; set; }
         public string? ExternalFFmpegPath { get; set; }
         public LogLevel MinLogLevel { get; set; } = LogLevel.Info;

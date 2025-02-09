@@ -631,6 +631,15 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Temp.
+        /// </summary>
+        public static string MainWindow_NavigationStore_Item_Temp {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationStore_Item_Temp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All file (*.*).
         /// </summary>
         public static string SaveFileDialog_Filter_AllFile {
@@ -739,6 +748,24 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set data size prefix BiliExtract uses..
+        /// </summary>
+        public static string SettingsPage_DataSizePrefixComboBox_Subtitle {
+            get {
+                return ResourceManager.GetString("SettingsPage_DataSizePrefixComboBox_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data size prefix.
+        /// </summary>
+        public static string SettingsPage_DataSizePrefixComboBox_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_DataSizePrefixComboBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set external ADB (adb.exe) absolute path..
         /// </summary>
         public static string SettingsPage_ExternalAdbPathTextBox_Subtitle {
@@ -820,6 +847,15 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Temp size prefix.
+        /// </summary>
+        public static string SettingsPage_TempStorageUsagePrefixComboBox_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_TempStorageUsagePrefixComboBox_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set refresh interval for temp folder size..
         /// </summary>
         public static string SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle {
@@ -897,6 +933,42 @@ namespace BiliExtract.Resources {
         public static string SettingsPage_UseBuiltInFFmpegToggleSwitch_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_UseBuiltInFFmpegToggleSwitch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} temp in use..
+        /// </summary>
+        public static string TempPage_TempInUseTextBlock_Text {
+            get {
+                return ResourceManager.GetString("TempPage_TempInUseTextBlock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} temp released..
+        /// </summary>
+        public static string TempPage_TempReleasedTextBlock_Text {
+            get {
+                return ResourceManager.GetString("TempPage_TempReleasedTextBlock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temp.
+        /// </summary>
+        public static string TempPage_Title {
+            get {
+                return ResourceManager.GetString("TempPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total temp storage usage: {0}..
+        /// </summary>
+        public static string TempPage_TotalTempStorageUsageTextBlock_Text {
+            get {
+                return ResourceManager.GetString("TempPage_TotalTempStorageUsageTextBlock_Text", resourceCulture);
             }
         }
     }

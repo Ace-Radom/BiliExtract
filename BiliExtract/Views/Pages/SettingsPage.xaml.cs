@@ -60,6 +60,9 @@ public partial class SettingsPage
         _accentColorComboBox.Visibility = Visibility.Visible;
         UpdateAccentColorPicker();
 
+        _dataSizePrefixComboBox.SetItems(Enum.GetValues<DataSizePrefix>(), _settings.Data.DataSizePrefix, t => t.GetDisplayName());
+        _dataSizePrefixComboBox.Visibility = Visibility.Visible;
+
         _richLogViewStyleComboBox.SetItems(Enum.GetValues<RichLogViewStyleSource>(), _settings.Data.RichLogViewStyleSource, t => t.GetDisplayName());
         _richLogViewStyleComboBox.Visibility = Visibility.Visible;
         if (_settings.Data.RichLogViewStyleSource == RichLogViewStyleSource.Custom)
@@ -205,6 +208,24 @@ public partial class SettingsPage
 
         var text = _currentLogFileTextBlock.Text;
         _currentLogFileTextBlock.Text = (text == Log.GlobalLogger.LogFileName) ? Log.GlobalLogger.LogPath : Log.GlobalLogger.LogFileName;
+
+        return;
+    }
+
+    private void DataSizePrefixComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (_isRefreshing)
+        {
+            return;
+        }
+
+        if (!_dataSizePrefixComboBox.TryGetSelectedItem(out DataSizePrefix state))
+        {
+            return;
+        }
+
+        _settings.Data.DataSizePrefix = state;
+        _settings.SynchronizeData();
 
         return;
     }

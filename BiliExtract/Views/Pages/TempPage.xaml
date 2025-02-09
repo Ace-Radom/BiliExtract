@@ -1,0 +1,54 @@
+﻿<ui:UiPage
+    x:Class="BiliExtract.Views.Pages.TempPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:BiliExtract.Controls"
+    xmlns:custom="clr-namespace:BiliExtract.Controls.Custom"
+    xmlns:local="clr-namespace:BiliExtract.Views.Pages"
+    xmlns:resources="clr-namespace:BiliExtract.Resources"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    Title="{x:Static resources:Resource.TempPage_Title}"
+    Scrollable="True">
+
+    <StackPanel Margin="0,0,16,12">
+
+        <TextBlock
+            Margin="0,24,0,24"
+            Focusable="True"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="{x:Static resources:Resource.TempPage_Title}" />
+
+        <StackPanel Margin="0,0,0,24" Orientation="Horizontal">
+
+            <ui:SymbolIcon
+                FontSize="96"
+                Symbol="Archive24" />
+
+            <StackPanel
+                Margin="16,0,0,0"
+                VerticalAlignment="Center"
+                Orientation="Vertical">
+
+                <TextBlock
+                    x:Name="_totalTempStorageUsageTextBlock"
+                    Margin="0,0,0,8"
+                    FontSize="24"
+                    Visibility="Hidden" />
+
+                <TextBlock
+                    x:Name="_tempInUseTextBlock"
+                    Margin="0,0,0,4"
+                    Visibility="Hidden" />
+
+                <TextBlock
+                    x:Name="_tempReleasedTextBlock"
+                    Visibility="Hidden" />
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </StackPanel>
+
+</ui:UiPage>
