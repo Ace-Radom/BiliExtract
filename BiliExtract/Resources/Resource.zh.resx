@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SettingsPage_ThemeComboBox_Title" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="SettingsPage_ThemeComboBox_Subtitle" xml:space="preserve">
+    <value>Set BiliExtract Theme (Light, Dark, Follow System).</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Application_Name" xml:space="preserve">
+    <value>BiliExtract</value>
+  </data>
+  <data name="AboutPage_BuildTextBlock_Text" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="AboutPage_ProjectLinks" xml:space="preserve">
+    <value>Project links</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>Project website on GitHub</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Third party libraries</value>
+  </data>
+  <data name="AboutPage_ApplicationDataFolders" xml:space="preserve">
+    <value>Application data folders</value>
+  </data>
+  <data name="AboutPage_DataFolder" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AboutPage_TempFolder" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Title" xml:space="preserve">
+    <value>Use built-in ADB</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Use BiliExtract built-in ADB for Android related features.</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Title" xml:space="preserve">
+    <value>Use built-in FFmpeg</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Use BiliExtract built-in FFmpeg for video / audio encode &amp; decode.</value>
+  </data>
+  <data name="SettingsPage_ExternalAdbPathTextBox_Title" xml:space="preserve">
+    <value>External ADB path</value>
+  </data>
+  <data name="SettingsPage_ExternalAdbPathTextBox_Subtitle" xml:space="preserve">
+    <value>Set external ADB (adb.exe) absolute path.</value>
+  </data>
+  <data name="SettingsPage_ExternalFFmpegPathTextBox_Title" xml:space="preserve">
+    <value>External FFmpeg path</value>
+  </data>
+  <data name="SettingsPage_ExternalFFmpegPathTextBox_Subtitle" xml:space="preserve">
+    <value>Set external FFmpeg (ffmpeg.exe) absolute path.</value>
+  </data>
+  <data name="AdbSettingsWindow_Title" xml:space="preserve">
+    <value>ADB Settings</value>
+  </data>
+  <data name="AdbSettingsWindow_Description" xml:space="preserve">
+    <value>Followings are advanced ADB settings.
+Changing them may lead to unexpected errors.
+If you are not familiar with these options, DO NOT change.</value>
+  </data>
+  <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title" xml:space="preserve">
+    <value>Automatic start ADB server</value>
+  </data>
+  <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Start ADB server automatically if it hasn't been started.</value>
+  </data>
+  <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title" xml:space="preserve">
+    <value>Start ADB server on startup</value>
+  </data>
+  <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Start ADB server when BiliExtract starts.</value>
+  </data>
+  <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title" xml:space="preserve">
+    <value>Kill ADB server on exit</value>
+  </data>
+  <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle" xml:space="preserve">
+    <value>Kill ADB server when BiliExtract exits.</value>
+  </data>
+  <data name="SettingsPage_AdvancedAdbSettingsCardAction_Title" xml:space="preserve">
+    <value>Advanced ADB settings</value>
+  </data>
+  <data name="SettingsPage_AdvancedAdbSettingsCardAction_Subtitle" xml:space="preserve">
+    <value>Set default ADB behavior, server host, etc.</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>Accent color</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Subtitle" xml:space="preserve">
+    <value>Set the accent color of BiliExtract.</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AdbSettingsWindow_AdbServerAddress_Title" xml:space="preserve">
+    <value>ADB server address</value>
+  </data>
+  <data name="AdbSettingsWindow_AdbServerAddress_Subtitle" xml:space="preserve">
+    <value>ADB server IPv4 address &amp; port.</value>
+  </data>
+  <data name="AdbSettingsWindow_Ip" xml:space="preserve">
+    <value>IP:</value>
+  </data>
+  <data name="AdbSettingsWindow_Port" xml:space="preserve">
+    <value>Port:</value>
+  </data>
+  <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Title" xml:space="preserve">
+    <value>Wireless device default IP</value>
+  </data>
+  <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Subtitle" xml:space="preserve">
+    <value>Default IP address for connecting wireless devices.
+Used by `adb pair` &amp; `adb connect` command.</value>
+  </data>
+  <data name="LogPage_Title" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="LogPage_LogCountTextBlock_Text" xml:space="preserve">
+    <value>Log count: {0}</value>
+  </data>
+  <data name="SettingsPage_MinLogLevelComboBox_Title" xml:space="preserve">
+    <value>Min log level</value>
+  </data>
+  <data name="SettingsPage_MinLogLevelComboBox_Subtitle" xml:space="preserve">
+    <value>Minimum log level BiliExtract will record.</value>
+  </data>
+  <data name="SettingsPage_CurrentLogFileCardControl_Title" xml:space="preserve">
+    <value>Current log file</value>
+  </data>
+  <data name="SettingsPage_CurrentLogFileCardControl_Subtitle" xml:space="preserve">
+    <value>The log file BiliExtract currently is writing to.</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Title" xml:space="preserve">
+    <value>Log page style</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Subtitle" xml:space="preserve">
+    <value>Set rich text style of log messages in log page.</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Button_Content" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_Title" xml:space="preserve">
+    <value>Log Page Customize</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Title" xml:space="preserve">
+    <value>Target theme</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Subtitle" xml:space="preserve">
+    <value>Select application theme to customize.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Title" xml:space="preserve">
+    <value>Reset to default</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Subtitle" xml:space="preserve">
+    <value>Reset current customize settings to default.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FontComboBox_Title" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FontComboBox_Subtitle" xml:space="preserve">
+    <value>Select text font family.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Title" xml:space="preserve">
+    <value>Text color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set basic text color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Title" xml:space="preserve">
+    <value>Number color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set number color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Title" xml:space="preserve">
+    <value>Filename color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set filename color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ExceptionStyle_Title" xml:space="preserve">
+    <value>Exception style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ExceptionStyle_Subtitle" xml:space="preserve">
+    <value>Set exception style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Title" xml:space="preserve">
+    <value>String color</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Subtitle" xml:space="preserve">
+    <value>Set string color.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Title" xml:space="preserve">
+    <value>Time color (Y/M/D)</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Subtitle" xml:space="preserve">
+    <value>Set time color for year, month and day.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Title" xml:space="preserve">
+    <value>Time color (H:M:S)</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Subtitle" xml:space="preserve">
+    <value>Set time color for hour, minute and second.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Title" xml:space="preserve">
+    <value>Debug log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set debug log level style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Title" xml:space="preserve">
+    <value>Info log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set info log level style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Title" xml:space="preserve">
+    <value>Warning log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set warning log level style.</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title" xml:space="preserve">
+    <value>Error log level style</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>Set error log level style.</value>
+  </data>
+  <data name="LogPage_LogMinLevelTextBlock_Text" xml:space="preserve">
+    <value>Min log level: {0}</value>
+  </data>
+  <data name="SaveFileDialog_SaveLog_Title" xml:space="preserve">
+    <value>Save log file to</value>
+  </data>
+  <data name="SaveFileDialog_Filter_TextFile" xml:space="preserve">
+    <value>Text file (*.txt)</value>
+  </data>
+  <data name="SaveFileDialog_Filter_LogFile" xml:space="preserve">
+    <value>Log file (*.log)</value>
+  </data>
+  <data name="SaveFileDialog_Filter_AllFile" xml:space="preserve">
+    <value>All file (*.*)</value>
+  </data>
+  <data name="AboutPage_ThirdPartyExecutables" xml:space="preserve">
+    <value>Third party executables</value>
+  </data>
+  <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Title" xml:space="preserve">
+    <value>Auto temp cleanup interval</value>
+  </data>
+  <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle" xml:space="preserve">
+    <value>Set interval for automatic temp cleaning.</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Title" xml:space="preserve">
+    <value>Temp size refresh interval</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle" xml:space="preserve">
+    <value>Set refresh interval for temp folder size.</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="TempPage_Title" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="TempPage_TotalTempStorageUsageTextBlock_Text" xml:space="preserve">
+    <value>Total temp storage usage: {0}.</value>
+  </data>
+  <data name="TempPage_TempInUseTextBlock_Text" xml:space="preserve">
+    <value>{0} temp in use.</value>
+  </data>
+  <data name="TempPage_TempReleasedTextBlock_Text" xml:space="preserve">
+    <value>{0} temp released.</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsagePrefixComboBox_Title" xml:space="preserve">
+    <value>Temp size prefix</value>
+  </data>
+  <data name="SettingsPage_DataSizePrefixComboBox_Title" xml:space="preserve">
+    <value>Data size prefix</value>
+  </data>
+  <data name="SettingsPage_DataSizePrefixComboBox_Subtitle" xml:space="preserve">
+    <value>Set data size prefix BiliExtract uses.</value>
+  </data>
+  <data name="TempPage_LastCleanupTimeTextBlock_Title" xml:space="preserve">
+    <value>Last temp cleanup time</value>
+  </data>
+  <data name="TempPage_LastCleanupTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The last time temp cleanup was performed.</value>
+  </data>
+  <data name="TempPage_NextCleanupTimeTextBlock_Title" xml:space="preserve">
+    <value>Next temp cleanup time</value>
+  </data>
+  <data name="TempPage_NextCleanupTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The next time temp cleanup will be automatically performed.</value>
+  </data>
+  <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
+    <value>Last temp size refresh time</value>
+  </data>
+  <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The last time BiliExtract counted its temp usage size.</value>
+  </data>
+  <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
+    <value>Next temp size refresh time</value>
+  </data>
+  <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The next time BiliExtract automatically counts its temp usage size.</value>
+  </data>
+  <data name="TempPage_NormalTempUsageTextBlock_Title" xml:space="preserve">
+    <value>Normal temp usage</value>
+  </data>
+  <data name="TempPage_NormalTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>Normal temp files are files in use and will be deleted on next startup.</value>
+  </data>
+  <data name="TempPage_LockedTempUsageTextBlock_Title" xml:space="preserve">
+    <value>Locked temp usage</value>
+  </data>
+  <data name="TempPage_LockedTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>Locked temp files are files may in use and won't be automatically deleted.</value>
+  </data>
+  <data name="TempPage_ReleasedTempUsageTextBlock_Title" xml:space="preserve">
+    <value>Released temp usage</value>
+  </data>
+  <data name="TempPage_ReleasedTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>Released temp files are files marked as no longer used and will be deleted on next temp cleanup.</value>
+  </data>
+  <data name="TempPage_NormalLockedReleasedTempUsageTextBlock_Text" xml:space="preserve">
+    <value>{0} file(s) ({1})</value>
+    <comment>{0} will be filled with file count, {1} will be filled with total size.</comment>
+  </data>
+</root>
