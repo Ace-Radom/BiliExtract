@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SettingsPage_ThemeComboBox_Title" xml:space="preserve">
-    <value>Theme</value>
+    <value>主题</value>
   </data>
   <data name="SettingsPage_ThemeComboBox_Subtitle" xml:space="preserve">
-    <value>Set BiliExtract Theme (Light, Dark, Follow System).</value>
+    <value>设置 BiliExtract 的主题（浅色、深色或跟随系统）。</value>
   </data>
   <data name="SettingsPage_Title" xml:space="preserve">
-    <value>Settings</value>
+    <value>设置</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
-    <value>About</value>
+    <value>关于</value>
   </data>
   <data name="Application_Name" xml:space="preserve">
     <value>BiliExtract</value>
@@ -136,16 +136,16 @@
     <value>Build</value>
   </data>
   <data name="AboutPage_ProjectLinks" xml:space="preserve">
-    <value>Project links</value>
+    <value>项目链接</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
-    <value>Project website on GitHub</value>
+    <value>GitHub 上的项目主页</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Third party libraries</value>
+    <value>第三方依赖库</value>
   </data>
   <data name="AboutPage_ApplicationDataFolders" xml:space="preserve">
-    <value>Application data folders</value>
+    <value>应用数据文件夹</value>
   </data>
   <data name="AboutPage_DataFolder" xml:space="preserve">
     <value>Data</value>
@@ -154,121 +154,121 @@
     <value>Temp</value>
   </data>
   <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Title" xml:space="preserve">
-    <value>Use built-in ADB</value>
+    <value>使用内置 ADB</value>
   </data>
   <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Subtitle" xml:space="preserve">
-    <value>Use BiliExtract built-in ADB for Android related features.</value>
+    <value>在执行安卓相关操作时使用 BiliExtract 中内置的 ADB。</value>
   </data>
   <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Title" xml:space="preserve">
-    <value>Use built-in FFmpeg</value>
+    <value>使用内置 FFmpeg</value>
   </data>
   <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Subtitle" xml:space="preserve">
-    <value>Use BiliExtract built-in FFmpeg for video / audio encode &amp; decode.</value>
+    <value>使用 BiliExtract 中内置的 FFmpeg 进行音视频编解码。</value>
   </data>
   <data name="SettingsPage_ExternalAdbPathTextBox_Title" xml:space="preserve">
-    <value>External ADB path</value>
+    <value>外部 ADB 路径</value>
   </data>
   <data name="SettingsPage_ExternalAdbPathTextBox_Subtitle" xml:space="preserve">
-    <value>Set external ADB (adb.exe) absolute path.</value>
+    <value>设置外部 ADB（adb.exe）的绝对路径。</value>
   </data>
   <data name="SettingsPage_ExternalFFmpegPathTextBox_Title" xml:space="preserve">
-    <value>External FFmpeg path</value>
+    <value>外部 FFmpeg 路径</value>
   </data>
   <data name="SettingsPage_ExternalFFmpegPathTextBox_Subtitle" xml:space="preserve">
-    <value>Set external FFmpeg (ffmpeg.exe) absolute path.</value>
+    <value>设置外部 FFmpeg（ffmpeg.exe）的绝对路径。</value>
   </data>
   <data name="AdbSettingsWindow_Title" xml:space="preserve">
-    <value>ADB Settings</value>
+    <value>ADB 设置</value>
   </data>
   <data name="AdbSettingsWindow_Description" xml:space="preserve">
-    <value>Followings are advanced ADB settings.
-Changing them may lead to unexpected errors.
-If you are not familiar with these options, DO NOT change.</value>
+    <value>以下为高级 ADB 设置。
+更改它们可能会造成未知错误。
+如果你不熟悉这些设置，请不要更改。</value>
   </data>
   <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title" xml:space="preserve">
-    <value>Automatic start ADB server</value>
+    <value>自动启动 ADB 服务器</value>
   </data>
   <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle" xml:space="preserve">
-    <value>Start ADB server automatically if it hasn't been started.</value>
+    <value>若 ADB 服务器尚未启动则自动启动。</value>
   </data>
   <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title" xml:space="preserve">
-    <value>Start ADB server on startup</value>
+    <value>启动时启动 ADB 服务器</value>
   </data>
   <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Subtitle" xml:space="preserve">
-    <value>Start ADB server when BiliExtract starts.</value>
+    <value>在 BiliExtract 启动时启动 ADB 服务器。</value>
   </data>
   <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title" xml:space="preserve">
-    <value>Kill ADB server on exit</value>
+    <value>退出时关闭 ADB 服务器</value>
   </data>
   <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle" xml:space="preserve">
-    <value>Kill ADB server when BiliExtract exits.</value>
+    <value>在 BiliExtract 退出时关闭 ADB 服务器。</value>
   </data>
   <data name="SettingsPage_AdvancedAdbSettingsCardAction_Title" xml:space="preserve">
-    <value>Advanced ADB settings</value>
+    <value>高级 ADB 设置</value>
   </data>
   <data name="SettingsPage_AdvancedAdbSettingsCardAction_Subtitle" xml:space="preserve">
-    <value>Set default ADB behavior, server host, etc.</value>
+    <value>设置 ADB 默认行为，服务器地址等。</value>
   </data>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
-    <value>Accent color</value>
+    <value>主题色</value>
   </data>
   <data name="SettingsPage_AccentColor_Subtitle" xml:space="preserve">
-    <value>Set the accent color of BiliExtract.</value>
+    <value>设置 BiliExtract 的主题色。</value>
   </data>
   <data name="Color_Red" xml:space="preserve">
-    <value>Red</value>
+    <value>红</value>
   </data>
   <data name="Color_Green" xml:space="preserve">
-    <value>Green</value>
+    <value>绿</value>
   </data>
   <data name="Color_Blue" xml:space="preserve">
-    <value>Blue</value>
+    <value>蓝</value>
   </data>
   <data name="MainWindow_NavigationStore_Item_Dashboard" xml:space="preserve">
-    <value>Dashboard</value>
+    <value>控制台</value>
   </data>
   <data name="MainWindow_NavigationStore_Item_Log" xml:space="preserve">
-    <value>Log</value>
+    <value>日志</value>
   </data>
   <data name="MainWindow_NavigationStore_Item_Settings" xml:space="preserve">
-    <value>Settings</value>
+    <value>设置</value>
   </data>
   <data name="MainWindow_NavigationStore_Item_About" xml:space="preserve">
-    <value>About</value>
+    <value>关于</value>
   </data>
   <data name="AdbSettingsWindow_AdbServerAddress_Title" xml:space="preserve">
-    <value>ADB server address</value>
+    <value>ADB 服务器地址</value>
   </data>
   <data name="AdbSettingsWindow_AdbServerAddress_Subtitle" xml:space="preserve">
-    <value>ADB server IPv4 address &amp; port.</value>
+    <value>ADB 服务器的 IPv4 地址以及端口。</value>
   </data>
   <data name="AdbSettingsWindow_Ip" xml:space="preserve">
-    <value>IP:</value>
+    <value>IP：</value>
   </data>
   <data name="AdbSettingsWindow_Port" xml:space="preserve">
-    <value>Port:</value>
+    <value>端口：</value>
   </data>
   <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Title" xml:space="preserve">
-    <value>Wireless device default IP</value>
+    <value>无线设备默认 IP</value>
   </data>
   <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Subtitle" xml:space="preserve">
-    <value>Default IP address for connecting wireless devices.
-Used by `adb pair` &amp; `adb connect` command.</value>
+    <value>连接无线设备默认的 IP 地址。
+用于 `adb pair` 和 `adb connect` 命令。</value>
   </data>
   <data name="LogPage_Title" xml:space="preserve">
-    <value>Log</value>
+    <value>日志</value>
   </data>
   <data name="LogPage_LogCountTextBlock_Text" xml:space="preserve">
-    <value>Log count: {0}</value>
+    <value>日志计数：{0}</value>
   </data>
   <data name="SettingsPage_MinLogLevelComboBox_Title" xml:space="preserve">
-    <value>Min log level</value>
+    <value>最低日志等级</value>
   </data>
   <data name="SettingsPage_MinLogLevelComboBox_Subtitle" xml:space="preserve">
-    <value>Minimum log level BiliExtract will record.</value>
+    <value>BiliExtract 记录的最低日志等级。</value>
   </data>
   <data name="SettingsPage_CurrentLogFileCardControl_Title" xml:space="preserve">
-    <value>Current log file</value>
+    <value>当前日志文件</value>
   </data>
   <data name="SettingsPage_CurrentLogFileCardControl_Subtitle" xml:space="preserve">
     <value>The log file BiliExtract currently is writing to.</value>
@@ -421,22 +421,22 @@ Used by `adb pair` &amp; `adb connect` command.</value>
     <value>Data size prefix</value>
   </data>
   <data name="SettingsPage_DataSizePrefixComboBox_Subtitle" xml:space="preserve">
-    <value>Set data size prefix BiliExtract uses.</value>
+    <value>设置 BiliExtract 使用的数据大小前缀。</value>
   </data>
   <data name="TempPage_LastCleanupTimeTextBlock_Title" xml:space="preserve">
-    <value>Last temp cleanup time</value>
+    <value>上次缓存清理时间</value>
   </data>
   <data name="TempPage_LastCleanupTimeTextBlock_Subtitle" xml:space="preserve">
-    <value>The last time temp cleanup was performed.</value>
+    <value>最后一次执行缓存清理的时间。</value>
   </data>
   <data name="TempPage_NextCleanupTimeTextBlock_Title" xml:space="preserve">
-    <value>Next temp cleanup time</value>
+    <value>下次缓存清理时间</value>
   </data>
   <data name="TempPage_NextCleanupTimeTextBlock_Subtitle" xml:space="preserve">
-    <value>The next time temp cleanup will be automatically performed.</value>
+    <value>下次自动执行缓存清理的时间。</value>
   </data>
   <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
-    <value>Last temp size refresh time</value>
+    <value>上次缓存大小刷新时间</value>
   </data>
   <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
     <value>The last time BiliExtract counted its temp usage size.</value>
