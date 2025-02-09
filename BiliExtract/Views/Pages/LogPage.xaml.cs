@@ -54,40 +54,34 @@ public partial class LogPage
         return;
     }
 
-    private async Task RefreshAsync()
+    private Task RefreshAsync()
     {
-        await Dispatcher.InvokeAsync(() =>
+        UpdateLogCountTextBlock();
+        UpdateLogMinLevelTextBlock();
+        _logRichTextBox.Document.Blocks.Clear();
+        var font = _styleManager.Font;
+        if (font is not null)
         {
-            UpdateLogCountTextBlock();
-            UpdateLogMinLevelTextBlock();
-            _logRichTextBox.Document.Blocks.Clear();
-            var font = _styleManager.Font;
-            if (font is not null)
-            {
-                _logRichTextBox.FontFamily = font;
-            }
-            _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(Log.GlobalLogger.LogMessages.Split('\n')));
-            UpdateLogRichTextBoxPageWidth();
-        });
+            _logRichTextBox.FontFamily = font;
+        }
+        _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(Log.GlobalLogger.LogMessages.Split('\n')));
+        UpdateLogRichTextBoxPageWidth();
 
-        return;
+        return Task.CompletedTask;
     }
 
     private async void GlobalLogger_LogRefreshedAsync(object sender, LogRefreshedEventArgs e)
     {
-        await Task.Run(() =>
+        await Dispatcher.InvokeAsync(() =>
         {
-            Dispatcher.Invoke(() =>
-            {
-                UpdateLogCountTextBlock();
-                _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(e.NewLogMessages));
-                UpdateLogRichTextBoxPageWidth();
-            });
+            UpdateLogCountTextBlock();
+            _logRichTextBox.Document.Blocks.AddRange(_styleManager.ParseLogMessages(e.NewLogMessages));
+            UpdateLogRichTextBoxPageWidth();
         });
         return;
     }
 
-    private async void GlobalLogger_StyleChangedAsync(object? sender, System.EventArgs e) => await Dispatcher.InvokeAsync(async () => await RefreshAsync());
+    private async void GlobalLogger_StyleChangedAsync(object? sender, EventArgs e) => await Dispatcher.InvokeAsync(async () => await RefreshAsync());
 
     private void UpdateLogCountTextBlock()
     {
