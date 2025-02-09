@@ -937,6 +937,141 @@ namespace BiliExtract.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The last time temp cleanup was performed..
+        /// </summary>
+        public static string TempPage_LastCleanupTimeTextBlock_Subtitle {
+            get {
+                return ResourceManager.GetString("TempPage_LastCleanupTimeTextBlock_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last temp cleanup time.
+        /// </summary>
+        public static string TempPage_LastCleanupTimeTextBlock_Title {
+            get {
+                return ResourceManager.GetString("TempPage_LastCleanupTimeTextBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The last time BiliExtract counted its temp usage size..
+        /// </summary>
+        public static string TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle {
+            get {
+                return ResourceManager.GetString("TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last temp size refresh time.
+        /// </summary>
+        public static string TempPage_LastStorageUsageRefreshTimeTextBlock_Title {
+            get {
+                return ResourceManager.GetString("TempPage_LastStorageUsageRefreshTimeTextBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locked temp files are files may in use and won&apos;t be automatically deleted..
+        /// </summary>
+        public static string TempPage_LockedTempUsageTextBlock_Subtitle {
+            get {
+                return ResourceManager.GetString("TempPage_LockedTempUsageTextBlock_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Locked temp usage.
+        /// </summary>
+        public static string TempPage_LockedTempUsageTextBlock_Title {
+            get {
+                return ResourceManager.GetString("TempPage_LockedTempUsageTextBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The next time temp cleanup will be automatically performed..
+        /// </summary>
+        public static string TempPage_NextCleanupTimeTextBlock_Subtitle {
+            get {
+                return ResourceManager.GetString("TempPage_NextCleanupTimeTextBlock_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next temp cleanup time.
+        /// </summary>
+        public static string TempPage_NextCleanupTimeTextBlock_Title {
+            get {
+                return ResourceManager.GetString("TempPage_NextCleanupTimeTextBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The next time BiliExtract automatically counts its temp usage size..
+        /// </summary>
+        public static string TempPage_NextStorageUsageRefreshTimeTextBlock_Subtitle {
+            get {
+                return ResourceManager.GetString("TempPage_NextStorageUsageRefreshTimeTextBlock_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next temp size refresh time.
+        /// </summary>
+        public static string TempPage_NextStorageUsageRefreshTimeTextBlock_Title {
+            get {
+                return ResourceManager.GetString("TempPage_NextStorageUsageRefreshTimeTextBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} file(s) ({1}).
+        /// </summary>
+        public static string TempPage_NormalLockedReleasedTempUsageTextBlock_Text {
+            get {
+                return ResourceManager.GetString("TempPage_NormalLockedReleasedTempUsageTextBlock_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal temp files are files in use and will be deleted on next startup..
+        /// </summary>
+        public static string TempPage_NormalTempUsageTextBlock_Subtitle {
+            get {
+                return ResourceManager.GetString("TempPage_NormalTempUsageTextBlock_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal temp usage.
+        /// </summary>
+        public static string TempPage_NormalTempUsageTextBlock_Title {
+            get {
+                return ResourceManager.GetString("TempPage_NormalTempUsageTextBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Released temp files are files marked as no longer used and will be deleted on next temp cleanup..
+        /// </summary>
+        public static string TempPage_ReleasedTempUsageTextBlock_Subtitle {
+            get {
+                return ResourceManager.GetString("TempPage_ReleasedTempUsageTextBlock_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Released temp usage.
+        /// </summary>
+        public static string TempPage_ReleasedTempUsageTextBlock_Title {
+            get {
+                return ResourceManager.GetString("TempPage_ReleasedTempUsageTextBlock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} temp in use..
         /// </summary>
         public static string TempPage_TempInUseTextBlock_Text {

@@ -423,4 +423,50 @@ Used by `adb pair` &amp; `adb connect` command.</value>
   <data name="SettingsPage_DataSizePrefixComboBox_Subtitle" xml:space="preserve">
     <value>Set data size prefix BiliExtract uses.</value>
   </data>
+  <data name="TempPage_LastCleanupTimeTextBlock_Title" xml:space="preserve">
+    <value>Last temp cleanup time</value>
+  </data>
+  <data name="TempPage_LastCleanupTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The last time temp cleanup was performed.</value>
+  </data>
+  <data name="TempPage_NextCleanupTimeTextBlock_Title" xml:space="preserve">
+    <value>Next temp cleanup time</value>
+  </data>
+  <data name="TempPage_NextCleanupTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The next time temp cleanup will be automatically performed.</value>
+  </data>
+  <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
+    <value>Last temp size refresh time</value>
+  </data>
+  <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The last time BiliExtract counted its temp usage size.</value>
+  </data>
+  <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
+    <value>Next temp size refresh time</value>
+  </data>
+  <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>The next time BiliExtract automatically counts its temp usage size.</value>
+  </data>
+  <data name="TempPage_NormalTempUsageTextBlock_Title" xml:space="preserve">
+    <value>Normal temp usage</value>
+  </data>
+  <data name="TempPage_NormalTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>Normal temp files are files in use and will be deleted on next startup.</value>
+  </data>
+  <data name="TempPage_LockedTempUsageTextBlock_Title" xml:space="preserve">
+    <value>Locked temp usage</value>
+  </data>
+  <data name="TempPage_LockedTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>Locked temp files are files may in use and won't be automatically deleted.</value>
+  </data>
+  <data name="TempPage_ReleasedTempUsageTextBlock_Title" xml:space="preserve">
+    <value>Released temp usage</value>
+  </data>
+  <data name="TempPage_ReleasedTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>Released temp files are files marked as no longer used and will be deleted on next temp cleanup.</value>
+  </data>
+  <data name="TempPage_NormalLockedReleasedTempUsageTextBlock_Text" xml:space="preserve">
+    <value>{0} file(s) ({1})</value>
+    <comment>{0} will be filled with file count, {1} will be filled with total size.</comment>
+  </data>
 </root>

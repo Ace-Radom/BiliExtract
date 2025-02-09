@@ -4,19 +4,8 @@ using BiliExtract.Lib.Settings;
 using BiliExtract.Lib.Utils;
 using BiliExtract.Resources;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BiliExtract.Views.Pages;
 
@@ -74,6 +63,34 @@ public partial class TempPage
             FileSize.ConvertDataSizeByteToString(_tempManager.StorageReleasedUsageByte, _settings.Data.DataSizePrefix)
         );
         _tempReleasedTextBlock.Visibility = Visibility.Visible;
+
+        _normalTempUsageTextBlock.Text = string.Format(
+            Resource.TempPage_NormalLockedReleasedTempUsageTextBlock_Text,
+            _tempManager.NormalTempFileHandleCount,
+            FileSize.ConvertDataSizeByteToString(_tempManager.StorageNormalUsageByte, _settings.Data.DataSizePrefix)
+        );
+        _normalTempUsageTextBlock.Visibility = Visibility.Visible;
+        _lockedTempUsageTextBlock.Text = string.Format(
+            Resource.TempPage_NormalLockedReleasedTempUsageTextBlock_Text,
+            _tempManager.LockedTempFileHandleCount,
+            FileSize.ConvertDataSizeByteToString(_tempManager.StorageLockedUsageByte, _settings.Data.DataSizePrefix)
+        );
+        _lockedTempUsageTextBlock.Visibility = Visibility.Visible;
+        _releasedTempUsageTextBlock.Text = string.Format(
+            Resource.TempPage_NormalLockedReleasedTempUsageTextBlock_Text,
+            _tempManager.ReleasedTempFileHandleCount,
+            FileSize.ConvertDataSizeByteToString(_tempManager.StorageReleasedUsageByte, _settings.Data.DataSizePrefix)
+        );
+        _releasedTempUsageTextBlock.Visibility = Visibility.Visible;
+
+        _lastCleanupTimeTextBlock.Text = _tempManager.LastCleanupDateTime.ToString();
+        _lastCleanupTimeTextBlock.Visibility = Visibility.Visible;
+        _nextCleanupTimeTextBlock.Text = _tempManager.NextCleanupDateTime.ToString();
+        _nextCleanupTimeTextBlock.Visibility = Visibility.Visible;
+        _lastStorageUsageRefreshTimeTextBlock.Text = _tempManager.LastStorageUsageRefreshDateTime.ToString();
+        _lastStorageUsageRefreshTimeTextBlock.Visibility = Visibility.Visible;
+        _nextStorageUsageRefreshTimeTextBlock.Text = _tempManager.NextStorageUsageRefreshDateTime.ToString();
+        _nextStorageUsageRefreshTimeTextBlock.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
         return Task.CompletedTask;

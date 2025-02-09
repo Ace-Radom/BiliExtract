@@ -23,18 +23,20 @@ public class TempManager
     private Timer? _backgroundTimer;
     private DateTime _lastCleanupDateTime = DateTime.MinValue;
     private DateTime _nextCleanupDateTime = DateTime.MinValue;
-    private DateTime _lastStorageUsageRefreshTime = DateTime.MinValue;
-    private DateTime _nextStorageUsageRefreshTime = DateTime.MinValue;
+    private DateTime _lastStorageUsageRefreshDateTime = DateTime.MinValue;
+    private DateTime _nextStorageUsageRefreshDateTime = DateTime.MinValue;
     private long _storageUsage;
     private long _storageNormalUsage;
     private long _storageLockedUsage;
     private long _storageReleasedUsage;
 
+    public DateTime LastCleanupDateTime => _lastCleanupDateTime;
     public DateTime NextCleanupDateTime => _nextCleanupDateTime;
-    public DateTime NextStorageUsageRefreshDateTime => _nextStorageUsageRefreshTime;
+    public DateTime LastStorageUsageRefreshDateTime => _lastStorageUsageRefreshDateTime;
+    public DateTime NextStorageUsageRefreshDateTime => _nextStorageUsageRefreshDateTime;
     public long StorageUsageByte => _storageUsage;
-    public long StorageNormalUsage => _storageNormalUsage;
-    public long StorageLockedUsage => _storageLockedUsage;
+    public long StorageNormalUsageByte => _storageNormalUsage;
+    public long StorageLockedUsageByte => _storageLockedUsage;
     public long StorageReleasedUsageByte => _storageReleasedUsage;
     public long StorageInUseUsageByte => _storageNormalUsage + _storageLockedUsage;
     public int NormalTempFileHandleCount => GetTempFileHandleCount(TempFileState.Normal);
@@ -274,8 +276,8 @@ public class TempManager
         };
         _lastCleanupDateTime = DateTime.UtcNow;
         _nextCleanupDateTime = _lastCleanupDateTime.AddIntervalMinute(_settings.Data.AutoTempCleanupIntervalMin);
-        _lastStorageUsageRefreshTime = DateTime.UtcNow;
-        _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+        _lastStorageUsageRefreshDateTime = DateTime.UtcNow;
+        _nextStorageUsageRefreshDateTime = _lastStorageUsageRefreshDateTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
         _backgroundTimer.Start();
         _backgroundTimer.Elapsed += (_, _) => CleanupIfNeededAsync();
         _backgroundTimer.Elapsed += (_, _) => RefreshStorageUsageIfNeededAsync();
@@ -404,9 +406,9 @@ public class TempManager
     {
         lock (_lock)
         {
-            _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+            _nextStorageUsageRefreshDateTime = _lastStorageUsageRefreshDateTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
             DataChanged?.Invoke(this, EventArgs.Empty);
-            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Next storage usage refresh date time refreshed. [interval={_settings.Data.TempFolderStorageUsageRefreshIntervalMin},next={_nextStorageUsageRefreshTime}]");
+            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Next storage usage refresh date time refreshed. [interval={_settings.Data.TempFolderStorageUsageRefreshIntervalMin},next={_nextStorageUsageRefreshDateTime}]");
         }
         return;
     }
@@ -415,15 +417,15 @@ public class TempManager
     {
         lock (_lock)
         {
-            if (DateTime.UtcNow < _nextStorageUsageRefreshTime)
+            if (DateTime.UtcNow < _nextStorageUsageRefreshDateTime)
             {
-                Log.GlobalLogger.WriteLog(LogLevel.Debug, $"No need to refresh storage usage. [next={_nextStorageUsageRefreshTime}]");
+                Log.GlobalLogger.WriteLog(LogLevel.Debug, $"No need to refresh storage usage. [next={_nextStorageUsageRefreshDateTime}]");
                 return;
             }
-            _lastStorageUsageRefreshTime = DateTime.UtcNow;
-            _nextStorageUsageRefreshTime = _lastStorageUsageRefreshTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
+            _lastStorageUsageRefreshDateTime = DateTime.UtcNow;
+            _nextStorageUsageRefreshDateTime = _lastStorageUsageRefreshDateTime.AddIntervalMinute(_settings.Data.TempFolderStorageUsageRefreshIntervalMin);
             DataChanged?.Invoke(this, EventArgs.Empty);
-            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Need to refresh storage usage. [next={_nextStorageUsageRefreshTime}]");
+            Log.GlobalLogger.WriteLog(LogLevel.Debug, $"Need to refresh storage usage. [next={_nextStorageUsageRefreshDateTime}]");
         }
         await RefreshStorageUsageAsync().ConfigureAwait(false);
         return;

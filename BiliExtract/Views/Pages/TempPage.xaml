@@ -35,12 +35,10 @@
                     Margin="0,0,0,8"
                     FontSize="24"
                     Visibility="Hidden" />
-
                 <TextBlock
                     x:Name="_tempInUseTextBlock"
                     Margin="0,0,0,4"
                     Visibility="Hidden" />
-
                 <TextBlock
                     x:Name="_tempReleasedTextBlock"
                     Visibility="Hidden" />
@@ -48,6 +46,71 @@
             </StackPanel>
 
         </StackPanel>
+
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.TempPage_NormalTempUsageTextBlock_Title}" Subtitle="{x:Static resources:Resource.TempPage_NormalTempUsageTextBlock_Subtitle}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_normalTempUsageTextBlock"
+                Margin="0,0,0,8"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.TempPage_LockedTempUsageTextBlock_Title}" Subtitle="{x:Static resources:Resource.TempPage_LockedTempUsageTextBlock_Subtitle}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_lockedTempUsageTextBlock"
+                Margin="0,0,0,8"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.TempPage_ReleasedTempUsageTextBlock_Title}" Subtitle="{x:Static resources:Resource.TempPage_ReleasedTempUsageTextBlock_Subtitle}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_releasedTempUsageTextBlock"
+                Margin="0,0,0,8"
+                Visibility="Hidden" />
+        </custom:CardControl>
+
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.TempPage_LastCleanupTimeTextBlock_Title}" Subtitle="{x:Static resources:Resource.TempPage_LastCleanupTimeTextBlock_Subtitle}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_lastCleanupTimeTextBlock"
+                Margin="0,0,0,8"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.TempPage_NextCleanupTimeTextBlock_Title}" Subtitle="{x:Static resources:Resource.TempPage_NextCleanupTimeTextBlock_Subtitle}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_nextCleanupTimeTextBlock"
+                Margin="0,0,0,8"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.TempPage_LastStorageUsageRefreshTimeTextBlock_Title}" Subtitle="{x:Static resources:Resource.TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_lastStorageUsageRefreshTimeTextBlock"
+                Margin="0,0,0,8"
+                Visibility="Hidden" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.TempPage_NextStorageUsageRefreshTimeTextBlock_Title}" Subtitle="{x:Static resources:Resource.TempPage_NextStorageUsageRefreshTimeTextBlock_Subtitle}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_nextStorageUsageRefreshTimeTextBlock"
+                Margin="0,0,0,8"
+                Visibility="Hidden" />
+        </custom:CardControl>
 
     </StackPanel>
 
