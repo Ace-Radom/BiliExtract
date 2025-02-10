@@ -271,154 +271,154 @@
     <value>当前日志文件</value>
   </data>
   <data name="SettingsPage_CurrentLogFileCardControl_Subtitle" xml:space="preserve">
-    <value>The log file BiliExtract currently is writing to.</value>
+    <value>BiliExtract 当前正在写入的日志文件。</value>
   </data>
   <data name="SettingsPage_RichLogViewStyle_Title" xml:space="preserve">
-    <value>Log page style</value>
+    <value>日志页面风格</value>
   </data>
   <data name="SettingsPage_RichLogViewStyle_Subtitle" xml:space="preserve">
-    <value>Set rich text style of log messages in log page.</value>
+    <value>设置日志页面上的日志富文本风格。</value>
   </data>
   <data name="SettingsPage_RichLogViewStyle_Button_Content" xml:space="preserve">
-    <value>Customize</value>
+    <value>自定义</value>
   </data>
   <data name="LogPageStyleSettingsWindow_Title" xml:space="preserve">
-    <value>Log Page Customize</value>
+    <value>日志页面自定义</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Title" xml:space="preserve">
-    <value>Target theme</value>
+    <value>目标主题</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Subtitle" xml:space="preserve">
-    <value>Select application theme to customize.</value>
+    <value>选择要自定义的应用主题。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Title" xml:space="preserve">
-    <value>Reset to default</value>
+    <value>重置为默认设置</value>
   </data>
   <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Subtitle" xml:space="preserve">
-    <value>Reset current customize settings to default.</value>
+    <value>将当前自定义设置重置为默认设置。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_FontComboBox_Title" xml:space="preserve">
-    <value>Font</value>
+    <value>字体</value>
   </data>
   <data name="LogPageStyleSettingsWindow_FontComboBox_Subtitle" xml:space="preserve">
-    <value>Select text font family.</value>
+    <value>选择文本字体。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Title" xml:space="preserve">
-    <value>Text color</value>
+    <value>文本颜色</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Subtitle" xml:space="preserve">
-    <value>Set basic text color.</value>
+    <value>设置基本文本颜色。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Title" xml:space="preserve">
-    <value>Number color</value>
+    <value>数字颜色</value>
   </data>
   <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Subtitle" xml:space="preserve">
-    <value>Set number color.</value>
+    <value>设置数字颜色。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Title" xml:space="preserve">
-    <value>Filename color</value>
+    <value>文件名颜色</value>
   </data>
   <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Subtitle" xml:space="preserve">
-    <value>Set filename color.</value>
+    <value>设置文件名颜色。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_ExceptionStyle_Title" xml:space="preserve">
-    <value>Exception style</value>
+    <value>异常文本样式</value>
   </data>
   <data name="LogPageStyleSettingsWindow_ExceptionStyle_Subtitle" xml:space="preserve">
-    <value>Set exception style.</value>
+    <value>设置异常文本样式。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Title" xml:space="preserve">
-    <value>String color</value>
+    <value>字符串颜色</value>
   </data>
   <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Subtitle" xml:space="preserve">
-    <value>Set string color.</value>
+    <value>设置字符串颜色。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Title" xml:space="preserve">
-    <value>Time color (Y/M/D)</value>
+    <value>时间颜色（Y/M/D）</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Subtitle" xml:space="preserve">
-    <value>Set time color for year, month and day.</value>
+    <value>设置年、月、日的颜色。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Title" xml:space="preserve">
-    <value>Time color (H:M:S)</value>
+    <value>时间颜色（H:M:S）</value>
   </data>
   <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Subtitle" xml:space="preserve">
-    <value>Set time color for hour, minute and second.</value>
+    <value>设置时、分、秒的颜色。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Title" xml:space="preserve">
-    <value>Debug log level style</value>
+    <value>Debug 日志级别样式</value>
   </data>
   <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Subtitle" xml:space="preserve">
-    <value>Set debug log level style.</value>
+    <value>设置 Debug 日志级别样式。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Title" xml:space="preserve">
-    <value>Info log level style</value>
+    <value>Info 日志级别样式</value>
   </data>
   <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Subtitle" xml:space="preserve">
-    <value>Set info log level style.</value>
+    <value>设置 Info 日志级别样式。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Title" xml:space="preserve">
-    <value>Warning log level style</value>
+    <value>Warning 日志级别样式</value>
   </data>
   <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Subtitle" xml:space="preserve">
-    <value>Set warning log level style.</value>
+    <value>设置 Warning 日志级别样式。</value>
   </data>
   <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title" xml:space="preserve">
-    <value>Error log level style</value>
+    <value>Error 日志级别样式</value>
   </data>
   <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle" xml:space="preserve">
-    <value>Set error log level style.</value>
+    <value>设置 Error 日志级别样式。</value>
   </data>
   <data name="LogPage_LogMinLevelTextBlock_Text" xml:space="preserve">
-    <value>Min log level: {0}</value>
+    <value>最低日志等级：{0}</value>
   </data>
   <data name="SaveFileDialog_SaveLog_Title" xml:space="preserve">
-    <value>Save log file to</value>
+    <value>保存日志文件到</value>
   </data>
   <data name="SaveFileDialog_Filter_TextFile" xml:space="preserve">
-    <value>Text file (*.txt)</value>
+    <value>文本文件（*.txt）</value>
   </data>
   <data name="SaveFileDialog_Filter_LogFile" xml:space="preserve">
-    <value>Log file (*.log)</value>
+    <value>日志文件（*.log）</value>
   </data>
   <data name="SaveFileDialog_Filter_AllFile" xml:space="preserve">
-    <value>All file (*.*)</value>
+    <value>全部文件（*.*）</value>
   </data>
   <data name="AboutPage_ThirdPartyExecutables" xml:space="preserve">
-    <value>Third party executables</value>
+    <value>第三方可执行文件</value>
   </data>
   <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Title" xml:space="preserve">
-    <value>Auto temp cleanup interval</value>
+    <value>自动缓存清理间隔</value>
   </data>
   <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle" xml:space="preserve">
-    <value>Set interval for automatic temp cleaning.</value>
+    <value>设置自动缓存清理的时间间隔。</value>
   </data>
   <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Title" xml:space="preserve">
-    <value>Temp size refresh interval</value>
+    <value>缓存大小刷新间隔</value>
   </data>
   <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle" xml:space="preserve">
-    <value>Set refresh interval for temp folder size.</value>
+    <value>设置刷新缓存文件夹大小的时间间隔。</value>
   </data>
   <data name="MainWindow_NavigationStore_Item_Temp" xml:space="preserve">
-    <value>Temp</value>
+    <value>临时文件</value>
   </data>
   <data name="TempPage_Title" xml:space="preserve">
-    <value>Temp</value>
+    <value>临时文件</value>
   </data>
   <data name="TempPage_TotalTempStorageUsageTextBlock_Text" xml:space="preserve">
-    <value>Total temp storage usage: {0}.</value>
+    <value>总临时文件占用空间：{0}。</value>
   </data>
   <data name="TempPage_TempInUseTextBlock_Text" xml:space="preserve">
-    <value>{0} temp in use.</value>
+    <value>{0} 个临时文件正在使用。</value>
   </data>
   <data name="TempPage_TempReleasedTextBlock_Text" xml:space="preserve">
-    <value>{0} temp released.</value>
+    <value>{0} 个临时文件已释放。</value>
   </data>
   <data name="SettingsPage_TempStorageUsagePrefixComboBox_Title" xml:space="preserve">
-    <value>Temp size prefix</value>
+    <value>临时文件数据大小字头</value>
   </data>
   <data name="SettingsPage_DataSizePrefixComboBox_Title" xml:space="preserve">
-    <value>Data size prefix</value>
+    <value>数据大小前缀</value>
   </data>
   <data name="SettingsPage_DataSizePrefixComboBox_Subtitle" xml:space="preserve">
     <value>设置 BiliExtract 使用的数据大小前缀。</value>
@@ -439,34 +439,34 @@
     <value>上次缓存大小刷新时间</value>
   </data>
   <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
-    <value>The last time BiliExtract counted its temp usage size.</value>
+    <value>BiliExtract 最后一次计算临时文件使用量的时间。</value>
   </data>
   <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
-    <value>Next temp size refresh time</value>
+    <value>下次临时文件大小刷新时间</value>
   </data>
   <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
-    <value>The next time BiliExtract automatically counts its temp usage size.</value>
+    <value>BiliExtract 下次自动计算临时文件使用量的时间。</value>
   </data>
   <data name="TempPage_NormalTempUsageTextBlock_Title" xml:space="preserve">
-    <value>Normal temp usage</value>
+    <value>普通临时文件使用量</value>
   </data>
   <data name="TempPage_NormalTempUsageTextBlock_Subtitle" xml:space="preserve">
-    <value>Normal temp files are files in use and will be deleted on next startup.</value>
+    <value>普通临时文件是正在使用的文件，并会在下次启动时被删除。</value>
   </data>
   <data name="TempPage_LockedTempUsageTextBlock_Title" xml:space="preserve">
-    <value>Locked temp usage</value>
+    <value>锁定临时文件使用量</value>
   </data>
   <data name="TempPage_LockedTempUsageTextBlock_Subtitle" xml:space="preserve">
-    <value>Locked temp files are files may in use and won't be automatically deleted.</value>
+    <value>锁定临时文件是可能正在使用的文件，不会被自动删除。</value>
   </data>
   <data name="TempPage_ReleasedTempUsageTextBlock_Title" xml:space="preserve">
-    <value>Released temp usage</value>
+    <value>已释放临时文件使用量</value>
   </data>
   <data name="TempPage_ReleasedTempUsageTextBlock_Subtitle" xml:space="preserve">
-    <value>Released temp files are files marked as no longer used and will be deleted on next temp cleanup.</value>
+    <value>已释放临时文件是已被标记为不再使用的文件，将在下次临时文件清理时删除。</value>
   </data>
   <data name="TempPage_NormalLockedReleasedTempUsageTextBlock_Text" xml:space="preserve">
-    <value>{0} file(s) ({1})</value>
+    <value>{0} 个文件（{1}）</value>
     <comment>{0} will be filled with file count, {1} will be filled with total size.</comment>
   </data>
 </root>
