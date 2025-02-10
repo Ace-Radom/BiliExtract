@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Theme_Light" xml:space="preserve">
-    <value>Light</value>
+    <value>浅色</value>
   </data>
   <data name="Theme_Dark" xml:space="preserve">
-    <value>Dark</value>
+    <value>深色</value>
   </data>
   <data name="Theme_FollowSystem" xml:space="preserve">
-    <value>Follow System</value>
+    <value>跟随系统</value>
   </data>
   <data name="AccentColorSource_System" xml:space="preserve">
-    <value>System</value>
+    <value>跟随系统</value>
   </data>
   <data name="AccentColorSource_Custom" xml:space="preserve">
-    <value>Custom</value>
+    <value>自定义</value>
   </data>
   <data name="LogLevel_Debug" xml:space="preserve">
     <value>Debug</value>
@@ -145,27 +145,27 @@
     <value>Error</value>
   </data>
   <data name="RichLogViewStyleSource_Default" xml:space="preserve">
-    <value>Default</value>
+    <value>默认</value>
   </data>
   <data name="RichLogViewStyleSource_Custom" xml:space="preserve">
-    <value>Custom</value>
+    <value>自定义</value>
   </data>
   <data name="TextStyle_Normal" xml:space="preserve">
-    <value>Normal</value>
+    <value>普通</value>
   </data>
   <data name="TextStyle_Bold" xml:space="preserve">
-    <value>Bold</value>
+    <value>粗体</value>
   </data>
   <data name="TextStyle_Italic" xml:space="preserve">
-    <value>Italic</value>
+    <value>斜体</value>
   </data>
   <data name="TextStyle_Underline" xml:space="preserve">
-    <value>Underline</value>
+    <value>下划线</value>
   </data>
   <data name="DataSizePrefix_Binary" xml:space="preserve">
-    <value>Binary</value>
+    <value>二进制</value>
   </data>
   <data name="DataSizePrefix_Metric" xml:space="preserve">
-    <value>Metric</value>
+    <value>公制</value>
   </data>
 </root>
