@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SettingsPage_ThemeComboBox_Title" xml:space="preserve">
+    <value>主题</value>
+  </data>
+  <data name="SettingsPage_ThemeComboBox_Subtitle" xml:space="preserve">
+    <value>设置 BiliExtract 的主题（浅色、深色或跟随系统）。</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Application_Name" xml:space="preserve">
+    <value>BiliExtract</value>
+  </data>
+  <data name="AboutPage_BuildTextBlock_Text" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="AboutPage_ProjectLinks" xml:space="preserve">
+    <value>项目链接</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>GitHub 上的项目主页</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>第三方依赖库</value>
+  </data>
+  <data name="AboutPage_ApplicationDataFolders" xml:space="preserve">
+    <value>应用数据文件夹</value>
+  </data>
+  <data name="AboutPage_DataFolder" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AboutPage_TempFolder" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Title" xml:space="preserve">
+    <value>使用内置 ADB</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInAdbToggleSwitch_Subtitle" xml:space="preserve">
+    <value>在执行安卓相关操作时使用 BiliExtract 中内置的 ADB。</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Title" xml:space="preserve">
+    <value>使用内置 FFmpeg</value>
+  </data>
+  <data name="SettingsPage_UseBuiltInFFmpegToggleSwitch_Subtitle" xml:space="preserve">
+    <value>使用 BiliExtract 中内置的 FFmpeg 进行音视频编解码。</value>
+  </data>
+  <data name="SettingsPage_ExternalAdbPathTextBox_Title" xml:space="preserve">
+    <value>外部 ADB 路径</value>
+  </data>
+  <data name="SettingsPage_ExternalAdbPathTextBox_Subtitle" xml:space="preserve">
+    <value>设置外部 ADB（adb.exe）的绝对路径。</value>
+  </data>
+  <data name="SettingsPage_ExternalFFmpegPathTextBox_Title" xml:space="preserve">
+    <value>外部 FFmpeg 路径</value>
+  </data>
+  <data name="SettingsPage_ExternalFFmpegPathTextBox_Subtitle" xml:space="preserve">
+    <value>设置外部 FFmpeg（ffmpeg.exe）的绝对路径。</value>
+  </data>
+  <data name="AdbSettingsWindow_Title" xml:space="preserve">
+    <value>ADB 设置</value>
+  </data>
+  <data name="AdbSettingsWindow_Description" xml:space="preserve">
+    <value>以下为高级 ADB 设置。
+更改它们可能会造成未知错误。
+如果你不熟悉这些设置，请不要更改。</value>
+  </data>
+  <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Title" xml:space="preserve">
+    <value>自动启动 ADB 服务器</value>
+  </data>
+  <data name="AdbSettingsWindow_AutomaticStartAdbServerToggleSwitch_Subtitle" xml:space="preserve">
+    <value>若 ADB 服务器尚未启动则自动启动。</value>
+  </data>
+  <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Title" xml:space="preserve">
+    <value>启动时启动 ADB 服务器</value>
+  </data>
+  <data name="AdbSettingsWindow_StartAdbServerOnStartupToggleSwitch_Subtitle" xml:space="preserve">
+    <value>在 BiliExtract 启动时启动 ADB 服务器。</value>
+  </data>
+  <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Title" xml:space="preserve">
+    <value>退出时关闭 ADB 服务器</value>
+  </data>
+  <data name="AdbSettingsWindow_KillAdbServerOnExitToggleSwitch_Subtitle" xml:space="preserve">
+    <value>在 BiliExtract 退出时关闭 ADB 服务器。</value>
+  </data>
+  <data name="SettingsPage_AdvancedAdbSettingsCardAction_Title" xml:space="preserve">
+    <value>高级 ADB 设置</value>
+  </data>
+  <data name="SettingsPage_AdvancedAdbSettingsCardAction_Subtitle" xml:space="preserve">
+    <value>设置 ADB 默认行为，服务器地址等。</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>主题色</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Subtitle" xml:space="preserve">
+    <value>设置 BiliExtract 的主题色。</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>红</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>绿</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>蓝</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Dashboard" xml:space="preserve">
+    <value>控制台</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Log" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AdbSettingsWindow_AdbServerAddress_Title" xml:space="preserve">
+    <value>ADB 服务器地址</value>
+  </data>
+  <data name="AdbSettingsWindow_AdbServerAddress_Subtitle" xml:space="preserve">
+    <value>ADB 服务器的 IPv4 地址以及端口。</value>
+  </data>
+  <data name="AdbSettingsWindow_Ip" xml:space="preserve">
+    <value>IP：</value>
+  </data>
+  <data name="AdbSettingsWindow_Port" xml:space="preserve">
+    <value>端口：</value>
+  </data>
+  <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Title" xml:space="preserve">
+    <value>无线设备默认 IP</value>
+  </data>
+  <data name="AdbSettingsWindow_WirelessDeviceDefaultIp_Subtitle" xml:space="preserve">
+    <value>连接无线设备默认的 IP 地址。
+用于 `adb pair` 和 `adb connect` 命令。</value>
+  </data>
+  <data name="LogPage_Title" xml:space="preserve">
+    <value>日志</value>
+  </data>
+  <data name="LogPage_LogCountTextBlock_Text" xml:space="preserve">
+    <value>日志计数：{0}</value>
+  </data>
+  <data name="SettingsPage_MinLogLevelComboBox_Title" xml:space="preserve">
+    <value>最低日志等级</value>
+  </data>
+  <data name="SettingsPage_MinLogLevelComboBox_Subtitle" xml:space="preserve">
+    <value>BiliExtract 记录的最低日志等级。</value>
+  </data>
+  <data name="SettingsPage_CurrentLogFileCardControl_Title" xml:space="preserve">
+    <value>当前日志文件</value>
+  </data>
+  <data name="SettingsPage_CurrentLogFileCardControl_Subtitle" xml:space="preserve">
+    <value>BiliExtract 当前正在写入的日志文件。</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Title" xml:space="preserve">
+    <value>日志页面风格</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Subtitle" xml:space="preserve">
+    <value>设置日志页面上的日志富文本风格。</value>
+  </data>
+  <data name="SettingsPage_RichLogViewStyle_Button_Content" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_Title" xml:space="preserve">
+    <value>日志页面自定义</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Title" xml:space="preserve">
+    <value>目标主题</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TargetThemeComboBox_Subtitle" xml:space="preserve">
+    <value>选择要自定义的应用主题。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Title" xml:space="preserve">
+    <value>重置为默认设置</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ResetToDefaultButton_Subtitle" xml:space="preserve">
+    <value>将当前自定义设置重置为默认设置。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FontComboBox_Title" xml:space="preserve">
+    <value>字体</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FontComboBox_Subtitle" xml:space="preserve">
+    <value>选择文本字体。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Title" xml:space="preserve">
+    <value>文本颜色</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TextColorColorPicker_Subtitle" xml:space="preserve">
+    <value>设置基本文本颜色。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Title" xml:space="preserve">
+    <value>数字颜色</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_NumberColorColorPicker_Subtitle" xml:space="preserve">
+    <value>设置数字颜色。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Title" xml:space="preserve">
+    <value>文件名颜色</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_FilenameColorColorPicker_Subtitle" xml:space="preserve">
+    <value>设置文件名颜色。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ExceptionStyle_Title" xml:space="preserve">
+    <value>异常文本样式</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ExceptionStyle_Subtitle" xml:space="preserve">
+    <value>设置异常文本样式。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Title" xml:space="preserve">
+    <value>字符串颜色</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_StringColorColorPicker_Subtitle" xml:space="preserve">
+    <value>设置字符串颜色。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Title" xml:space="preserve">
+    <value>时间颜色（Y/M/D）</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorYMDColorPicker_Subtitle" xml:space="preserve">
+    <value>设置年、月、日的颜色。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Title" xml:space="preserve">
+    <value>时间颜色（H:M:S）</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_TimeColorHMSColorPicker_Subtitle" xml:space="preserve">
+    <value>设置时、分、秒的颜色。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Title" xml:space="preserve">
+    <value>Debug 日志级别样式</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_DebugLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>设置 Debug 日志级别样式。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Title" xml:space="preserve">
+    <value>Info 日志级别样式</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_InfoLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>设置 Info 日志级别样式。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Title" xml:space="preserve">
+    <value>Warning 日志级别样式</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_WarningLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>设置 Warning 日志级别样式。</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Title" xml:space="preserve">
+    <value>Error 日志级别样式</value>
+  </data>
+  <data name="LogPageStyleSettingsWindow_ErrorLogLevelStyle_Subtitle" xml:space="preserve">
+    <value>设置 Error 日志级别样式。</value>
+  </data>
+  <data name="LogPage_LogMinLevelTextBlock_Text" xml:space="preserve">
+    <value>最低日志等级：{0}</value>
+  </data>
+  <data name="SaveFileDialog_SaveLog_Title" xml:space="preserve">
+    <value>保存日志文件到</value>
+  </data>
+  <data name="SaveFileDialog_Filter_TextFile" xml:space="preserve">
+    <value>文本文件（*.txt）</value>
+  </data>
+  <data name="SaveFileDialog_Filter_LogFile" xml:space="preserve">
+    <value>日志文件（*.log）</value>
+  </data>
+  <data name="SaveFileDialog_Filter_AllFile" xml:space="preserve">
+    <value>全部文件（*.*）</value>
+  </data>
+  <data name="AboutPage_ThirdPartyExecutables" xml:space="preserve">
+    <value>第三方可执行文件</value>
+  </data>
+  <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Title" xml:space="preserve">
+    <value>自动临时文件清理间隔</value>
+  </data>
+  <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle" xml:space="preserve">
+    <value>设置自动临时文件清理的时间间隔。</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Title" xml:space="preserve">
+    <value>临时文件大小刷新间隔</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle" xml:space="preserve">
+    <value>设置刷新临时文件夹大小的时间间隔。</value>
+  </data>
+  <data name="MainWindow_NavigationStore_Item_Temp" xml:space="preserve">
+    <value>临时文件</value>
+  </data>
+  <data name="TempPage_Title" xml:space="preserve">
+    <value>临时文件</value>
+  </data>
+  <data name="TempPage_TotalTempStorageUsageTextBlock_Text" xml:space="preserve">
+    <value>总临时文件占用空间：{0}。</value>
+  </data>
+  <data name="TempPage_TempInUseTextBlock_Text" xml:space="preserve">
+    <value>{0} 个临时文件正在使用。</value>
+  </data>
+  <data name="TempPage_TempReleasedTextBlock_Text" xml:space="preserve">
+    <value>{0} 个临时文件已释放。</value>
+  </data>
+  <data name="SettingsPage_TempStorageUsagePrefixComboBox_Title" xml:space="preserve">
+    <value>临时文件数据大小字头</value>
+  </data>
+  <data name="SettingsPage_DataSizePrefixComboBox_Title" xml:space="preserve">
+    <value>数据大小前缀</value>
+  </data>
+  <data name="SettingsPage_DataSizePrefixComboBox_Subtitle" xml:space="preserve">
+    <value>设置 BiliExtract 使用的数据大小前缀。</value>
+  </data>
+  <data name="TempPage_LastCleanupTimeTextBlock_Title" xml:space="preserve">
+    <value>上次临时文件清理时间</value>
+  </data>
+  <data name="TempPage_LastCleanupTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>最后一次执行临时文件清理的时间。</value>
+  </data>
+  <data name="TempPage_NextCleanupTimeTextBlock_Title" xml:space="preserve">
+    <value>下次临时文件清理时间</value>
+  </data>
+  <data name="TempPage_NextCleanupTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>下次自动执行临时文件清理的时间。</value>
+  </data>
+  <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
+    <value>上次临时文件大小刷新时间</value>
+  </data>
+  <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>BiliExtract 最后一次计算临时文件使用量的时间。</value>
+  </data>
+  <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
+    <value>下次临时文件大小刷新时间</value>
+  </data>
+  <data name="TempPage_NextStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
+    <value>BiliExtract 下次自动计算临时文件使用量的时间。</value>
+  </data>
+  <data name="TempPage_NormalTempUsageTextBlock_Title" xml:space="preserve">
+    <value>普通临时文件使用量</value>
+  </data>
+  <data name="TempPage_NormalTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>普通临时文件是正在使用的文件，并会在下次启动时被删除。</value>
+  </data>
+  <data name="TempPage_LockedTempUsageTextBlock_Title" xml:space="preserve">
+    <value>锁定临时文件使用量</value>
+  </data>
+  <data name="TempPage_LockedTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>锁定临时文件是可能正在使用的文件，不会被自动删除。</value>
+  </data>
+  <data name="TempPage_ReleasedTempUsageTextBlock_Title" xml:space="preserve">
+    <value>已释放临时文件使用量</value>
+  </data>
+  <data name="TempPage_ReleasedTempUsageTextBlock_Subtitle" xml:space="preserve">
+    <value>已释放临时文件是已被标记为不再使用的文件，将在下次临时文件清理时删除。</value>
+  </data>
+  <data name="TempPage_NormalLockedReleasedTempUsageTextBlock_Text" xml:space="preserve">
+    <value>{0} 个文件（{1}）</value>
+    <comment>{0} will be filled with file count, {1} will be filled with total size.</comment>
+  </data>
+</root>
