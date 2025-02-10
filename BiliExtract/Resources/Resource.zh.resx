@@ -388,16 +388,16 @@
     <value>第三方可执行文件</value>
   </data>
   <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Title" xml:space="preserve">
-    <value>自动缓存清理间隔</value>
+    <value>自动临时文件清理间隔</value>
   </data>
   <data name="SettingsPage_AutoTempCleanupIntervalNumberBox_Subtitle" xml:space="preserve">
-    <value>设置自动缓存清理的时间间隔。</value>
+    <value>设置自动临时文件清理的时间间隔。</value>
   </data>
   <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Title" xml:space="preserve">
-    <value>缓存大小刷新间隔</value>
+    <value>临时文件大小刷新间隔</value>
   </data>
   <data name="SettingsPage_TempStorageUsageRefreshIntervalNumberBox_Subtitle" xml:space="preserve">
-    <value>设置刷新缓存文件夹大小的时间间隔。</value>
+    <value>设置刷新临时文件夹大小的时间间隔。</value>
   </data>
   <data name="MainWindow_NavigationStore_Item_Temp" xml:space="preserve">
     <value>临时文件</value>
@@ -424,19 +424,19 @@
     <value>设置 BiliExtract 使用的数据大小前缀。</value>
   </data>
   <data name="TempPage_LastCleanupTimeTextBlock_Title" xml:space="preserve">
-    <value>上次缓存清理时间</value>
+    <value>上次临时文件清理时间</value>
   </data>
   <data name="TempPage_LastCleanupTimeTextBlock_Subtitle" xml:space="preserve">
-    <value>最后一次执行缓存清理的时间。</value>
+    <value>最后一次执行临时文件清理的时间。</value>
   </data>
   <data name="TempPage_NextCleanupTimeTextBlock_Title" xml:space="preserve">
-    <value>下次缓存清理时间</value>
+    <value>下次临时文件清理时间</value>
   </data>
   <data name="TempPage_NextCleanupTimeTextBlock_Subtitle" xml:space="preserve">
-    <value>下次自动执行缓存清理的时间。</value>
+    <value>下次自动执行临时文件清理的时间。</value>
   </data>
   <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Title" xml:space="preserve">
-    <value>上次缓存大小刷新时间</value>
+    <value>上次临时文件大小刷新时间</value>
   </data>
   <data name="TempPage_LastStorageUsageRefreshTimeTextBlock_Subtitle" xml:space="preserve">
     <value>BiliExtract 最后一次计算临时文件使用量的时间。</value>
